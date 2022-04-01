@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tabs{
+			width: 350px;
+			height: 100px;
+		}
+			.tab-container{
+				overflow: hidden;
+			}
+			.tab{
+				border: none;
+				outline: none;
+				width: 100px;
+				height: 40px;
+				
+			}
+			.tab-content{
+				width: 100%;
+				height: calc(100% - 40px);
+				position: absolute;
+				left: 0;;
+				top: 40px;
+				display: none;
+			}
+			.active{
+				background-color: red;
+			}
+			.tab-container:nth-child(2){
+				background-color: pink;
+			}
+			
+			.tab-container:nth-child(3){
+				background-color: lightcyan;
+			}
+			.tab-container:nth-child(4){
+				background-color: lightyellow;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				const tabs = document.querySelectorAll('.tab'),
+					 container = document.querySelector('.tab-container'),
+					 contents = document.querySelectorAll('.tab-content')
+				let last =tabs[0]
+					 
+			for(let i=0;i<tabs.length;i++){
+				tabs[i].index = i
+				tabs[i].onclick = function(){
+					last.classList.remove('active')
+					contents[last.index].style.display = 'none'
+					this.classList.add('active')
+					contents[this.index].style.display = 'block'
+					last = this
+				}
+			}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class="tabs">
+			<div class="tab-container">
+				<button class="tab active">选项卡1</button>
+				<button class="tab">选项卡2</button>
+				<button class="tab">选项卡3</button>
+			</div>
+			<div class="tab-content">内容1</div>
+			<div class="tab-content">内容2</div>
+			<div class="tab-content">内容3</div>
+		</div>
+	</body>
+</html>

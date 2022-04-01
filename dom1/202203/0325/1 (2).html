@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{padding:0;margin:0;box-sizing: border-box;}
+			#canvas{
+				box-shadow: 0 0 10px black;
+                background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script src="../ball.js"></script>
+<script type="text/javascript">
+	const canvas = document.querySelector('#canvas')
+	const ctx = canvas.getContext('2d')
+    //particle: 粒子
+    let particles = []
+    let W,H
+    let spring = 0.0004
+    let ax, ay
+    
+    init()
+    //初始化300个小球
+    function init(){
+        W = canvas.width = window.innerWidth
+	    H = canvas.height = window.innerHeight
+        const particleCount = W * H / 10000
+        particles = []
+        createParticle(particleCount)
+    }
+    window.addEventListener('resize', init)
+
+    //创建粒子函数
+    function createParticle(count){
+        for( let i = 0; i < count; i++){
+            let size = Math.random() * (10 - 3) + 3
+            particles.push(new Ball({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                // r: Math.random() * (10 - 3) + 3,
+                r: size,
+                m: size,
+                vx: Math.random() * (2 - (-2)) + (-2),
+                vy: Math.random() * (2 - (-2)) + (-2),
+                fillStyle: '#fff'
+            }))
+        }
+    }
+
+    //处理小球的运动
+    function move(p,i){
+        p.x += p.vx
+        p.y += p.vy
+
+        //处理弹动
+        for(let j = i + 1; j < particles.length; j++){
+            let target = particles[j]
+            // let current = particles[i]
+            //spring:跳跃、弹动
+            checkSpring(p, target)
+        }
+
+
+        //处理画布边界
+        if(p.x - p.r < 0){
+            p.x = W + p.r
+        } else if(p.x - p.r > W){
+            p.x = - p.r
+        }
+        if(p.y - p.r < 0){
+            p.y = H + p.r
+        } else if(p.y - p.r> H){
+            p.y = - p.r
+        }
+    }
+
+    //处理弹动函数
+    function checkSpring(current,target){
+        let dx = target.x - current.x
+        let dy = target.y - current.y
+        //distance: 距离
+        let distance = Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2))
+        // let minDistance = current.r + target.r
+        // let minDistance = W / 10
+        let minDistance =  W > H ? W / 10 : H / 15
+        if(distance < minDistance){
+            drawLine(current,target,distance,minDistance)
+            //spring:弹动系数 初始值自己设置，比如：0.001
+            ax = dx * spring
+            ay = dy * spring
+            //目标
+            current.vx += ax / current.m
+            current.vy += ay/ current.m
+            target.vx -= ax / target.m
+            target.vy -= ay/ target.m
+        }
+    }
+    //绘制连线
+    function drawLine(current,target,distance,minDistance){
+        ctx.save()
+        //间距越小，线条越粗；间距越大，线条越细，细到消失
+ctx.lineWidth = 5 * Math.max(0,(1 - distance/minDistance))
+        ctx.strokeStyle = '#fff'
+        ctx.beginPath()
+        ctx.lineTo(current.x,current.y)
+        ctx.lineTo(target.x,target.y)
+        ctx.stroke()
+        ctx.restore()
+    }
+
+    
+
+
+    //碰撞处理
+
+
+
+
+    //循环动画
+    function animation(){
+        window.requestAnimationFrame(animation)
+        ctx.clearRect(0, 0, W, H)
+        particles.forEach(move)
+        particles.forEach( p => p.render(ctx))
+    }
+    animation()
+
+</script>
+	</body>
+</html>
+
+
+<!-- 
+
+
+
+
+个人技能：
+    - H5
+    - css
+    - js
+    - DOM
+    - BOM
+    - AJAX
+    - Canvas动画
+    - GIT
+    - BootStrap
+    - 面向对象编程
+    - Less/Sass
+    - ES6
+    - 移动端适配开发
+    - 响应式网站开发
+    - 服务器的搭建
+
+    - jQuery
+    - axios
+    - vue
+    - Node.js
+    - webpack
+    - React
+    - 微信小程序
+    - Three.js
+
+     XD、PS、AI等设计方法、理论也略知一二    
+ -->

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+
+<input id="btn1" type="button" value="-" />
+<input id="btn2" type="button" value="+" />
+<p id="p1" style="font-size:16px;">10月28日晚，中央纪委监察部官网发布消息，贵州省委常委、遵义市委书记廖少华因涉嫌严重违纪违法接受组织调查。3天后中组部宣布对其免职。廖成为十八大后中纪委一连串"打虎"行动中第十一位落马的副省部级以上高官。</p>
+<script>
+//1. 思考if限制的是谁？if可不写大括号
+let aBtn = document.querySelectorAll('input'),
+	oP = document.querySelector('p'),
+	i = parseInt(oP.style.fontSize)
+	
+	aBtn[0].onclick = function(){
+		i == 12 ? i = 12 : i--
+		oP.style.fontSize = i + 'px'
+	}
+	aBtn[1].onclick = function(){
+		i == 22 ? i = 22 : i++
+		oP.style.fontSize = i+'px'
+	}
+</script>
+</body>
+</html>

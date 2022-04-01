@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义tap事件</title>
+	</head>
+	<body>
+		<!-- 
+		 解决滑屏误触
+		 判断手指抬起有无移动
+		 -->
+		 
+		 
+		 <script type="text/javascript">
+		 	function Tap(ele,fn){
+				let isMove = false
+				ele.addEventListener('touchmove',function(){
+					isMove = true
+				})
+				ele.addEventListener('touchend',function(){	
+					if(!isMove){
+						fn&&fn()
+					}
+					isMove = false
+				})
+			}
+			
+			function Tap(ele,fn){
+				let startPos = {},
+					endPos = {}
+				
+				
+			ele.addEventListener('touchstart',function(ev){
+				startPos = {
+					x:ev.changedTouches[0].pageX,
+					y:ev.changedTouches[0].pageY
+					
+				}
+			})
+			ele.addEventListener('touchend',function(ev){
+				 endPos = {
+					x:ev.changedTouches[0].pageX,
+					y:ev.changedTouches[0].pageY
+				}
+				if(Math.abs(endPos.x-startPos.x)<10&&Math.abs(endPos.y-startPos.y)<10){
+					// fn&&fn的第一个fn时判断有没有fn
+					fn&&fn.call(ele,ev)
+				}
+			})
+			}
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: .5;
+				
+			}
+		</style>
+	</head>
+	<!-- 即便A标签被覆盖也会导致点透 
+	可以用ev.preventDefault()阻止
+	-->
+	<body>
+		<a href="http://baidu.com">百度</a>
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			const box = document.querySelector('.box')
+			box.addEventListener('touchstart',function(ev){
+				this.style.display = 'none'
+				ev.preventDefault()
+				console.log(1)
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

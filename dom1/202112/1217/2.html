@@ -1,0 +1,60 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>数据类型判断</title>
+
+</head>
+
+<body>
+	<p>
+		arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+	</p>
+	<ol>
+		<li>找到arr里所有的数字：</li>  <!-- -98765, 34, -2, 0, 5-->
+		<li>找到可以转成数字的： </li><!--'100px', -98765, 34, -2, 0, '300', '23.45元',  5-->
+		<li>把转成数字以后，最大值判断出来：</li><!--300-->
+		<li>把 NaN 所在的位置找出来：</li><!--1 14 17  19-->
+	</ol>
+	<input type="button" value="找到arr里所有的数字">
+	<input type="button" value="找到可以转成数字的">
+	<input type="button" value="把转成数字以后，最大值判断出来">
+	<input type="button" value="把 NaN 所在的位置找出来">
+	
+	
+	
+	
+<script type="text/javascript">
+	var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+	let aLi = document.querySelectorAll('li')
+	for(let i=0;i<arr.length;i++){
+		if(typeof(arr[i]) == 'number'){
+			// console.log(Number(arr[i]))
+			// console.log(i)
+			aLi[0].innerHTML += `<p>${[i]}</p>`
+		}
+	}
+	for(let i=0;i<arr.length;i++){
+		if(parseFloat(arr[i]) == arr[i]){
+			// console.log(Number(arr[i]))
+			// console.log(arr[i])
+			aLi[1].innerHTML += `<p>${arr[i]}</p>`
+		}
+	}
+	let ARR = [-98765,34,-2,0,300,5]
+	aLi[2].innerHTML += ARR.sort(function(a,b){
+		return b - a
+	})[0]
+		
+	for(let i=0;i<arr.length;i++){
+		if(isNaN(arr[i]) == true){
+			// console.log(Number(arr[i]))
+			// console.log(arr[i])
+			aLi[3].innerHTML += `<p>${[i]}</p>`
+		}
+	}
+	
+</script>
+</body>
+</html>

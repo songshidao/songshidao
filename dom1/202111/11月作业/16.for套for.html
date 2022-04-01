@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<dl>
+		</dl>
+		
+		
+		<script type="text/javascript">
+			var aDd = document.querySelectorAll('dd'),
+				oDl = document.querySelector('dl')
+				nub = 0
+				for(i=0;i<3;i++){
+					oDl.innerHTML += '<dt>'+i+'</dt>'
+					for(j=0;j<3;j++){
+						var 	aDt = document.querySelectorAll('dt')
+						aDt[i].innerHTML += '<dd>'+j+'</dd>'
+					}
+				}
+		</script>
+	</body>
+</html>

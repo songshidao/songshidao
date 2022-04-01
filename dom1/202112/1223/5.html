@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const orders = [
+			    { orderId: '123', 
+				customerId: '123', 
+				deliveryDate: '01-01-2020', 
+				delivered: true, 
+				items: [
+			        { productId: '123', price: 55 },
+			        { productId: '234', price: 30 },
+			    ]},
+			    { 
+					orderId: '234',
+					customerId: '234', 
+					deliveryDate: '01-02-2020', 
+					delivered: false, 
+					items: [
+			        { productId: '234', price: 30 },
+			    ]},
+			    { 
+					orderId: '345', 
+					customerId: '234', 
+					deliveryDate: '05-01-2020', 
+					delivered: true, 
+					items: [
+			        { productId: '567', price: 30 },
+			        { productId: '678', price: 80 },
+			    ]},
+			    { orderId: '456', customerId: '345', deliveryDate: '12-01-2020', delivered: true, items: [
+			        { productId: '789', price: 12 },
+			        { productId: '890', price: 90 },
+			    ]},
+			        { orderId: '578', customerId: '456', deliveryDate: '12-01-2020', delivered: true, items: [
+			        { productId: '901', price: 43 },
+			        { productId: '123', price: 55 },
+			    ]},
+			];
+			
+// 1)在没有发货的订单中查找customerId为234的所有订单(delivered:已发货)
+// console.log(orders[0].customerId)
+let a234 = orders.filter(function(item){
+	return item.customerId == '234' && item.delivered == false
+})
+console.log(a234)
+//2）在orders数组的每个元素上添加一个新属性orderTotal:存储订购项items的总金额
+let money = orders.map(function(i){
+	return i.orderTotal = i.items.reduce(function(acc,x){
+		return acc + x.price
+	},0)
+})
+// for(let x in orders){
+// 	orders[x].orderTotal = 'mooney'
+// }
+// orders.orderTotal = 'mooney'
+// let aPlus = orders.map(function(i){
+// 	return i.push('orderTotal')
+// })
+console.log(money)
+// 3)查询所有的订单是否已发货
+let aOk = orders.every(function(i){
+	return i.delivered == true
+})
+console.log(aOk)
+// 4) 查询是否有customerId为123的订单？
+let have123 = orders.filter(function(i){
+	return i.customerId == 123
+})
+console.log(have123)
+// 5) 查询是否有productId为123的订单？
+let haver123 = orders.filter(function(i){
+	return i.items.some(function(x){
+		return x.productId == 123
+	}) 
+})
+console.log(haver123)
+
+		</script>
+	</body>
+</html>

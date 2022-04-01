@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			width: 500px;
+			height: 500px;
+		}
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			button{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: calc(100%/2);
+				left: calc(100%/2);
+			}
+		</style>
+	</head>
+	<body>
+		asdasfqw
+		<div class="box"></div>
+		<input type="text" name="" id="" value="" />
+		<button type="button">B</button>
+		<script type="text/javascript">
+			const oDiv = document.querySelector('.box')
+			const oButton = document.querySelector('button')
+			
+			drag(oButton)
+			drag(oDiv)
+			function drag(ele){
+			ele.onmousedown = function(e){
+//拖动点到Div边界的距离 x=ev.clientx-div.offsetleft  y=ev.clienty -div.offsettop
+				let ev = e || event
+				let  x = ev.clientX-this.offsetLeft,
+				  y = ev.clientY-this.offsetTop
+			document.onmousemove = function(ev){
+				let L  =   ev.clientX - x    ,
+					T = ev.clientY - y,
+					L1 = L,
+					R1 = L +ele.offsetWidth,
+					T1 = T,
+					B1 = T+ele.offsetHeight,
+					L2 = oButton.offsetLeft,
+					R2 = L2 +oButton.offsetWidth,
+					T2 = oButton.offsetTop,
+					B2 = T2+ele.offsetHeight
+					// if(R2>R1 && R1>L2 && B2>B1 && B1>T2){
+					// 	oButton.style.background = 'red'
+					// }
+					if(R1<L2||L1>R2||B1<T2||T1>B2){
+							oButton.style.background = ''
+					}else{
+						oButton.style.background = 'red'
+					}
+					
+// clientWidth  视口   offsetWidth   元素宽度
+				ele.style.left = L +'px'
+				ele.style.top = T +'px'
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null
+			}
+			return false
+			}
+			}
+		</script>
+	</body>
+</html>

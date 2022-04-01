@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>运动的球</title>
+	</head>
+	<style type="text/css">
+		body{
+				margin: 0;
+				background-color: #555;
+			}
+			#canvas1{
+				background-color: #FFFFFF;
+			}
+	</style>
+	<body>
+		<!-- 
+		方法1
+		 加入动画 window.requestAnimationFrame(fallback)
+		 fallback(){
+			 加入动画 window.requestAnimationFrame(fallback)
+		 }
+		 方法2
+		 fn(){
+			 加入动画 window.requestAnimationFrame(fn)
+		 }
+		 fn()
+		 -->
+		<canvas id="canvas1" width="400" height="400">
+			
+		</canvas>
+		
+		<script type="text/javascript">
+			const canvas = document.querySelector('#canvas1')
+			const ctx = canvas.getContext('2d')
+			const ball = {
+				x:100,y:100,r:30,dx:5,dy:3
+			}
+			
+			function drawBall(){
+				ctx.beginPath()
+				ctx.arc(ball.x,ball.y,ball.r,0,2*Math.PI,false)
+				ctx.fillStyle = 'red'
+				ctx.fill()
+			}
+			function callback(){
+				ctx.clearRect(0,0,canvas.width,canvas.height)//清楚指定矩形区域的像素(x,y,windth,heigth)
+				drawBall()
+				ball.x+= ball.dx
+				ball.y+= ball.dy
+				// 如果球的X坐标+球的半径>canvas的宽度
+				if(ball.x+ball.r>canvas.width||ball.x-ball.r<0){
+					ball.dx = ball.dx*-1
+				}
+				if(ball.y+ball.r>canvas.width||ball.y-ball.r<0){
+					ball.dy = ball.dy*-1
+				}
+				requestAnimationFrame(callback)
+			}
+			callback()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				/* background: red; */
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">生成100个</button>
+		<script type="text/javascript">
+			let oButton = document.querySelector('button'),
+			Arr = ['red','blue','green','yellow']
+			str = ''
+			n = 0 
+			Num = 0
+			oButton.onclick= function(){
+				for(let i=0;i<10;i++){
+					for(let j=0;j<10;j++){
+						n++
+						if(Num>3){Num=0}
+						str += `<div style='background:${Arr[Num]}'>${n}</div>`
+						Num++
+					}
+				}
+				document.body.innerHTML = str
+			}
+		</script>
+	</body>
+</html>

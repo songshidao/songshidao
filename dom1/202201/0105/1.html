@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				border: 10px solid #000000;
+				padding: 10px;
+				background-color: red;
+				margin: 10px;
+			}
+			.box2{
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2">
+			hello worldhello worldhello worldhello worldhello worldhello world
+		</div>
+		<script type="text/javascript">
+			const oBox1 = document.querySelector('.box1')
+			const oBox2 = document.querySelector('.box2')
+			let w1 = oBox1.offsetWidth
+			let h1 = oBox1.offsetHeight
+			console.log(w1,h1)
+			let w2 = oBox2.offsetWidth
+			let h2 = oBox2.offsetHeight
+			console.log(w2,h2)
+			//offSET不计算外边距:width + padding + border
+			w1 = oBox1.clientWidth
+			h1 = oBox1.clientHeight
+			console.log(w1,h1)
+			w2 = oBox2.clientWidth
+			h2 = oBox2.clientHeight
+			console.log(w2,h2)
+			//client不计算外边距和边框,且滚动条会遮挡宽高:width + padding
+			w1 = oBox1.scrollWidth
+			h1 = oBox1.scrollHeight
+			console.log(w1,h1)
+			w2 = oBox2.scrollWidth
+			h2 = oBox2.scrollHeight
+			console.log(w2,h2)
+			//scroll不计算外边距和边框,且滚动条会遮挡宽高.但会将被滚动条代替的区域显示:width + padding + 溢出高度
+		</script>
+	</body>
+</html>

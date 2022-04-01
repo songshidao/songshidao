@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		<script src="js/domove.js"></script>
+		<script type="text/javascript">
+			let str = '',
+				len = 20,
+				timer = null,
+				n = 0,
+				on = true,
+				finished = true,
+				aDiv = document.getElementsByTagName('div')
+				for(var i=0;i<len;i++){
+					str += '<div style="left:'+i*60+'px;"></div>'
+				}
+				document.body.innerHTML = str
+				document.onclick = function(){
+					if(!finished){return}
+					finished = false
+					timer = setInterval(function(){
+						domove(aDiv[n],'top',(on)?300:50,10,10,(n === len-1)?function(){
+							on = !on
+							finished = true
+						}:null)
+						n++
+						if(n == len){
+							clearInterval(timer)
+							n = 0
+						}
+					},50)
+				}
+		</script>
+	</body>
+</html>

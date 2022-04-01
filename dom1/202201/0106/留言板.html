@@ -1,0 +1,35 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<input type="text" id="text1" />
+    <ul id="ul1"></ul>
+	
+	<script type="text/javascript">
+		const oInput = document.querySelector('input')
+		const oUl = document.querySelector('ul')
+		
+		document.onkeydown = function(ev){
+			if(ev.keyCode == 13&&oInput.value!= ''&&ev.ctrlKey){
+				let oLi = document.createElement('li')
+				oLi.innerHTML = oInput.value
+				if(oUl.firstElementChild){
+					oUl.appendChild(oLi,oUl.firstElementChild)
+				}else{
+					oUl.appendChild(oLi)
+				}
+				oInput.value= ''
+			}else if(ev.keyCode == 13&&oInput.value== ''){
+				alert('请输入字符')
+			}
+			
+			
+		}
+	</script>
+</body>
+</html>

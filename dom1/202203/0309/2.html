@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			.box1{
+				background-color: red;
+			}
+			.box2{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		
+		<script type="text/javascript">
+			const box1 = document.querySelector('.box1')
+			const box2 = document.querySelector('.box2')
+			let num = 0,
+				xPos = 0
+			
+			function fn(){
+				num++
+				box1.innerHTML = num
+				if(num<300){
+					window.requestAnimationFrame(fn)
+				}
+			}
+			function move(x){
+				let result = x-num 
+				console.log(result)
+				xPos = xPos+5
+				box2.style.transform = `translate(${xPos}px)`
+				let winW = document.documentElement.clientWidth - 100
+				if(xPos<winW){
+					window.requestAnimationFrame(move)
+				}
+			}
+			window.requestAnimationFrame(fn)
+			window.requestAnimationFrame(move)
+		</script>
+	</body>
+</html>

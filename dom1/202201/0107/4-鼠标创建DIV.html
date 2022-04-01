@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		.div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000000;
+			left: 100px;
+			top: 100px;
+		}
+		div{
+			position: absolute;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="div">
+		</div>
+		
+		<script type="text/javascript">
+			const oDiv = document.querySelector('.div')
+			let str = 0,
+				L = 0,
+				T= 0,
+				BL = oDiv.offsetLeft,
+				BT = oDiv.offsetTop
+			oDiv.onmousedown = function(ev){
+				str = 0
+				str = document.createElement('div')
+				console.log(oDiv.clientHeight)
+				L = ev.clientX
+				T = ev.clientY
+				document.onmousemove = function(ev){
+					if(ev.clientX - L>0&&ev.clientY -T>0){
+						if(ev.clientX-BL>oDiv.clientWidth){
+							str.style.width = oDiv.clientWidth-L+BL + 'px'
+						}else{
+							str.style.width = ev.clientX - L + 'px'
+						}
+						if(ev.clientY-BT>oDiv.clientHeight){
+							str.style.height = oDiv.clientHeight-T+BT + 'px'
+						}else{
+							str.style.height = ev.clientY -T + 'px'
+						}
+						
+						str.style.left = L-BL + 'px'
+						str.style.top = T-BT + 'px'
+						str.style.border = '1px solid #000000'
+					}else if(ev.clientX - L<0&&ev.clientY -T>0){
+						if(ev.clientX<BL){
+							str.style.left = 0+ 'px'
+						}else{
+							str.style.left = ev.clientX-BL  + 'px'
+						}
+						if(ev.clientY-BT>oDiv.clientHeight){
+							str.style.height = oDiv.clientHeight-T+BT + 'px'
+						}else{
+							str.style.height = ev.clientY -T + 'px'
+						}
+						str.style.width = L - ev.clientX + 'px'
+						str.style.border = '1px solid #000000'
+						str.style.top = T-BT + 'px'
+						// console.log(L)
+						// console.log(ev.clientX)
+						// console.log(L - ev.clientX)
+					}
+					else if(ev.clientY -T<0&&ev.clientX - L>0){
+						if(ev.clientY<BT){
+							str.style.top = 0 + 'px'
+						}else{
+							str.style.top = ev.clientY-BT + 'px'
+						}
+						if(ev.clientX-BL>oDiv.clientWidth){
+							str.style.width = oDiv.clientWidth-L+BL + 'px'
+						}else{
+							str.style.width = ev.clientX - L + 'px'
+						}
+						str.style.height =  T-ev.clientY + 'px'
+						str.style.left = L-BL + 'px'
+						str.style.border = '1px solid #000000'
+					}else if(ev.clientY -T<0&&ev.clientX - L<0){
+						if(ev.clientY<BT){
+							str.style.top = 0 + 'px'
+						}else{
+							str.style.top = ev.clientY-BT + 'px'
+						}
+						if(ev.clientX<BL){
+							str.style.left = 0+ 'px'
+						}else{
+							str.style.left = ev.clientX-BL  + 'px'
+						}
+						str.style.width = L - ev.clientX + 'px'
+						str.style.height =  T-ev.clientY + 'px'
+						// str.style.left = ev.clientX -BL + 'px'
+						str.style.border = '1px solid #000000'
+					}
+					
+					
+					// console.log(L)
+				}
+				document.onmouseup = function(){
+					oDiv.appendChild(str)
+					document.onmousemove = null
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			const dpr = window.devicePixelRatio
+			const meta = document.createElement('meta')
+			meta.name ="viewport" 
+			meta.content=width=`device-width,initial-scale=${1/dpr}`
+			document.head.appendChild(meta)
+			const html = document.documentElement;
+			html.style.fontSize = html.clientWidth/25 + 'px'
+			console.log(html.clientWidth)
+			console.log(html.style.fontSize)
+		</script>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../0228/css/style.css"/>
+	</head>
+	<body>
+		
+		<header>
+			<div></div>
+		</header>
+	hello word! 你好世界
+		  <i class="fa-solid fa-user"></i>
+		    <span class="fa-solid fa-user"></span>
+			<i class="fa-brands fa-weibo"></i>
+			<i class="fa-brands fa-weixin"></i>
+			
+			
+			
+			<script type="text/javascript">
+				console.log(dpr)
+			</script>
+	</body>
+</html>

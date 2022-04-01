@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #0d686b;
+			}
+		</style>
+	</head>
+	<body>
+		<div><img src="img/normal1.png" ></div>
+		<div><img src="img/normal2.png" ></div>
+		<div><img src="img/normal3.png" ></div>
+		
+		
+		<script type="text/javascript">
+			let data1 = ['img/normal1.png','img/normal2.png','img/normal3.png'],
+				data2 = ['img/active1.png','img/active2.png','img/active3.png'],
+				aImg = document.querySelectorAll('img')
+				// on = true
+				
+				for(let i=0;i<data1.length;i++){
+					aImg[i].on = true
+					aImg[i].onclick= function(){
+						if(this.on){
+							aImg[i].src = data2[i]
+							this.on =false
+						}else{
+							aImg[i].src = data1[i]
+							this.on = true
+						}
+					}
+				}
+				
+				
+		</script>
+	</body>
+</html>

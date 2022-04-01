@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				position: absolute;
+				background-color: red;
+				width: 100px;
+				height: 100px;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		
+		<script type="text/javascript">
+		window.onload = function(){
+			const box1 = new Dragbox('#box1')
+			box1.init()
+			const box2 = new Dragbox('#box2')
+			box2.init()
+		}
+				
+				
+				function Dragbox(id){
+					this.box = document.querySelector(id)
+					this.x=0
+					this.y=0
+				}
+				Dragbox.prototype.init= function(){
+					let This = this
+					this.box.onmousedown=function(ev){
+						This.fnDown(ev)
+					}
+				}
+				Dragbox.prototype.fnDown = function(ev){
+					this.x = ev.clientX - this.box.offsetLeft
+					this.y = ev.clientY - this.box.offsetTop
+					let This = this
+					document.onmousemove = function(ev){
+						This.fnMove(ev)
+					}
+					document.onmouseup = function(ev){
+						This.fnUp(ev)
+					}
+				}
+				Dragbox.prototype.fnMove = function(ev){
+					this.box.style.left = ev.clientX - this.x + 'px'
+					this.box.style.top = ev.clientY - this.y + 'px'
+				}
+				Dragbox.prototype.fnUp = function(ev){
+					document.onmousemove = document.onmouseup = null
+				}
+		// 			let x = y = 0
+		// 			window.onload = function(){
+		// 				 div = document.querySelector('div')
+		// 				init()
+		// 			}
+		// 			function init() {
+		// 				div.onmousedown = fnDown
+		// 			}
+		
+		// 			function fnDown(ev) {
+		// 				x = ev.clientX - this.offsetLeft
+		// 				y = ev.clientY - this.offsetTop
+		// 				document.onmousemove = fnMove
+		// 				document.onmouseup = fnUp
+		// }
+		// 				function fnMove(ev){
+		// 					div.style.left = ev.clientX - x + 'px'
+		// 					div.style.top = ev.clientY - y + 'px'
+		// 					document.onmouseup = fnUp
+		// 				}
+		// 				function fnUp(){
+		// 					document.onmousemove = document.onmouseup = null
+		// 				}
+				</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			function User(name,email,score){
+				this.username = name
+				this.email = email
+				this.score = 0
+				User.prototype.addScore=function(){
+					this.score +=1
+					return this.score
+				}
+				User.prototype.login=function(){
+					console.log(`${this.username}已登录`)
+				}
+				User.prototype.logout=function(){
+					console.log(`${this.username}已登出`)
+				}
+				// this.login=function(){
+				// 	console.log(`${this.username}已登录`)
+				// }
+				// this.logout=function(){
+				// 	console.log(`${this.username}已登出`)
+				// }
+				// this.addScore = function(){
+				// 	this.score +=1
+				// 	return this.score
+				// }
+			}
+//new关键词调用User()构造函数
+const user = new User('xiaohong','xiaohong@qq.com')
+user.score = 0
+console.log(user)
+console.dir(User)
+console.log(user.addScore())
+		</script>
+	</body>
+</html>

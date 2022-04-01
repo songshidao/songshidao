@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 { width:240px; height:200px; border:1px solid #333; background:#f1f1f1; padding:10px; }
+</style>
+
+</head>
+
+<body>
+
+<div id="div1"></div>
+<strong id="strong1">张三：</strong>
+<input id="text1" type="text" />
+<input id="btn1" type="button" value="提交" />
+
+<script type="text/javascript">
+	let oDiv = document.querySelector('div'),
+	    oStrong = document.querySelector('strong'),
+	    aInput = document.querySelectorAll('input')
+	
+	    // alert(oStrong.innerHTML)
+	    aInput[1].onclick = function(){
+	        aInput[0].value == ''? alert('请输入内容'):oDiv.innerHTML+= '<p>'+aInput[0].value+'</p>'
+			aInput[0].value = ''
+	    }
+</script>
+</body>
+</html>

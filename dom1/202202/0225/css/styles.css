@@ -1,0 +1,94 @@
+/* 
+ variable 变量的用途
+ 1.用于存储常量,可以存储任意类型
+ 2.定义方式:@变量
+ 3.变量支持运算
+ 4:变量是可以嵌套的
+ 5.变量的值支持函数
+ 6.变量有作用域
+ 
+ extend(选择器) 扩展\继承
+ 
+ Mixin(混合)
+ 1.没有参数
+ 
+ 2.有参数
+ 
+ 嵌套样式
+ 1.普通嵌套:按照层级关系
+ 
+ 2.选择器的平级嵌套
+ 
+ 
+ 
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+body {
+  background-color: #333;
+  line-height: 2em;
+}
+a {
+  color: #d82148;
+}
+a:hover {
+  color: #ea758e;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.container.bgcolor {
+  background-color: #6ebf8b;
+}
+header {
+  color: #FFF;
+  background-color: #151D3B;
+}
+header .container {
+  display: flex;
+}
+header .container h1 {
+  flex-grow: 1;
+}
+header .container ul {
+  display: flex;
+}
+.banner {
+  background-color: #dadbbd;
+}
+.banner button {
+  color: #FFF;
+  background-color: #d82148;
+  border-radius: 30px;
+  color: yellow;
+}
+.btn,
+.banner button {
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+}
+.body {
+  background-color: white;
+}
+footer {
+  color: white;
+  background-color: #333;
+}
+footer a {
+  color: #d82148;
+}
+img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+}
+.border {
+  border: 1px solid red;
+}

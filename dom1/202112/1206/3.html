@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{display: block;}
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button>留言</button>
+    <button>删除</button>
+    <div></div>
+    
+    <script>
+        let oInput = document.querySelector('input'),
+            oBut = document.querySelectorAll('button'),
+            oDiv = document.querySelector('div'),
+            on =true
+
+            oBut[0].onclick = function(){
+                let oSpan = document.createElement('span')
+                oSpan.innerHTML = oInput.value
+                document.querySelector('div').appendChild(oSpan)
+        for(let i=0;i < oDiv.children.length;i++){
+            oDiv.children[i].onclick = function(){
+                this.checked = true
+                if(on){
+                    oDiv.childNodes[i].style.background = 'red'
+on =!on
+                }else{
+                    oDiv.childNodes[i].style.background = ''
+                    on =!on
+
+                }
+            }
+            
+        }
+        // oInput.value = ''
+        console.log(oDiv.children)
+
+            }
+            oBut[1].onclick = function(){
+                for(let i=0;i<oDiv.children.length;i++){
+                    if(oDiv.children[i].checked){
+                        oDiv.removeChild(oDiv.children[i])
+
+                    }
+
+                }
+                console.log(oDiv.children)
+            }
+    
+    </script>
+</body>
+</html>

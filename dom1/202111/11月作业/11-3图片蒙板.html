@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background-image: url(../京东/img/20hunianwang.jpg);
+				position: relative;
+			}
+			#div1 li{
+				width: 100px;
+				height: 100px;
+				background-color: #000000;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById('div1'),
+			oLi = document.getElementsByTagName('li')
+			for(var i=0;i<5;i++){
+				for(j=0;j<5;j++){
+					oDiv1.innerHTML += '<li class="li1" style="top:'+i*100+'px;left:'+j*100+'px"></li>'
+				}
+			}
+		for(var i=0;i<25;i++){
+		oLi[i].onmousemove = function(){
+								this.style.display = 'none'
+							}
+				}
+
+		</script>
+	</body>
+</html>

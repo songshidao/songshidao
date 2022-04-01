@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="button" value="判断数字" />
+		<div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			let aInput = document.querySelectorAll('input'),
+				oDiv = document.querySelector('div')
+			
+			// aInput[1].onclick = function(){
+			// 	if(isNaN(aInput[0].value)){
+			// 		oDiv.innerHTML += `<p>不是</p>`
+			// 	}
+			// 	else if(aInput[0].value == ''){
+			// 		alert('请输入内容')
+			// 	}
+			// 	else{
+			// 		oDiv.innerHTML += `<p>是</p>`
+			// 	}
+			// 	aInput[0].value = ''
+			// }
+			aInput[1].onclick = function(){
+				for(let i=0;i<aInput[0].value.length;i++){
+					if(47<aInput[0].value.charCodeAt(i)&&aInput[0].value.charCodeAt(i)<58){
+						oDiv.innerHTML = `<p>是</p>`
+					}else{
+						oDiv.innerHTML = `<p>不是</p>`
+					}
+					// console.log(47 < aInput[0].value.charCodeAt(i)&&aInput[0].value.charCodeAt(i) < 58)
+						aInput[0].value = ''
+				}
+			}
+		</script>
+	</body>
+</html>

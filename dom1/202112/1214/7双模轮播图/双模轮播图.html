@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{background-color:#2e2e2e;color:#f4f4f4;}      
+        .slider{position:fixed;left:50%;margin-left:-280px;top:20px;width:550px;height:410px;border:5px solid #000;}
+        .header{width:510px;height:60px;text-align: center;padding:20px;background-color:#000;}
+        .btn{width:30%;font-size:20px;height:30px;border:none;background-color:#000;color:#fff;border:1px solid #f4f4f4;}
+        .btn:nth-child(1){margin-right:-1px;}
+        .current{background:#f4f4f4;color:#000;}
+        .header p{padding:10px;font-size:14px;}
+        .imgbox{width:550px;height:310px;position: relative;}
+        .arrow{position:absolute;top:50%;margin-top:-13px;}
+        .arrowl{left:10px;}
+        .arrowr{right:10px;}
+        .tips{width:260px;height:100px;background-color:rgba(0,0,0,.5);position:absolute;left:50%;margin-left:-130px;top:50%;margin-top:-50px;border:1px solid #666;text-align: center;display: none;}
+        .shut{width:100px;height:30px;background-color:transparent;color:#fff;border:1px solid #666;}
+        .shut-icon{position:absolute;top:5px;right:5px;}
+        .tips p{height:50px;line-height: 50px;}
+        .text{position: absolute;bottom:0;left:0;background:rgba(0,0,0,.6);width:100%;height:30px;line-height: 30px;text-align: center;}
+        .nth{position: absolute;top:0;left:0;width:100%;height:30px;line-height: 30px;text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <section class="header">
+            <button class="btn btn1 current">循环切换</button><button class="btn btn2">顺序切换</button>
+            <p class="p"></p>
+        </section>
+        <section class="imgbox">
+            <img class="img" src="images/img01.jpg" alt="">
+            <img class="arrow arrowl" src="images/prev.png" alt="上一张">
+            <img class="arrow arrowr" src="images/next.png" alt="下一张">
+            <div class="tips">
+                <p>抱歉！已到第一张！</p>
+                <button class="shut">确定</button>
+                <img class="shut-icon" src="images/close.png" alt="关闭">
+            </div>
+            <div class="nth"></div>
+            <div class="text"></div>
+        </section>
+    </div>
+    
+    <script>
+        //获取元素
+        var oArrowR = document.querySelector('.arrowr'),
+            oArrowL = document.querySelector('.arrowl'),
+            oImg = document.querySelector('.img'),
+            oNth = document.querySelector('.nth'),
+            oText = document.querySelector('.text');
+        var num = 0;
+        var oBtn1 = document.querySelector('.btn1'),
+            oBtn2 = document.querySelector('.btn2'),
+            oP = document.querySelector('.p');
+        var on = true;
+        var oTips = document.querySelector('.tips'),
+            oShutIcon = document.querySelector('.shut-icon'),
+            oShut = document.querySelector('.shut'),
+			Src = ['images/img01.jpg','images/img02.jpg','images/img03.jpg','images/img04.jpg']
+			
+			oBtn1.onclick = function(){
+				oBtn1.classList.toggle('current')
+				oBtn2.classList.toggle('current')
+				oArrowR.onclick = function(){
+						num==3?oImg.src=Src[num=0] : oImg.src=Src[++num]
+					
+				}
+				oArrowL.onclick = function(){
+						num ==0?oImg.src=Src[num=3] : oImg.src=Src[--num]
+					
+				}
+				
+			}
+			
+			
+			oBtn2.onclick = function(){
+				oBtn1.classList.toggle('current')
+				oBtn2.classList.toggle('current')
+			oArrowR.onclick = function(){
+					num==3?oImg.src=Src[3] : oImg.src=Src[++num]
+					num ==3?oTips.style.display= 'block':oTips.style.display= 'none'
+				
+			}
+			oArrowL.onclick = function(){
+					num ==0?oImg.src=Src[0] : oImg.src=Src[--num]
+				num ==0?oTips.style.display= 'block':oTips.style.display= 'none'
+				
+			}
+			oShutIcon.addEventListener('click',Close)
+			oShut.addEventListener('click',Close)
+			}
+			
+			
+			function Close(){
+				// console.log(arr)
+				oTips.style.display= 'none'
+			}
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .div{
+            display: none;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 300px;
+            top: 450px;
+        }
+        .div a{
+            margin: 10px;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>请为下面的DIV设置样式: <button>点击</button></h2>
+    <div></div>
+    <div class="div">
+        <ul>
+            <li><span>背景</span><a href="#">红</a><a href="#">黄</a><a href="#">绿</a></li>
+            <li><span>宽</span><a href="#">200</a><a href="#">300</a><a href="#">400</a></li>
+            <li><span>高</span><a href="#">200</a><a href="#">300</a><a href="#">400</a></li>
+            <li><a href="#">恢复</a> <a href="#">确定</a> </li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        let aDiv = document.querySelectorAll('div'),
+            oBut = document.querySelector('button'),
+            aLi = document.querySelectorAll('li'),
+            aA = document.querySelectorAll('a')
+
+            oBut.onclick = function(){
+                aDiv[1].style.display = 'block'
+            }
+            aA[0].onclick = function(){
+                aDiv[0].style.background = 'red'
+            }
+            aA[1].onclick = function(){
+                aDiv[0].style.background = 'yellow'
+            }
+            aA[2].onclick = function(){
+                aDiv[0].style.background = 'green'
+            }
+            aA[3].onclick = function(){
+                aDiv[0].style.width = 200 +'px'
+            }
+            aA[4].onclick = function(){
+                aDiv[0].style.width = 300 +'px'
+            }
+            aA[5].onclick = function(){
+                aDiv[0].style.width = 400 +'px'
+            }
+            aA[6].onclick = function(){
+                aDiv[0].style.height = 200 +'px'
+            }
+            aA[7].onclick = function(){
+                aDiv[0].style.height = 300 +'px'
+            }
+            aA[8].onclick = function(){
+                aDiv[0].style.height = 400 +'px'
+            }
+            aA[9].onclick = function(){
+                aDiv[0].style.width = 100 +'px'
+                aDiv[0].style.height = 100 +'px'
+                aDiv[0].style.background = ''
+            }
+            aA[10].onclick = function(){
+                aDiv[1].style.display = 'none'
+                
+            }
+
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+			.box{
+				width: 150px;
+				height: 150px;
+				list-style: none;
+				padding: 0;
+				background-color: #f4f4f4;
+				position: absolute;
+				display: none;
+			}
+			li{
+				height: 30px;
+				margin: 0 0 0 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<ul class="box">
+			<li>aaa</li>
+			<li>bbb</li>
+			<li>ccc</li>
+		</ul>
+		
+		<script type="text/javascript">
+			document.querySelector('a').onclick = function(){
+				return false
+			}
+			document.oncontextmenu = function(){
+				document.querySelector('.box').style.display = 'block'
+				return false
+			}
+			document.oncontextmenu = function(){
+				document.querySelector('.box').style.display = 'block'
+				return false
+			}
+		</script>
+	</body>
+</html>

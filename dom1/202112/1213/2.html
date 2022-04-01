@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="text1" type="text" />
+<select id="select1">
+	<option value="北京">北京</option>
+	<option value="上海">上海</option>
+	<option value="杭州">杭州</option>
+</select>
+<input id="btn1" type="button" value="按钮" />
+
+
+<script>
+    let oTxt = document.querySelector('#text1'),
+        oInput = document.querySelector('#btn1'),
+        aSelect = document.querySelector('#select1');
+
+        
+
+
+        oInput.addEventListener('click',function(){
+            alert(oTxt.value + ' 在 '+ aSelect.value)
+        })
+</script>
+</body>
+</html>

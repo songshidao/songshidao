@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-contents{
+            position: relative;
+        }
+        ul{
+            position: absolute;
+            width: 100%;
+            display: none;
+        }
+        li{
+            display: inline-block;
+            width: 20%;
+        }
+        img{
+            width: 100%;
+        }
+        ul.active{
+            display: block;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <section class='portfolio'>
+        <div class="container">
+            <h2>作品</h2>
+            <div class="tabs">
+                <span id="tab1" class="active">UI设计</span>
+                <span id="tab2">网页设计</span>
+                <span id="tab3">海报设计</span>
+                <span id="tab4">标志设计</span>
+                <span id="tab5">字体设计</span>
+            </div>
+            <div class="tab-contents">
+                <ul id="content1" class="active">
+                    <li><img src="images/w1.png"/></li>
+                    <li><img src="images/w2.png"/></li>
+                    <li><img src="images/w3.png"/></li>
+                    <li><img src="images/w4.png"/></li>
+                    <li><img src="images/w5.png"/></li>
+                    <li><img src="images/w6.png"/></li>
+                    <li><img src="images/w7.png"/></li>
+                    <li><img src="images/w8.png"/></li>
+                </ul>
+                <ul id="content2" >
+                    <li><img src="images/w9.png"/></li>
+                    <li><img src="images/w10.png"/></li>
+                    <li><img src="images/w11.png"/></li>
+                    <li><img src="images/w12.png"/></li>
+                    <li><img src="images/w13.png"/></li>
+                    <li><img src="images/w14.png"/></li>
+                    <li><img src="images/w15.png"/></li>
+                    <li><img src="images/w16.png"/></li>
+                </ul>
+                <ul id="content3" >
+                    <li><img src="images/w17.png"/></li>
+                    <li><img src="images/w18.png"/></li>
+                    <li><img src="images/w19.png"/></li>
+                    <li><img src="images/w20.png"/></li>
+                    <li><img src="images/w21.png"/></li>
+                    <li><img src="images/w22.png"/></li>
+                    <li><img src="images/w23.png"/></li>
+                    <li><img src="images/w24.png"/></li>
+                </ul>
+                <ul id="content4" >
+                    <li><img src="images/w25.png"/></li>
+                    <li><img src="images/w26.png"/></li>
+                    <li><img src="images/w27.png"/></li>
+                    <li><img src="images/w28.png"/></li>
+                    <li><img src="images/w29.png"/></li>
+                    <li><img src="images/w30.png"/></li>
+                    <li><img src="images/w31.png"/></li>
+                    <li><img src="images/w32.png"/></li>
+                </ul>
+                <ul id="content5" >
+                    <li><img src="images/w33.png"/></li>
+                    <li><img src="images/w34.png"/></li>
+                    <li><img src="images/w35.png"/></li>
+                    <li><img src="images/w36.png"/></li>
+                    <li><img src="images/w37.png"/></li>
+                    <li><img src="images/w38.png"/></li>
+                    <li><img src="images/w39.png"/></li>
+                    <li><img src="images/w40.png"/></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let aSpan = document.querySelectorAll('span'),
+            aUl = document.querySelectorAll('ul')
+
+            for(let i=0;i<aUl.length;i++){
+                last = aUl[i]
+                aSpan[i].onclick = function(){
+                    last.style.display = 'none'
+                    aUl[i].style.display = 'block'
+                      last = aUl[i]
+                }
+            }
+
+    </script>
+</body>
+</html>

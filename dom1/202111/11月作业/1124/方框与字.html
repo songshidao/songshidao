@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				margin-top: 500px;
+				width:0px;
+				height: 50px;
+				color: #000000;
+				background-color: red;
+				position: relative;
+			}
+			span{
+				width: 5px;
+				height: 50px;
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+
+		</div>
+		<script src="js/docolor.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	let str = '',
+		len = 20,
+		timer = null,
+		n = 0,
+		ooo = null,
+		fff = null
+		on = true,
+		finished = true,
+		aDiv = document.getElementsByTagName('div')
+		for(var i=0;i<len;i++){
+			str += '<span style="left:'+i*20+'px;">'+i+'</span>'
+		}
+		aDiv[0].innerHTML = str
+		let aSpan = document.getElementsByTagName('span')
+		document.onclick = function(){
+			timer = docolor(aDiv[0],'width',1000,1,10)
+			for(let i=0;i<len;i++){
+				ooo = docolor(aSpan[i],'bottom',50,1,10)
+			}
+		}
+		
+		
+</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a =100,
+			obj= {
+				a:1,
+				sum(){
+					console.log(this.a)
+				}
+			}
+			obj.sum()
+			console.log(this.a)
+			console.log(this.obj.a)
+			
+			var fn = function(){
+				console.log(this.a)
+			}
+			fn()
+			document.documentElement.onclick = this.obj.sum
+			var  This = this
+			document.documentElement.onclick = function(){
+				This.obj.sum()
+			}
+		</script>
+	</body>
+</html>

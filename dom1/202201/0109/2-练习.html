@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let str = '5641646s654658',
+				re = /\D/
+				// if(re.test(str)){
+				// 	console.log('不全是数字')
+				// }else{
+				// 	console.log('全是数字')
+				// }
+			 str = 'Hellowrold65432_',
+				re = /\W/
+				// if(re.test(str)){
+				// 	console.log('检测到非法字符')
+				// }else{
+				// 	console.log('未检测到非法字符')
+				// }
+				str = 'abcdefgvb',
+				re = /D/i
+				// console.log(str.search(re))
+				str = 'abbcdbbbbbefbgbbbbvb',
+				re = /b+/g
+				console.log(str.match(re))
+				str = 'asdasd2002asd asd100gsdf234gfge567',
+				re = /\d+/g
+				console.log(str.match(re))
+				str = 'aaa',
+				re = /a+/g
+				console.log(str.replace(re,'v'))
+				re = /a/g
+				console.log(str.replace(re,'v'))
+		</script>
+	</body>
+</html>
+<!-- 
+\d 是检测数字 
+\D 是检测字母
+ -->

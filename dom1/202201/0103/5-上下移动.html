@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            background-color:#f6f6f6;
+        }
+        ul,li{
+            list-style:none;
+        }
+        .menu{
+            width:320px;
+            height:290px;
+/*            max-width:200px;*/
+/*            border:1px solid #333;*/
+            position:fixed;
+            left:50%;
+            top:50%;
+            margin-left:-150px;
+            margin-top:-145px;
+            
+        }
+        li{
+            width:318px;
+            height:48px;
+            background-color:#333;
+            border:1px solid #dbdbdb;
+            position:absolute;
+            left:0;
+            box-shadow: 3px 3px 5px 0px #aaa;
+        }
+        a{
+            display: block;
+            height:48px;
+            line-height: 48px;
+            padding:0 0 0 20px;
+            width:298px;
+            text-decoration: none;
+            color:orange;
+        }
+        button{
+            position:absolute;
+            top:13px;
+            height:24px;
+            right:80px;
+            background-color:transparent;
+            width:40px;
+            border:1px solid #666;
+            border-radius: 3px;
+            color:#666;
+        }
+        button:focus{
+            outline: none;
+        }
+        li button+button{
+            right:20px;
+        }
+        button:hover{
+            border-color:#dbdbdb;
+            color:#dbdbdb;
+        }
+    </style>
+
+
+-->
+</head>
+<body>
+   <ul class="menu">
+       <li>
+           <a href="#">菜单1</a>
+           <button class="btn1">Up</button>
+           <button class="btn2">Down</button>
+       </li>
+       <li>
+           <a href="#">菜单2</a>
+           <button>Up</button>
+           <button>Down</button>
+       </li>
+       <li>
+           <a href="#">菜单3</a>
+           <button>Up</button>
+           <button>Down</button>
+       </li>
+       <li>
+           <a href="#">菜单4</a>
+           <button>Up</button>
+           <button>Down</button>
+       </li>
+       <li>
+           <a href="#">菜单5</a>
+           <button>Up</button>
+           <button>Down</button>
+       </li>
+   </ul>
+    <script>
+        let oUl = document.querySelector('ul'),
+			aLi = oUl.querySelectorAll('li')
+			// aButton1 = oLi.querySelectorAll('button')[0],
+			// aButton2 = oLi.querySelectorAll('button')[1]
+			
+			// console.log(oLi.previousElementSibling)
+			
+			for(let i=0;i<aLi.length;i++){
+				let aButton1 = aLi[i].querySelectorAll('button')[0],
+			aButton2 = aLi[i].querySelectorAll('button')[1]
+				up(aButton1)
+				down(aButton2)
+			}
+			
+			function up(btn){
+				btn.onclick = function(){
+					let first = this.parentElement.previousElementSibling,
+						next = oUl.removeChild(this.parentElement)
+					 oUl.insertBefore(next,first)
+				}
+			}
+			function down(btn){
+				btn.onclick = function(){
+					let last = this.parentElement.nextElementSibling,
+						next = this.parentElement
+						if(last==null){
+							// last = oUl.removeChild(this.parentElement)
+							// next = oUl.firstElementChild
+							oUl.insertBefore(oUl.removeChild(this.parentElement),oUl.firstElementChild)
+						}else{
+							oUl.insertBefore(oUl.removeChild(last),next)
+						}
+					 
+				}
+			}
+			console.log(aLi[4].nextElementSibling)
+			oUl.firstElementChild
+			console.log(oUl.firstElementChild)
+			
+    </script>
+</body>
+</html>

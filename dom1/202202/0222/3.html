@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div class="container">
+			<h1>添加书籍</h1>
+			<form id='b-form'><!-- submit事件 -->
+				<div>
+					<label for="b-name">书名</label>
+					<input type="text" id="b-name">
+				</div>
+				<div>
+					<label for="b-author">作者</label>
+					<input type="text" id="b-author">
+				</div>
+				<div>
+					<label for="b-isbn">ISBN</label>
+					<input type="text" id="b-isbn">
+				</div>
+				<div>
+					<input type="submit" value="添加">
+				</div>
+			</form>
+			<table class="book-container">
+				<thead>
+					<tr>
+						<th>书名</th>
+						<th>作者</th>
+						<th>ISBN</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody class="b-list">
+					<tr>
+						<td>阿萨德</td>
+						<td>同人文</td>
+						<td>梵蒂冈</td>
+						<td><a href="#">删除</a></td><!-- 点击删除事件 -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="bookapp.js" type="text/javascript" charset="utf-8"></script><!-- onload事件 -->
+	</body>
+</html>

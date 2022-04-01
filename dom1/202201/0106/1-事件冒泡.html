@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		div{
+			padding: 50px;
+		}
+			.box3{
+				height: 300px;
+				background-color: red;
+			}
+			.box2{
+				height: 200px;
+				background-color: yellow;
+			}
+			.box1{
+				height: 100px;
+				background-color: blue;
+				/* position: absolute; */
+				/* top: 500px; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box3">
+			<div class="box2">
+				<div class="box1"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			const oDiv1 = document.querySelector('.box1')
+			const oDiv2 = document.querySelector('.box2')
+			const oDiv3 = document.querySelector('.box3')
+			
+			// oDiv1.onclick = fn
+			oDiv2.onclick = fn
+			oDiv3.onclick = fn
+			function fn(){
+				alert(123)
+			}
+		</script>
+	</body>
+</html>

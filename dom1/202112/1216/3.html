@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				width: 250px;
+				height: 250px;
+				position: relative;
+				background-color: #eee;
+			}
+			.container div{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				top: calc(50% - 25px);
+				left: calc(50% - 25px);
+				transition: .5s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="stage">
+			<button>上</button>
+			<button>下</button>
+			<button>左</button>
+			<button>右</button>
+			<button>归位</button>
+		</div>
+		
+		
+		<script type="text/javascript">
+			let aButton = document.querySelectorAll('button'),
+				aDiv = document.querySelectorAll('.container div')
+				console.log(aDiv)
+				
+				aButton[0].onclick=function(){
+					for(let i=0;i<aDiv.length;i++){
+						if(i < 5/2){
+							aDiv[i].style.top = `${i*50}px`
+							aDiv[i].style.left = `${i*50}px`
+						}else{
+							aDiv[i].style.top = `${(5-i-1)*50}px`
+							aDiv[i].style.left = `${i*50}px`
+						}
+					}
+				}
+				aButton[1].onclick=function(){
+					for(let i=0;i<aDiv.length;i++){
+						if(i < 5/2){
+							aDiv[i].style.top = `${(5-i-1)*50}px`
+							aDiv[i].style.left = `${i*50}px`
+						}else{
+							aDiv[i].style.top = `${i*50}px`
+							aDiv[i].style.left = `${i*50}px`
+						}
+					}
+				}
+				aButton[2].onclick=function(){
+					for(let i=0;i<aDiv.length;i++){
+						if(i < 5/2){
+							aDiv[i].style.left = `${i*50}px`
+							aDiv[i].style.top = `${i*50}px`
+						}else{
+							aDiv[i].style.left = `${(5-i-1)*50}px`
+							aDiv[i].style.top = `${i*50}px`
+						}
+					}
+				}
+				aButton[3].onclick=function(){
+					for(let i=0;i<aDiv.length;i++){
+						if(i < 5/2){
+							aDiv[i].style.left = `${(5-i-1)*50}px`
+							aDiv[i].style.top = `${i*50}px`
+						}else{
+							aDiv[i].style.left = `${i*50}px`
+							aDiv[i].style.top = `${i*50}px`
+						}
+					}
+				}
+				aButton[4].onclick=function(){
+					for(let i=0;i<aDiv.length;i++){
+						if(i < 5/2){
+							aDiv[i].style.left = ``
+							aDiv[i].style.top = ``
+						}else{
+							aDiv[i].style.left = ``
+							aDiv[i].style.top = ``
+						}
+					}
+				}
+		</script>
+	</body>
+</html>

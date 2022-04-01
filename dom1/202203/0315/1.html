@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				background-color: #555;
+			}
+			#canvas1{
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1" width="400" height="400"></canvas>
+		
+		
+		<script type="text/javascript">
+			const canvas = document.querySelector('#canvas1')
+			const  ctx = canvas.getContext('2d')
+			// canvas.height = window.innerHeight
+			// canvas.width = window.innerWidth//窗口宽
+			let on = false
+			
+			canvas.addEventListener('mousedown',fn1)
+			canvas.addEventListener('mousemove',fn2)
+			canvas.addEventListener('mouseup',fn3)
+			
+			function fn1(ev){
+				on = true
+				draw(ev)
+			}
+			function fn2(ev){
+				if(!on)return 
+				draw(ev)
+			}
+			function fn3(ev){
+				on = false
+				ctx.beginPath()
+			}
+			
+			function draw(ev){
+				// ctx.beginPath()
+				ctx.lineWidth = 10
+				ctx.lineCap = 'round'
+				ctx.lineTo(ev.clientX,ev.clientY)
+				// ctx.fill()
+				ctx.stroke()
+			}
+		</script>
+	</body>
+</html>

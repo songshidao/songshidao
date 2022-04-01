@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body,html{
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		}
+		.page{
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+			background-color: greenyellow;
+		}
+	header{
+		height: 44px;
+		background-color: #333333;
+		color: #FFF;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		
+	}
+	.warp{
+		position: absolute;
+		left: 0;
+		top: 44px;
+		right: 0;
+		background-color: aqua;
+	}
+	.list{
+		margin: 0;
+		position: 0;
+		list-style: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	li{
+		border: 1px solid #CCCCCC;
+		padding: 5px 20px;
+	}
+	</style>
+	</head>
+	<body>
+	<div class="page">
+			<header>页头</header>
+			<div class="warp">
+				<ul class="list">
+					
+				</ul>
+			</div>
+	</div>
+	
+	
+	<!-- 
+	 按下获取触点坐标和元素坐标
+	 在移动时，获取手指最新坐标
+	 计算滑动距离 = 移动坐标-开始坐标
+	 结束时元素坐标=开始时元素坐标+滑动距离
+	 -->
+	
+	<script type="text/javascript">
+		const List = document.querySelector('.list')
+		const wrap = document.querySelector('.warp')
+		let str = '',
+			startY = 0,
+			startEleY = 0
+		str+='<ul>'
+		for(let i=1;i<100;i++){
+			str+=`<li>这是第${i}个元素</li>`
+		}
+		str+='</ul>'
+		List.innerHTML = str
+		
+		wrap.addEventListener('touchstart',function(ev){
+			ev.preventDefault()
+			startY = ev.changedTouches[0].pageY
+			startEleY = Style(List,'top')
+		})
+		wrap.addEventListener('touchmove',function(ev){
+			let nowY = ev.changedTouches[0].pageY,
+				result = nowY-startY
+			
+			Style(List,'top',result + startEleY)
+		})
+		wrap.addEventListener('touchendt',function(){
+			
+		})
+		
+		// 获取或设置元素的样式：top\width\margin-left等尺寸值
+		function Style(ele,attr,val){
+			if(val===undefined){
+			let val =	parseFloat(getComputedStyle(ele)[attr])
+			console.log(val)
+			return val
+			}
+			if(attr === 'opacity'){
+				ele.style[attr] = val
+			}else{
+				ele.style[attr] = val+'px'
+			}
+		}
+	</script>
+	</body>
+</html>

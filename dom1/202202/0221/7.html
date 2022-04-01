@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tabs{
+			width: 350px;
+			height: 100px;
+			position: relative;
+		}
+			.tab-container{
+				overflow: hidden;
+			}
+			.tab{
+				border: none;
+				outline: none;
+				width: 100px;
+				height: 40px;
+				
+			}
+			.active{
+				background-color: red;
+			}
+			.tab-content{
+				width: 100%;
+				height: calc(100% - 40px);
+				position: absolute;
+				left: 0;
+				top: 40px;
+				display: none;
+			}
+			.tab-content:nth-child(2){
+				display: block;
+				background-color: pink;
+			}
+			.tab-content:nth-child(3){
+				background-color: lightcyan;
+			}
+			.tab-content:nth-child(4){
+				background-color: lightyellow;
+			}
+		</style>
+		<!-- <script type="text/javascript">
+		let tabs = null
+			 container = null,
+			 contents = null
+		let last = null
+			window.onload = function(){
+				let tabs = document.querySelectorAll('.tab'),
+					 container = document.querySelector('.tab-container'),
+					 contents = document.querySelectorAll('.tab-content')
+				let last =tabs[0]
+					 init()
+			
+			}
+			function init(){
+				for(let i=0;i<tabs.length;i++){
+					tabs[i].index = i
+					tabs[i].onclick = switchTab
+				}
+			}
+			function switchTab(){
+					last.classList.remove('active')
+					contents[last.index].style.display = 'none'
+					this.classList.add('active')
+					contents[this.index].style.display = 'block'
+					last = this
+			}
+		</script> -->
+		<script type="text/javascript">
+		window.onload = function(){
+			const tab1 = new Tab('#tabs1')
+			tab1.init()
+			tab1.autoPlay()
+			
+			const tab2 = new Tab('#tabs2')
+			tab2.init()
+		}
+			function Tab(id){
+				this.Tabs = document.querySelector(id)
+				this.tabs = this.Tabs.querySelectorAll('.tab')
+				this.container = this.Tabs.querySelector('.tab-container')
+				this.contents = this.Tabs.querySelectorAll('.tab-content')
+				this.last =this.tabs[0]
+				this.num = 0
+			}
+			Tab.prototype.init = function(){
+				let This = this
+				for(let i=0;i<this.tabs.length;i++){
+					this.tabs[i].index = i
+					this.tabs[i].onclick = function(){
+						This.switchTab(this)
+					}
+				}
+			}
+			Tab.prototype.switchTab = function(obj){
+					this.last.classList.remove('active')
+					this.contents[this.last.index].style.display = 'none'
+					obj.classList.add('active')
+					this.contents[obj.index].style.display = 'block'
+					this.last = obj
+			}
+			Tab.prototype.autoPlay= function(){
+				let This = this
+				setInterval(function(){
+					if(This.num == 0){
+						This.tabs[This.tabs.length-1].classList.remove('active')
+						This.contents[This.tabs.length-1].style.display = 'none'
+					}else{
+						This.tabs[This.num - 1].classList.remove('active')
+						This.contents[This.num - 1].style.display = 'none'
+					}
+					
+					This.tabs[This.num].classList.add('active')
+					This.contents[This.num].style.display = 'block'
+					This.num++
+					if(This.num == This.tabs.length){
+						This.num=0
+					}
+				},1000)
+			}
+		</script>
+	</head>
+	<body>
+		<div class="tabs" id="tabs1">
+			<div class="tab-container">
+				<button class="tab active">选项卡1</button>
+				<button class="tab">选项卡2</button>
+				<button class="tab">选项卡3</button>
+			</div>
+			<div class="tab-content">内容1</div>
+			<div class="tab-content">内容2</div>
+			<div class="tab-content">内容3</div>
+		</div>
+		<div class="tabs" id="tabs2">
+			<div class="tab-container">
+				<button class="tab active">选项卡1</button>
+				<button class="tab">选项卡2</button>
+				<button class="tab">选项卡3</button>
+			</div>
+			<div class="tab-content">内容1</div>
+			<div class="tab-content">内容2</div>
+			<div class="tab-content">内容3</div>
+		</div>
+	</body>
+</html>

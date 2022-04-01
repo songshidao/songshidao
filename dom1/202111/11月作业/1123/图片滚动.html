@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<style type="text/css">
+	
+</style>
+	</head>
+	<body>
+		<img src="img/(1).jpg" >
+		<button type="button">开始</button>
+		<button type="button">停止</button>
+		<script type="text/javascript">
+			let src = ['img/(1).jpg','img/(2).jpg','img/(3).jpg','img/(4).jpg','img/(5).jpg','img/(6).jpg'],
+				oImg = document.getElementsByTagName('img'),
+				aButton = document.querySelectorAll('button')
+				n = 0
+				
+				aButton[0].onclick = function(){
+					move = setInterval(fun1,1000)
+				}
+				aButton[1].onclick = function(){
+					clearInterval(move)
+				}
+				function fun1(){
+					n++
+					if(n==5){
+						n=0
+					}
+						oImg[0].src = src[n]
+				}
+		</script>
+	</body>
+</html>

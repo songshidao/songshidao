@@ -1,0 +1,126 @@
+/* 
+ variable 变量的用途
+ 1.用于存储常量,可以存储任意类型
+ 2.定义方式:@变量
+ 3.变量支持运算
+ 4:变量是可以嵌套的
+ 5.变量的值支持函数
+ 6.变量有作用域
+ 
+ extend(选择器) 扩展\继承
+ 
+ Mixin(混合)
+ 1.没有参数
+ 
+ 2.有参数
+ 
+ 嵌套样式
+ 1.普通嵌套:按照层级关系
+ 
+ 2.选择器的平级嵌套
+ 
+ 
+ 
+ */
+@blueblack:#151D3B;
+@pinkred:#d82148;
+@green:#6ebf8b;
+@tuyello:#dadbbd;
+@lightgray:#f4f4f4;
+@white:#FFF;
+
+
+@primary-color:@pinkred;
+@cecondary-color:@blueblack;
+@line-height:1em+1em;
+
+@link-color-light:@primary-color;
+@link-color-light-hover:lighten(@primary-color,20%);
+
+@full-width:100%;
+@fixed-width:960px;
+
+@border-wdth:1px;
+@style-solid:solid;
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+body{
+	background-color:#333;
+	line-height: @line-height;
+}
+a{
+	color: @primary-color;
+	&:hover{
+		color:@link-color-light-hover;
+	}
+}
+.container{
+	width: @full-width;
+	margin: 0 auto;
+	&.bgcolor{
+		background-color: @green;
+	}
+}
+header{
+	color: @white;
+	background-color: @cecondary-color;
+	.container{
+		
+		display: flex;
+		h1{
+			flex-grow: 1;
+		}
+		ul{
+			display: flex;
+		}
+	}
+}
+// .text-color(变量) when(条件表达式){}
+.text-color(@a) when(lightness(@a)>=50%){
+	color:black;
+}
+.text-color(@a) when(lightness(@a)<50%){
+	color:yellow;
+}
+
+.banner{
+	background-color: @tuyello;
+	button:extend(.btn){
+		color: @white;
+		background-color: @primary-color;
+		.border-radius(30px);
+		.text-color(@primary-color);
+	}
+}
+.btn{
+	padding:15px 30px;
+	border: none;
+	outline: none;
+}
+.body{
+	background-color: white;
+}
+footer{
+	color: white;
+	background-color: #333;
+}
+footer a{
+	color: @primary-color;
+}
+img{
+	width:200px;
+	height: 200px;
+	.border();
+}
+.border-radius(@radius){
+	border-radius:@radius;
+}
+
+.border{
+	border: 1px solid red;
+}

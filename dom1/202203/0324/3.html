@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="../ball.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 600,
+			H = canvas.height = 450,
+			balls=[],
+			num=300,
+			bounce =-0.5,
+			value = 0.05,
+			firstR = 100,
+			bigBall = false,
+			mouse = C.getBallLength(canvas)
+		// 创建球
+		for(let i=0;i<num;i++){
+			balls.push(new Ball({
+				x:Math.random()*W,
+				y:Math.random()*H,
+				r:!i?100:10,
+				vx:Math.random()*(5-(-5))+(-5),
+				vy:Math.random()*(5-(-5))+(-5),
+				fillStyle:`hsl(${Math.random()*360},50%,50%)`
+			}))
+		}
+		// 碰撞检测
+		function detHit(ballA,i){
+			if(!i&&!bigBall) return
+			for(let j=i+1;j<num;j++){
+				const ballB=balls[j]
+				// 两个球之间的坐标插值
+				const dx=ballB.x-ballA.x
+				const dy=ballB.y-ballA.y
+				// 两球之距
+				const dist=C.getBallLength(ballB.x,ballB.y,ballA.x,ballA.y)
+				// 二球相撞时最小距离
+				const minDist = ballA.r+ballB.r
+				if(dist<=minDist){
+					const targerX = ballA.x+dx/dist*minDist
+					const targerY = ballA.y+dy/dist*minDist
+					const ax=(targerX-ballB.x)*value
+					const ay=(targerY-ballB.y)*value
+					ballA.vx-=ax
+					ballA.vy-=ay
+					ballB.vx+=ax
+					ballB.vy+=ay
+				}
+			}
+		}
+		// 边界检测
+		function detBorder(ball,i){
+			if(!i) return
+			if(ball.x-ball.r<=0){
+				ball.x=ball.r
+				ball.vx*=bounce
+			}else if(ball.x+ball.r>=W){
+				ball.x=W-ball.r
+				ball.vx*=bounce
+			}
+			if(ball.y-ball.r<=0){
+				ball.y=ball.r
+				ball.vy*=bounce
+			}else if(ball.y+ball.r>=H){
+				ball.y=H-ball.r
+			ball.vy*=bounce
+			}
+			ball.x+=ball.vx
+			ball.y+=ball.vy
+		}
+		// 鼠标交互
+		// 鼠标移入改变坐标
+		canvas.addEventListener('mouseover',function(mouse){
+			balls[0].x=mouse.x
+			balls[0].y=mouse.y
+		})
+		canvas.addEventListener('mousemove',function(mouse){
+			bigBall=true
+			balls[0].x=mouse.x
+			balls[0].y=mouse.y
+		})
+		canvas.addEventListener('mouseout',function(mouse){
+			bigBall=false
+			// balls[0].x=mouse.x
+			// balls[0].y=mouse.y
+		})
+		canvas.addEventListener('click',function(mouse){
+			firstR=firstR<H/2?firstR+50 :100
+			balls[0].r=firstR
+		})
+
+		;(function fn(){
+			window.requestAnimationFrame(fn)
+			ctx.clearRect(0,0,W,H)
+			balls.forEach(detHit)
+			balls.forEach(detBorder)
+			balls.forEach((ball,i)=>{
+				if(!i) return
+				ball.render(ctx)
+			})
+		})()
+	</script>
+	</body>
+</html>
+<strong></strong>

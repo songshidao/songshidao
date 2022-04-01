@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				background-color: red;
+				width:100px;
+				transition: 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>苹果</li>
+			<li id="aaa">菠萝</li>
+			<li>火龙果</li>
+			</ul>
+			<button type="button">删除</button>
+			<ul class="ul2"></ul>
+		<script type="text/javascript">
+			const oUl = document.querySelector('ul')
+			let oLi = document.querySelector('#aaa'),
+				oul2 = document.querySelector('.ul2'),
+				obutton = document.querySelector('button')
+			console.log(oUl.firstElementChild)
+		obutton.onclick = function(){
+			 oul2.appendChild(oUl.removeChild(oUl.firstElementChild)) //=  oUl.removeChild(oUl.firstElementChild)
+			 
+		}
+		</script>
+	</body>
+</html>

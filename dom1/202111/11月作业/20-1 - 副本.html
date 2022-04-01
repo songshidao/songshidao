@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				vertical-align: bottom;
+			}
+
+			.sidebar {
+				width: 640px;
+				height: 340px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.btn,
+			h2,
+			ul{
+				position: absolute;
+			}
+
+			h2 {
+				color: #fff;
+				bottom: 10%;
+				left: 2%;
+			}
+
+			.btn {
+				width: 80px;
+				height: 100px;
+				background-image: url(img/sprite.png);
+				background-repeat: no-repeat;
+				line-height: 160px;
+				text-align: center;
+			}
+
+			.btn-l {
+				color: #fff;
+				top: 40%;
+				left: 0;
+				/* background-position:0px -164px ; */
+				background-position:-260px -164px ;
+				text-indent:-20px ;
+			}
+			.btn-l:hover{
+				background-position:0px -164px ;
+			}
+
+			.btn-r {
+				color: #fff;
+				top: 40%;
+				right: 0;
+				background-position:-130px -164px ;
+				/* background-position:-310px 0px ; */
+				text-indent:20px ;
+			}
+			.btn-r:hover{
+				background-position:-310px 0px ;
+			}
+			ul{
+				top: 85%;
+				right: 2%;
+				list-style-type: none;
+			}
+			ul li{
+				display: inline-block;
+				width: 25px;
+				height: 7px;
+				background-color: hsla(0,0%,80%,1);
+				transform: skewX(-20deg);
+			}
+			.li1{
+				background-color: hsla(0,100%,50%,1);
+			}
+			ul li:hover{
+				background-color: hsla(0,100%,50%,1);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sidebar">
+			<img src="img/lunbotu1.jpg">
+			<h2>[NBA]勇士104-89骑士 库里9三分砍40分</h2>
+			<div class="btn btn-l"><span>1/5</span>
+			</div>
+			<div class="btn btn-r"><span>1/5</span>
+			</div>
+			<ul class="sn">
+				<li class="li1"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var aImg = document.querySelector('img'),
+				aH2 = document.querySelector('h2'),
+				aDiv = document.getElementsByClassName('btn'),
+				aLi = document.querySelectorAll('li'),
+				aSpan = document.querySelectorAll('span')
+				aNum =['1/5','2/5','3/5','4/5','5/5'] 
+				src = ['img/lunbotu1.jpg', 'img/lunbotu2.jpg', 'img/lunbotu3.jpg', 'img/lunbotu4.jpg', 'img/lunbotu5.jpg'],
+				text = ['[NBA]勇士104-89骑士 库里9三分砍40分', '国足全体抵达苏州 开始进行集中隔离', '足协宣布水庆霞担任中国女足主教练', '为中国足球奋斗！武磊30岁生日快乐！',
+					'张家齐与姆巴佩联动 为旅法大熊猫幼崽命名'
+				],
+				n = 0
+				last = 0
+				function myslider(num){
+					aLi[last].className = ''
+					aLi[num].className = 'li1'
+					aImg.src = src[num]
+					aSpan[1].innerHTML = aSpan[0].innerHTML = aNum[num]
+					aH2.innerHTML = text[num]
+					last = num
+				}
+				
+				
+			aDiv[1].onclick = function() {
+				n++
+				if (n == src.length) {
+					n = 0
+				}
+				myslider(n)
+			}
+			aDiv[0].onclick = function() {
+				n--
+				if (n < 0) {
+					n = 4
+				}
+				myslider(n)
+			}
+			for(var i=0;i<5;i++){
+				aLi[i].index = i
+				aLi[i].onmouseover = function(){
+					myslider(this.index)
+					 n = this.index
+				}
+			}
+			
+		</script>
+	</body>
+</html>

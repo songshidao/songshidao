@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参-选项卡嵌套</title>
+	<style>
+	*{margin:0;padding:0;}
+	body{background:#000;}
+	ul{list-style:none;}
+	ul#box{width:1160px;height:560px;margin:30px auto;position:relative;color:#fff;text-align:center;overflow:hidden;}
+
+	ul#box li a{width:200px;height:186px;line-height:186px;margin-bottom:1px;display:block;background:#333;}
+	ul#box li a.active{background:red;}
+	ul#box li ul{display:none;}	
+	ul#box li ul.active{display:block;}
+
+	ul#box li ul li img{width:960px;height:560px;position:absolute;top:0;right:0;}
+	ul#box li ul li.active img{z-index: 9;}
+	ul#box li ul li span{width:319px;height:60px;line-height:60px;position:absolute;bottom:0;z-index:10;margin-left:1px;background:hsla(0,0%,0%,0.5);}
+	ul#box li ul li.active span{background:blue}
+	
+	#left1{left:200px;}
+	#left2{left:520px;}
+	#left3{left:840px;}
+	#left4{left:200px;}
+	#left5{left:520px;}
+	#left6{left:840px;}
+	#left7{left:200px;}
+	#left8{left:520px;}
+	#left9{left:840px;}
+
+	#lefta{left:200px;}
+	#leftb{left:440px;}
+	#leftc{left:680px;}
+	#leftd{left:920px;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv = document.getElementById('box');
+		var aA = oDiv.getElementsByTagName('a');
+		var aUl = oDiv.getElementsByTagName('ul');
+		var aLi = null;
+		var arrLi = [];
+
+			
+
+		for(var i=0;i<aUl.length;i++){
+			aLi = aUl[i].getElementsByTagName('li');
+			for(var j=0;j<aLi.length;j++){
+				arrLi.push(aLi[j]);
+			}
+		}
+		for(var i=0;i<arrLi.length;i++){
+			arrLi[i].onmouseover = function(){
+				for(var i=0;i<arrLi.length;i++){
+					arrLi[i].className = '';
+				}
+				this.className = 'active';
+			}
+		}
+			
+
+		
+
+		for(var i=0;i<aLi.length;i++){
+			fnTab(aA[i],aUl[i]);
+		}
+		function fnTab(a,ul){
+			a.onmouseover = function(){
+				for(var i=0;i<aA.length;i++){
+					aA[i].className = '';
+					aUl[i].className = '';
+				}
+			a.className = 'active';
+			ul.className = 'active';
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<ul id="box">
+	<li>
+		<a>选项卡1</a>	
+		<ul>
+			<li class="active">
+				<img src="images/slider1.jpg" />
+				<span id="left1">图片一</span>
+			</li>
+			<li>
+				<img src="images/slider2.jpg" />
+				<span id="left2">图片二</span>
+			</li>
+			<li>
+				<img src="images/slider3.jpg" />
+				<span id="left3">图片三</span>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a>选项卡2</a>	
+		<ul>
+			<li class="active">
+				<img src="images/slider4.jpg" />
+				<span id="left1">图片说明</span>
+			</li>
+			<li>
+				<img src="images/slider5.jpg" />
+				<span id="left2">图片说明</span>
+			</li>
+			<li>
+				<img src="images/slider6.jpg" />
+				<span id="left3">图片说明</span>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a>选项卡3</a>	
+		<ul>
+			<li  class="active">
+				<img src="images/slider8.jpg" />
+				<span id="left1">图片说明</span>
+			</li>
+			<li>
+				<img src="images/slider9.jpg" />
+				<span id="left2">图片说明</span>
+			</li>
+			<li>
+				<img src="images/slider10.jpg" />
+				<span id="left3">图片说明</span>
+			</li>
+		</ul>
+	</li>
+
+
+</ul>
+</li>
+</ul>
+</body>
+</html>

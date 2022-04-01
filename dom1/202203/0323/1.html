@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="ball.js" type="text/javascript" charset="utf-8"></script>
+		<script src="tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = window.innerWidth,
+			H = canvas.height = window.innerHeight,
+			mouse = C.getMousePos(canvas),
+			g = 0.04,
+			f=0.98
+			
+			class Lizi{
+				constructor(x,y,r,color,v,o){
+					this.x=x
+					this.y=y
+					this.r=r
+					this.color=color
+					this.v=v
+					this.o=o
+				}
+				draw(){
+					ctx.save()
+					ctx.globalAlpha=this.o
+					ctx.beginPath()
+					ctx.arc(this.x,this.y,this.r,0,2*Math.PI,false)
+					ctx.fillStyle = this.color
+					ctx.fill()
+					ctx.closePath()
+					ctx.restore()
+				}
+				update(){//更新动画
+					this.draw()
+					this.v.x*=f
+					this.v.y*=f
+					this.v.y+=g
+					this.x+=this.v.x
+					this.y+=this.v.y
+					this.o -=0.03
+				}
+			}
+			let liziArr = []
+				canvas.addEventListener('click',(ev)=>{
+					mouse.x=ev.clientX
+					mouse.y=ev.clientY
+					const num = 400
+					let radians=(Math.PI*2)/num
+					for(let i=0;i<num;i++){
+						liziArr.push(
+						new Lizi(
+						mouse.x,
+						mouse.y,
+						3,
+						// `#${(Math.floor(Math.random()*16777215)).toString(16)}`,
+						`hsl(${Math.random()*360},50%,50%)`,
+						{
+							x:Math.cos(radians*i)*Math.random()*10,
+							y:Math.sin(radians*i)*Math.random()*10
+						},
+						1
+						)
+						)
+					}
+					console.log(liziArr)
+				})
+				;(function move(){
+					window.requestAnimationFrame(move)
+					ctx.fillStyle = `rgba(0,0,0,0.05)`
+					ctx.fillRect(0,0,W,H)
+					liziArr.forEach((lizi,i)=>{
+						if(lizi.o>0){
+							lizi.update()
+						}else {
+							liziArr.splice(i,1)
+						}
+						// console.log(lizi)
+					})
+				})()
+	</script>
+	</body>
+</html>

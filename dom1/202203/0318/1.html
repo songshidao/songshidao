@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				position: fixed;
+				/* top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%); */
+			}
+		</style>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let w= canvas.width = 500,
+			h = canvas.height = 400,
+			x = w/2,
+			y= h/2
+			// 画脸
+			let faceX = x,
+				faceY= y,
+				faceR = 40
+				
+			// 眼框
+				let eyeY = faceY-faceR/3,
+				eyeR = 10,
+				eyeDX = eyeR+faceR/6
+			
+			// 眼球
+			let eyeBallR = 3,
+				eyeBallRX = faceX+eyeDX,
+				eyeBallRY = eyeY,
+				eyeBallLX =faceX- eyeDX,
+				eyeBallLY = eyeY,
+				eyeBallRX2 = eyeBallRX,
+				eyeBallRY2 = eyeBallRY,
+				eyeBallLX2 = eyeBallLX,
+				eyeBallLY2 = eyeBallLY
+			const eyeBallMoveR= 5
+			
+			
+			
+			
+				drawFace()
+				function drawFace(){
+					ctx.beginPath()
+					ctx.arc(faceX,faceY,faceR,0,2*Math.PI,false)
+					ctx.fillStyle = 'black'
+					ctx.fill()
+					ctx.stroke()
+					
+					
+					ctx.beginPath()
+					ctx.arc(faceX-eyeDX,eyeY,eyeR,0,2*Math.PI,false)
+					ctx.fillStyle = 'white'
+					ctx.fill()
+					ctx.stroke()
+					
+					ctx.beginPath()
+					ctx.arc(faceX+eyeDX,eyeY,eyeR,0,2*Math.PI,false)
+					ctx.fillStyle = 'white'
+					ctx.fill()
+					ctx.stroke()
+				}
+				drawEyeBall()
+				
+				// ctx.beginPath()
+				// ctx.arc(faceX-eyeDX,eyeY,eyeR/3,0,2*Math.PI,false)
+				// ctx.fillStyle = 'red'
+				// ctx.fill()
+				// ctx.stroke()
+				function drawEyeBall(){
+					ctx.beginPath()
+					ctx.arc(eyeBallRX2,eyeBallRY2,eyeBallR,0,2*Math.PI,false)
+					ctx.fillStyle = 'black'
+					ctx.fill()
+					ctx.stroke()
+					ctx.beginPath()
+					ctx.arc(eyeBallLX2,eyeBallLY2,eyeBallR,0,2*Math.PI,false)
+					ctx.fillStyle = 'black'
+					ctx.fill()
+					ctx.stroke()
+				}
+				
+				canvas.addEventListener('mousemove',function(ev){
+					let mouseX = ev.pageX - this.offsetLeft-faceX,
+						mouseY= ev.pageY - this.offsetTop-eyeY,
+						ratioX = Math.abs(mouseX)/(Math.abs(mouseX)+Math.abs(mouseY)),
+						ratioY = Math.abs(mouseY)/(Math.abs(mouseY)+Math.abs(mouseX))
+						
+						console.log(ev.pageX,this.offsetLeft,faceX)
+						if(mouseX>0){
+							eyeBallRX2=eyeBallRX+eyeBallMoveR*ratioX
+							eyeBallLX2=eyeBallLX+eyeBallMoveR*ratioX
+						}else{
+							eyeBallRX2=eyeBallRX-eyeBallMoveR*ratioX
+							eyeBallLX2=eyeBallLX-eyeBallMoveR*ratioX
+						}
+						if(mouseY>0){
+							eyeBallRY2=eyeBallRY+eyeBallMoveR*ratioY
+							eyeBallLY2=eyeBallLY+eyeBallMoveR*ratioY
+						}else{
+							eyeBallRY2=eyeBallRY-eyeBallMoveR*ratioY
+							eyeBallLY2=eyeBallLY-eyeBallMoveR*ratioY
+						}
+						ctx.clearRect(0,0,w,h)
+					drawFace()
+					drawEyeBall()
+				})
+			
+	</script>
+	</body>
+</html>

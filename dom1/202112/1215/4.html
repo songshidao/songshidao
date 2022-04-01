@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		body{
+			perspective: 1000px;
+		}
+			.conter{
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				box-shadow: inset 0 0 20px 0 #000000;
+				margin: 40px auto;
+				/* transition: 1s; */
+				transform: scale(2);
+				animation: move1 3s infinite linear;
+				position: relative;
+			}
+			.box1{
+				width: 30px;
+				height: 10px;
+				border-radius: 50%;
+				position: absolute;
+				top:50%;
+				left: 0;
+				 transform-origin: 80px center;
+			}
+			.inmove{
+				width: 30px;
+				height: 10px;
+				/* background-color: red; */
+				background-image: linear-gradient(to right,red,transparent,transparent);
+				border-radius: 50%;
+				/* position: absolute; */
+				/* top:50%; */
+				animation:move2 3s infinite linear ;
+				
+			}
+			
+			@keyframes move1{
+				from{transform: translateZ(100px)}
+				to{transform: translateZ(-1000px)}
+			}
+			@keyframes move2{
+				0{transform:translateX(0px) scale(1)}
+				100%{transform:translateX(-1000px) scale(1)}
+			}
+			
+			/* .conter:hover{
+				width: 200px;
+				height: 200px;
+				
+			} */
+			
+		</style>
+	</head>
+	<body>
+		<div class="conter">
+			
+			<div class="box1">
+				<div class="inmove"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			const oDiv = document.querySelector('.conter')
+			let n= 30,
+				str = ''
+				for(let i=0;i<n;i++){
+					str += `<div class='box1'>
+					<div class='inmove'>
+					</div>
+					</div>`
+				}
+				oDiv.innerHTML = str
+				const abox1 = document.querySelectorAll('.box1'),
+				 ainmove = document.querySelectorAll('.inmove')
+				for(let i=0;i<abox1.length;i++){
+					abox1[i].style.transform = `rotateZ(${360/n*i}deg)`
+					
+				}
+				
+		</script>
+	</body>
+</html>

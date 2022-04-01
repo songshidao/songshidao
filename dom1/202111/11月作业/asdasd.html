@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+ </head>
+ <body>
+  
+  <script type="text/javascript">
+     var aNum = [2,60,100,-5,0,27,68,-222]
+     var max = 0
+     var min = 0
+     for(var i=0;i<aNum.length;i++){
+      if(max < aNum[i]){
+       max = aNum[i]
+      }
+      if(min > aNum[i]){
+       min = aNum[i]
+      }
+     }
+     document.write('最大值：' + max + ';最小值：' + min)
+     
+    </script>
+ </body>
+</html>

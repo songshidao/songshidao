@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title> 
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			img{
+				display: block;
+			}
+			table{
+				border-collapse: collapse;
+				width:100%;
+			}
+			tr{
+				
+			}
+			.selected{
+				background-color: mistyrose;
+			}
+			td{
+				border:1px solid #ccc;
+			}
+			
+			#cart{
+				width:990px;
+				margin:0 auto;
+			}
+			#cart img{
+				width:80px;
+				height:80px;
+			}
+			
+			.toolbar{
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			[type=button]{
+				width:20px;
+				height:20px;
+			}
+			[type=text]{
+				width:30px;
+			}
+			[type=checkbox]{
+				width:40px;
+				width:40px;
+			}
+			.disabled{
+				cursor: not-allowed;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cart">
+			<table>
+				<thead>
+					<tr>
+						<th>全选</th>
+						<th colspan="2">商品</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>小计</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" value="" /></td>
+						<td><img src="images/1jljj.jpg" ></td>
+						<td>家乐鸡精调味料600g联合利华出品</td>
+						<td class="price">￥14.90</td>
+						<td><input type="button" value="-" class="minus " /> <input type='text' value='1' class='quanty'> <input type="button" value="+" class='plus'></td>
+						<td class="subtotal">￥14.90</td>
+						<td>操作</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" value="" /></td>
+						<td><img src="images/2stcc2.jpg" ></td>
+						<td>水塔 醋 4度陈醋 2.3L 山西特产</td>
+						<td class="price">￥15.60</td>
+						<td><input type="button" value="-" class="minus"  /> <input type='text' value='1' class='quanty'> <input type="button" value="+" class='plus'></td>
+						<td class="subtotal">￥15.60</td>
+						<td>操作</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" value="" /></td>
+						<td><img src="images/3zydny.jpg" ></td>
+						<td>中盐 低钠盐 食盐 250g</td>
+						<td class="price">￥3.50</td>
+						<td><input type="button" value="-" class="minus"  /> <input type='text' value='1' class='quanty'> <input type="button" value="+" class='plus'></td>
+						<td class="subtotal">￥3.50</td>
+						<td>操作</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" value="" /></td>
+						<td><img src="images/413x.jpg" ></td>
+						<td>王守义十三香45g 炒菜炖肉拌菜蘸料腌制调味料 中华老字号</td>
+						<td class="price">￥4.50</td>
+						<td><input type="button" value="-" class="minus"  /> <input type='text' value='1' class='quanty'> <input type="button" value="+" class='plus'></td>
+						<td class="subtotal">￥4.50</td>
+						<td>操作</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" value="" /></td>
+						<td><img src="images/5ttljj.jpg" ></td>
+						<td>太太乐 鸡精 三鲜调味料 加倍提鲜 227g 雀巢出品</td>
+						<td class="price">￥10.90</td>
+						<td><input type="button" value="-" class="minus"  /> <input type='text' value='1' class='quanty'> <input type="button" value="+" class='plus'></td>
+						<td class="subtotal">￥10.90</td>
+						<td>操作</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="toolbar">
+				<div class="left">
+					<input type="checkbox" />全选 <span>删除选中的商品</span>
+				</div>
+				<div class="right">
+					<p>已选择<span class="totalquantity">0</span>件商品</span> 总价：<span class="totalcost">￥0</span> <a href="javascript">去结算</a></p>
+				</div>
+			</div>
+		</div>
+<script type="text/javascript">
+let aCheckBox = document.querySelectorAll('tbody [type=checkbox]'),
+	aTr = document.querySelectorAll('tbody tr'),
+	oAllclick = document.querySelector('.toolbar [type=checkbox]'),
+	result = 0,
+	aMinus = document.querySelectorAll('.minus'),
+	aPlus = document.querySelectorAll('.plus'),
+	aQuanty = document.querySelectorAll('.quanty'),
+	aSubtotal = document.querySelectorAll('.subtotal'),
+	oTotalquantity = document.querySelector('.totalquantity'),
+	oTotalcost = document.querySelector('.totalcost'),
+	aPrice = document.querySelectorAll('.price'),
+	n = 0,
+	N = 0
+
+//点击勾选框 改变背景色 再次点击取消  
+for(let i=0;i<aTr.length;i++){
+	aCheckBox[i].onclick = function(){
+		// if(aTr[i].className==''){
+		// 	aTr[i].className = 'selected'
+		// }else{
+		// 	aTr[i].className = ''
+		// }
+		aTr[i].classList.toggle('selected')
+		result =  Array.from(aCheckBox).every(function(itme){
+			return itme.checked 
+		})
+		// if(result){
+		// 	oAllclick.checked = true
+		// }else{
+		// 	oAllclick.checked = false
+		// }
+		result?oAllclick.checked = true:oAllclick.checked = false
+	}
+}
+
+// 点击全选所有TR背景色改变,或者全部选择后全选勾选 再次取消
+
+// 总价格随着选择的按钮增加  数量也是
+
+
+
+// 商品数量不为0上限10 到了最大值和最小值添加一个禁用类:disable
+// 点击加\减号数值加\减一
+for(let i=0;i<aPlus.length;i++){
+aPlus[i].onclick= function(){
+	n= 0
+	N= 0
+	aQuanty[i].value<10?aQuanty[i].value = ++aQuanty[i].value:aPlus[i].disabled = true
+	// aQuanty[i].value = ++aQuanty[i].value
+	if(aQuanty[i].value == 10) {
+		aPlus[i].classList.add('disabled')
+		aPlus[i].disabled = true
+		}
+	else{
+		// aPlus[i].classList.remove('disabled')
+		aMinus[i].classList.remove('disabled')
+		// aPlus[i].disabled = false
+		aMinus[i].disabled = false
+		}
+		aSubtotal[i].innerHTML = `￥${(aPrice[i].innerHTML.slice(1)*aQuanty[i].value).toFixed(2)}`
+		for(let j=0;j<aPlus.length;j++){
+			n += parseInt(aQuanty[j].value)
+			oTotalquantity.innerHTML = n
+			 N += `${(aPrice[j].innerHTML.slice(1)*aQuanty[j].value).toFixed(2)}`-0
+			 oTotalcost.innerHTML = `￥${(N).toFixed(2)}`
+		}
+}
+// 减
+aMinus[i].onclick= function(){
+	n= 0
+	N= 0
+	aQuanty[i].value>1?aQuanty[i].value = --aQuanty[i].value:aMinus[i].disabled = true
+	// aQuanty[i].value = ++aQuanty[i].value
+	if(aQuanty[i].value == 1) {
+		aMinus[i].classList.add('disabled')
+		aMinus[i].disabled = true
+	}
+	else{
+		// aMinus[i].classList.remove('disabled')
+		aPlus[i].classList.remove('disabled')
+		// aMinus[i].disabled = false
+		aPlus[i].disabled = false
+	}
+	aSubtotal[i].innerHTML = `￥${(aPrice[i].innerHTML.slice(1)*aQuanty[i].value).toFixed(2)}`
+	for(let j=0;j<aPlus.length;j++){
+		n += parseInt(aQuanty[j].value)
+		oTotalquantity.innerHTML = n
+		N += `${(aPrice[j].innerHTML.slice(1)*aQuanty[j].value).toFixed(2)}`-0
+		oTotalcost.innerHTML = `￥${(N).toFixed(2)}`
+	}
+}
+
+}
+</script>		
+	</body>
+</html>

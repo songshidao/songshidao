@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yangshi1{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            border:black 1px solid;
+        }
+        .yangshi2{
+            width: 500px;
+            height: 500px;
+            background-color: greenyellow;
+            border:black 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value="样式一" />
+	<input type="button" id="btn2" value="样式二" />
+	<p id="text">
+		
+		北京时间4月30日消息，巴西国家队公布了一份40人的名单，这是美洲杯的初始大名单，最后的23人名单将从其中选出，其中中超有3名球员入选，分别是北京国安的奥古斯托、山东鲁能的吉尔和江苏苏宁的特谢拉。
+
+　　在官方网站上，巴西足协透露邓加将在5月5日宣布最后的23人名单，今年是美洲杯百年，比赛将在美国进行，时间是6月3日-26日。
+
+　　吉尔和奥古斯托都入选了最近几期国家队，而特谢拉也迎来了巴西国家队首秀的机会。不过仍有多位效力中超的巴西外援没能入选，其中包括江苏苏宁的拉米雷斯、广州恒大的保利尼奥，上海上港的埃尔克森这次还是没等到国家队的召唤。
+
+　　巴西国家队40人大名单：
+
+　　门将：埃利森（巴西国际）、迭戈-阿尔维斯（瓦伦西亚）、埃德森（本菲卡）、格罗霍（格雷米奥）
+
+
+　　后卫：丹尼-阿尔维斯（巴萨）、法比尼奥（摩纳哥）、法格纳（科林蒂安）、阿莱士-桑德罗（尤文）、道格拉斯-桑托斯（米内罗竞技）、费利佩-路易斯（马竞）、加布里埃尔-保利斯塔（阿森纳）、吉尔（山东鲁能）、杰默森（摩纳哥）、马尔基尼奥斯（巴黎圣日耳曼）、米兰达（国米）、卡奥（圣保罗）
+	</p>
+
+    <script>
+        let aInput = document.querySelectorAll('input'),
+            oTxt = document.querySelector('p')
+
+            aInput[0].onclick = function(){
+                oTxt.className = 'yangshi1'
+            }
+            aInput[1].onclick = function(){
+                oTxt.className = 'yangshi2'
+            }
+    </script>
+</body>
+</html>

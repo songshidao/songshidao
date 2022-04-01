@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		str= ''
+			for(let i=0;i<5;i++){
+				// str += `<div style='left:${51*i}px;top:0px;'>${i}</div>`
+				// str += `<div style='left:0px;top:${51*i}px;'>${i}</div>`
+				// str += `<div style='left:${51*i}px;top:${51*i}px;'>${i}</div>`
+				// if(i<5/2){
+				// 	str += `<div style='left:${51*i}px;top:${51*i}px;'>${i}</div>`
+				// }else{
+				// 	str += `<div style='left:${51*i}px;top:${51*(5-i-1)}px;'>${i}</div>`
+				// }
+				// if(i<5/2){
+				// 	str += `<div style='left:${51*i}px;top:${51*i}px;'>${i}</div>`
+				// }else{
+				// 	str += `<div style='left:${51*(5-i-1)}px;top:${51*i}px;'>${i}</div>`
+				// }
+				// if(i<5/2){
+				// 	str += `<div style='left:${51*(5-i-1)}px;top:${51*i}px;'>${i}</div>`
+				// }else{
+				// 	str += `<div style='left:${51*i}px;top:${51*i}px;'>${i}</div>`
+				// }
+				if(i<5/2){
+					str += `<div style='left:${51*i}px;top:${51*(5-i-1)}px;'>${i}</div>`
+				}else{
+					str += `<div style='left:${51*i}px;top:${51*i}px;'>${i}</div>`
+				}
+				
+			}
+			document.body.innerHTML = str
+		</script>
+	</body>
+</html>

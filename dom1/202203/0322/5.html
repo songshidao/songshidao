@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="ball.js" type="text/javascript" charset="utf-8"></script>
+		<script src="tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 800,
+			H = canvas.height = 600,
+			vx = 0,
+			vy =0,
+			vr=0,
+			a=0,
+			f=0.6
+		const arrow =new Arrow({
+			x:W/2,
+			y:H/2,
+			w:60,
+			h:20
+		}).render(ctx)
+		
+		//改值
+		window.addEventListener('keydown',function(ev){
+			switch(ev.keyCode){
+				case 37:
+				vr = -5
+				break;
+				case 39:
+				vr = 5
+				break;
+				case 38:
+				a =10
+				break;
+			}
+		})
+		window.addEventListener('keyup',function(ev){
+			switch(ev.keyCode){
+				case 37:
+				vr=0
+				break;
+				case 39:
+				vr=0
+				break;
+				case 38:
+				a =0
+				break;
+			}
+		})
+		// 接收
+		;(function move(){
+			window.requestAnimationFrame(move)
+			ctx.clearRect(0,0,W,H)
+			if(vr*Math.PI/180){
+				console.log(vr)
+				arrow.rotation +=vr*Math.PI/180
+			}else{
+				arrow.rotation =arrow.rotation
+			}
+			let angle = arrow.rotation
+			vx=Math.cos(angle)*a
+			vy=Math.sin(angle)*a
+			arrow.x += vx
+			arrow.y += vy
+			
+			if(arrow.x-arrow.w/2>=W){
+				arrow.x = 0-arrow.w/2
+			}else if(arrow.x+arrow.w/2<=0){
+				arrow.x = W+arrow.w/2
+			}else if(arrow.y-arrow.h/2>=H){
+				arrow.y = 0-arrow.h/2
+			}else if(arrow.y+arrow.h/2<=0){
+				arrow.y = H+arrow.h/2
+			}
+			
+			arrow.render(ctx)
+		})()
+	</script>
+	</body>
+</html>

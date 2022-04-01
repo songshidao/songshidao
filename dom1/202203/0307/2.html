@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+	body{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#box1{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #000000;
+		background-color: red;
+	}
+	#box2{
+		width: 100px;
+		height: 100px;
+		border: 1px solid #000000;
+		background-color: yellow;
+	}
+	</style>
+	<body>
+		<div id="box1"></div>
+		<div id="box2" draggable="true"></div>
+		
+		<script type="text/javascript">
+			//获取元素
+			const box1 = document.querySelector('#box1')
+			const box2 = document.querySelector('#box2')
+			let x,y ;
+			let ele,elePos;
+			let box2Pos 
+			let box2PosT,
+				box2PosB,
+				box2PosL,
+				box2PosR ;
+			// 添加事件
+			document.addEventListener('touchstart',fn1)
+			document.addEventListener('touchmove',fn2)
+			document.addEventListener('touchend',fn3)
+			function fn1(ev){
+				//获取坐标
+				x = ev.changedTouches[0].clientX - ev.target.offsetLeft
+				y = ev.changedTouches[0].clientY - ev.target.offsetTop
+				console.log(x,y)
+				//判断目标点元素是否可拖动
+				ele = ev.target
+			}
+			function fn2(ev){
+				// 修改left 和top
+				if(ele.getAttribute('draggable')== 'true'){
+					ele.style.position = 'absolute'
+					ele.style.left  = ev.changedTouches[0].clientX - x +'px'
+					ele.style.top  = ev.changedTouches[0].clientY - y +'px'
+				}
+				box2Pos = ele.getBoundingClientRect()
+				 box2PosT = box2Pos.top
+					box2PosB = box2Pos.bottom
+					box2PosL = box2Pos.left
+					box2PosR = box2Pos.right
+					
+			}
+			function fn3(ev){
+				console.log(box1.getBoundingClientRect())
+				box1Pos = box1.getBoundingClientRect()
+				let box1PosT = box1Pos.top,
+					box1PosB = box1Pos.bottom,
+					box1PosL = box1Pos.left,
+					box1PosR = box1Pos.right;
+				if(box1PosT<box2PosT&&box1PosB>box2PosB&&box1PosL<box2PosL&&box1PosR>box2PosR){
+					box1.appendChild(ele)
+					ele.style.position = 'static'
+					ele.setAttribute('draggable','false')
+				}else{
+					
+				}
+			}
+		</script>
+	</body>
+</html>

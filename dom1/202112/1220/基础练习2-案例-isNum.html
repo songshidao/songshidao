@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>写一个判断是否是数字的函数</title>
+	</head>
+	<body>
+		<input type="text">
+		<input type="submit" value="判断">
+		<p>请输入数字</p>
+<script type="text/javascript">
+	let aInput = document.querySelectorAll('input')
+	let oP = document.querySelector('p')
+	let $char = ''
+	
+	//单击按钮  判断aInput[0]的value值是不是数字 把判断结果写入p中
+	
+	aInput[1].onclick = function(){
+		$char = aInput[0].value
+		if(isNumber($char)){oP.innerHTML='是'}
+		else{
+			oP.innerHTML = '不是'
+		}
+		aInput[0].value = ''
+	}
+	function isNumber(arr){
+		for(i=0;i<arr.length;i++){
+			if(47>arr.charCodeAt(i)||58<arr.charCodeAt(i)){
+				return false
+			}return true
+		}
+	}
+</script>
+	</body>
+</html>

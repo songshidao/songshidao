@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/boy.png" alt="" class="img">
+		<script type="text/javascript">
+			var oImg = document.querySelector('.img')
+			
+			oImg.onclick = function () {
+				console.log(oImg.src)
+				if (oImg.src == 'file:///Users/zj/projects/js-tutorials/1108/images/boy.png') {
+					oImg.src = 'images/girl.png'
+				} else {
+					oImg.src = 'images/boy.png'
+				}
+			}
+			
+		</script>
+	</body>
+</html>

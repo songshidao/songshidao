@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>requestAnimationFrame</title>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			console.log(window)
+			console.log(window.requestAnimationFrame)
+			//console.log(window.requestAnimationFrame())//报错Uncaught TypeError: Failed to execute 'requestAnimationFrame' on 'Window': 1 argument required, but only 0 present.
+			console.log(window.requestAnimationFrame(callback))//返回值1
+			function callback(){
+				//console.log(window.requestAnimationFrame(callback))//递归,返回值可以理解为动画播放次数,也可以理解为本次动画的id
+			}
+		</script>
+	</body>
+</html>

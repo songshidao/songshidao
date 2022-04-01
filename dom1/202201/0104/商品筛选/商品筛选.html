@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div id="wrap">
+		<section id="section">
+			<nav id="choose">
+				<span>你的选择:</span>
+				<div>
+					<!-- <mark>魅族<a href="javascript:;">x</a></mark>
+					<mark>魅族<a href="javascript:;">x</a></mark> -->
+				</div>
+			</nav>
+			<ul id="type">
+				<!-- <li>
+					<span>品牌：</span>
+					<a href="javascript:;">苹果</a>
+					<a href="javascript:;">小米</a>
+					<a href="javascript:;">锤子</a>
+					<a href="javascript:;">魅族</a>
+					<a href="javascript:;">华为</a>
+					<a href="javascript:;">三星</a>
+					<a href="javascript:;">OPPO</a>
+					<a href="javascript:;">vivo</a>
+					<a href="javascript:;">乐视</a>
+					<a href="javascript:;">360</a>
+					<a href="javascript:;">中兴</a>
+					<a href="javascript:;">索尼</a>
+				</li>
+				<li>
+					<span>尺寸：</span>
+					<a href="javascript:;">3.0英寸以下</a>
+					<a href="javascript:;">3.0-3.9英寸</a>
+					<a href="javascript:;">4.0-4.5英寸</a>
+					<a href="javascript:;">4.6-4.9英寸</a>
+					<a href="javascript:;">5.0-5.5英寸</a>
+					<a href="javascript:;">6.0英寸以上</a>
+				</li>
+				<li>
+					<span>系统：</span>
+					<a href="javascript:;">安卓 ( Android )</a>
+					<a href="javascript:;">苹果 ( IOS )</a>
+					<a href="javascript:;">微软 ( WindowsPhone )</a>
+					<a href="javascript:;">无</a>
+					<a href="javascript:;">其他</a>
+				</li>
+				<li>
+					<span>网络：</span>
+					<a href="javascript:;">联通3G</a>
+					<a href="javascript:;">双卡单4G</a>
+					<a href="javascript:;">双卡双4G</a>
+					<a href="javascript:;">联通4G</a>
+					<a href="javascript:;">电信4G</a>
+					<a href="javascript:;">移动4G</a>
+				</li> -->
+			</ul>
+		</section>
+		<nav class="filter-nav">
+			<span class="nav-color">综合排序</span>
+			<span>销量排序</span>
+			<span>价格低到高</span>
+			<span>价格高到低</span>
+		</nav>
+		<section class="shop-list">
+			
+		</section>
+	</div>
+	<script src="shoplist.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	let crumbData = [
+			{
+				"title": "品牌",
+				"data": [ "苹果","小米","锤子","魅族","华为","三星","OPPO","vivo","乐视"]
+			},
+			{
+				"title": "尺寸",
+				"data": ["4.0-4.5英寸","4.6-4.9英寸","5.0-5.5英寸","6.0英寸以上"]
+			},
+			{
+				"title": "系统",
+				"data": ["android","ios","window phone","无","其他"]
+			},
+			{
+				"title": "网络",
+				"data": ["联通3G","双卡单4G","双卡双4G","联通4G"]
+			}
+		]
+		let oUl = document.querySelector('#type'),
+			str = '',
+			newLi = null,
+			oDivSelected = document.querySelector('#choose div'),
+			oShopList = document.querySelector('.shop-list'),
+			filteredObj = {},
+			filteredArr = ['brand','size','system','network']
+// 渲染数据
+for(let i=0;i<crumbData.length;i++){
+	newLi = document.createElement('li')
+	newSpan = document.createElement('span')
+	newSpan.innerHTML = crumbData[i].title
+	newLi.appendChild(newSpan)
+	for(let j=0;j<crumbData[i].data.length;j++){
+		newA = document.createElement('a')
+		newA.href = 'javascript:'
+		newA.innerHTML = crumbData[i].data[j]
+		newLi.appendChild(newA)
+	}
+		oUl.appendChild(newLi)
+}
+
+function render(ARRAY){
+	let str = ''
+	ARRAY.forEach(function(i){
+		str += `<ul>
+					<li><img src=${i.imgUrl}></li>
+					<li>${i.size}</li>
+					<li>${i.system}</li>
+					<li>${i.network}</li>
+					<li>${i.brand}</li>
+					<li>${i.volume}</li>
+					<li>${i.price}</li>
+				</ul>`
+	})
+	oShopList.innerHTML = str
+}
+// 给a标签添加点击事件
+	let  aLi = oUl.children,
+		last = null
+		brand = ''
+		size = ''
+		system = ''
+		network = ''
+	for(let i=0;i<aLi.length;i++){
+		aLi[i].last = null
+		aLi[i].index = i
+		let aA = aLi[i].querySelectorAll('a')
+		for(let j=0;j<aA.length;j++){
+			aA[j].onclick = function(){
+// 把条件添加到顶部
+				if(this.parentNode.index ==0){
+					brand = `<mark>${this.innerHTML}<a data-index='0' href="javascript:;">x</a></mark>`
+				}else if(this.parentNode.index ==1){
+					size = `<mark>${this.innerHTML}<a data-index='1' href="javascript:;">x</a></mark>`
+				}else if(this.parentNode.index ==2){
+					system = `<mark>${this.innerHTML}<a data-index='2' href="javascript:;">x</a></mark>`
+				}else{
+					network = `<mark>${this.innerHTML}<a data-index='3' href="javascript:;">x</a></mark>`
+				}
+				oDivSelected.innerHTML = `${brand}${size}${system}${network}`
+				
+				let returnArr = shopsList
+				filteredObj[filteredArr[this.parentNode.index]] = this.innerHTML
+				for(let attr in filteredObj){
+									returnArr = returnArr.filter(function(obj){
+										return obj[attr] == filteredObj[attr]
+									})
+							}
+							// console.log(filteredObj)
+				//  returnArr = shopsList.filter(function(i){
+				// 	 if(i.brand==aA[j].innerHTML){
+				// 		 console.log(aA[j].innerHTML)
+				// 		 return i
+				// 	 }else  if(i.size==aA[j].innerHTML){
+				// 		 console.log(aA[j].innerHTML)
+				// 		 return i
+				// 	 }else  if(i.system==aA[j].innerHTML){
+				// 		 console.log(aA[j].innerHTML)
+				// 		 return i
+				// 	 }else  if(i.network==aA[j].innerHTML){
+				// 		 console.log(aA[j].innerHTML)
+				// 		 return i
+				// 	 }
+				// })
+				render(returnArr)
+// 点击X删除
+// dataset可以拿到自定义属性,而在行间添加自定义属性要data-.横杠后是自定义属性值
+let aDel = oDivSelected.querySelectorAll('a')
+for(let n=0;n<aDel.length;n++){
+	aDel[n].onclick = function(){
+		this.parentNode.remove()
+		if(this.dataset.index==0){
+			brand = ''
+			console.log(aLi[0].children[1])
+			aLi[i].last.style.color = ''
+		}else if(this.dataset.index==1){
+			size = ''
+		}else if(this.dataset.index==2){
+			system = ''
+			}else{
+				network = ''
+			}
+	}
+}
+
+// 清除上一个
+				if(aLi[i].last){
+					aLi[i].last.style.color = ''
+				}
+				this.style.color = 'red'
+				aLi[i].last = this
+			}
+		}
+		
+	}
+	</script>
+</body>
+</html>

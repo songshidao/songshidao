@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+				position: relative;
+			}
+			.div{
+				display: inline-block;
+			}
+			
+			.ul1>li{
+				display: inline-block;
+			}
+ul ol{
+	position: absolute;
+	left: 0;
+	list-style-type: decimal-leading-zero;
+	display: none;
+}
+.active{
+	display: block;
+}
+.backgroud{
+	background-color: #888;
+}
+ul ol li{
+	width: 100%;
+}
+		</style>
+	</head>
+	<body>
+		<ul class="ul1">
+			<div class="div">
+			<h2>电影排行榜</h2></div>
+			<li>每日
+				<ol>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>熊出没之熊心归来165,217</li>	
+					<li>欲罪133,196</li>
+					<li>疯狂试爱98,743</li>	
+					<li>我的P.S.搭档93,836</li>	
+					<li>天女猎妖团FTone89,643</li>	
+					<li>赤裸女特工之夜之序曲73,620</li>	
+					<li>撒娇女人最好命69,881	</li>
+					<li>迷幻牛郎69,100	</li>
+					<li>超能太监62,565	</li>
+				</ol>
+			</li>
+			<li>每周
+				<ol>
+					<li>
+						欲罪
+						1,761,927</li>
+					<li>
+						熊出没之熊心归来
+						978,124 </li>
+					<li>
+						疯狂试爱
+						906,701 </li>
+					<li>
+						桃色骗局
+						666,260 </li>
+					<li>
+						初心房间
+						656,141 </li>
+					<li>
+						夜袭寡妇村
+						638,036 </li>
+					<li>
+						禁区2015
+						565,093 </li>
+					<li>
+						想爱就爱
+						511,859 </li>
+					<li>
+						怒火攻心2：高压电
+						509,030 </li>
+					<li>
+						超能太监
+						482,821 </li>
+				</ol>
+			</li>
+			<li>每月
+				<ol>
+					<li>
+						疯狂试爱
+						4,986,340</li>
+					<li>
+						超能太监
+						4,970,698</li>
+					<li>
+						熊出没之熊心归来
+						3,644,313</li>
+					<li>
+						欲罪
+						3,149,413</li>
+					<li>
+						美国处女
+						2,585,261</li>
+					<li>
+						头牌魔姬.觉醒
+						2,337,917 </li>
+					<li>
+						玩的就是艳遇
+						2,220,518</li>
+					<li>
+						复仇(2008)
+						2,010,375</li>
+					<li>
+						白日杀机
+						1,648,127</li>
+					<li>
+						一夜疯狂
+						1,640,542</li>
+				</ol>
+			</li>
+			<li>全部
+				<ol>
+					<li>
+						欲罪
+						122,696,215 </li>
+					<li>
+						我的P.S.搭档
+						107,679,255</li>
+					<li>
+						特种部队
+						91,715,182 </li>
+					<li>
+						7电影
+						81,520,701</li>
+					<li>
+						无人驾驶
+						79,988,482</li>
+					<li>
+						龙之谷：破晓奇兵
+						62,449,001</li>
+					<li>
+						西游记之大闹天宫
+						58,912,593</li>
+					<li>
+						少女
+						57,563,073</li>
+					<li>
+						疯狂试爱
+						56,887,186</li>
+					<li>
+						花漾
+						54,803,667</li>
+				</ol>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			let oUl =document.getElementsByClassName('ul1'),
+				aOl = document.querySelectorAll('ol'),
+				aLi = document.querySelectorAll('ul>li')
+				aOl[0].className = 'active'
+				last = 0
+				function mymove(num){
+					aLi[last].className = ''
+					aLi[num].className = 'backgroud'
+					aOl[last].className = ''
+					aOl[num].className = 'active'
+					last = num
+				}
+				for(let i=0;i<4;i++){
+					aLi[i].onmouseover = function(){
+						mymove(i)
+					}
+					
+				}
+				// function fn(li,ol){
+				// 	li.onmouseover = function(){
+				// 		for(){
+				// 			aLi[i].classNmae = ''
+				// 			aOl[i].className = ''
+				// 		}
+				// 		li.className = 'active'
+				// 		ol.classNmae = 'active'
+				// 	}
+					
+				// }
+				
+				// fn(aLi[0],aOl[0])
+				// fn(aLi[1],aOl[1])
+				// fn(aLi[2],aOl[2])
+				
+			
+		</script>
+	</body>
+</html>

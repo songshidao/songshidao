@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.ball{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border-radius: 50%;
+				position: absolute;
+				left: 100px;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ball"></div>
+		<button type="button">前进</button>
+		<button type="button">后退</button>
+		<script type="text/javascript">
+			let oBall = document.querySelector('div'),
+				oLeft = parseInt(getComputedStyle(oBall).left),
+				aBtn = document.querySelectorAll('button')
+				oBall.timer = null
+				
+				
+				aBtn[0].onclick = function(){
+					domove(oBall,'left',800,1,5)
+				} 
+				aBtn[1].onclick = function(){
+					domove(oBall,'left',100,1,5)
+				}
+				function domove(obj,attr,target,step,speed){
+					step = parseInt(getComputedStyle(obj)[attr]) < target ? step : -step
+					clearInterval(obj.timer)
+					obj.timer = setInterval(function(){
+						let oLeft = parseInt(getComputedStyle(obj)[attr])//.换成[]
+						if(oLeft == target){
+							clearInterval(obj.timer)
+						}
+						// oLeft--
+						obj.style[attr] = oLeft + step + 'px'
+					},speed)
+				}
+				// domove(oBall,'left',100,-1,5)
+				// domove(oBall,'left',800,1,5)
+				// function qian(){
+				// 	clearInterval(oBall.timer)
+				// 	oBall.timer = setInterval(function(){
+				// 		let oLeft = parseInt(getComputedStyle(oBall).left)
+				// 		if(oLeft >500){
+				// 			clearInterval(oBall.timer)
+				// 		}
+				// 		oLeft++
+				// 		oBall.style.left = oLeft + 'px'
+				// 	},5)
+					 
+				// }
+				// function hou(){
+				// 	clearInterval(oBall.timer)
+				// 	oBall.timer = setInterval(function(){
+				// 		let oLeft = parseInt(getComputedStyle(oBall).left)
+				// 		if(oLeft < 100){
+				// 			clearInterval(oBall.timer)
+				// 		}
+				// 		oLeft--
+				// 		oBall.style.left = oLeft + 'px'
+				// 	},5)
+				// }
+		</script>
+	</body>
+</html>

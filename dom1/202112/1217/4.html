@@ -1,0 +1,62 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>QQ号判断</title>
+</head>
+
+<body>
+
+请输入QQ号码：<input type="text" />
+<input type="button" value="判断" />
+
+
+<br />
+1、有没有输入<br />
+2、输入的是不是数字<br />
+3、不能有0在前面<br />
+4、不能是小数<br />
+5、输入的数字必须在5位以上、10位以内<br />
+
+
+<script>
+	let oButton = document.querySelectorAll('input')[1],
+		oTxt = document.querySelectorAll('input')[0],
+		str = ''
+		// for(let i=0;i<oTxt.length;i++){
+		oButton.onclick = function(){
+			// for(let i=0;i<oTxt.length;i++){
+				str = oTxt.value
+				if(oTxt.value==''){
+					alert('请输入')
+				}
+				else if(isNumber(str)){
+					// else if(parseInt(oTxt.value)!= oTxt.value){
+					alert('请输入数字')
+				}else if(oTxt.value.charAt(0)==0){
+					alert('首字母不能是0')
+				}else if(parseInt(oTxt.value)!=oTxt.value){
+					alert('请输入整数')
+				}else if(5>oTxt.value.length){
+					alert('数字数量不对')
+				}else if(oTxt.value.length>10){
+					alert('数字数量不对')
+				}else{
+					alert('成功')
+				}
+				oTxt.value = ''
+			// }
+			
+		}
+		function isNumber(arr){
+			for(let i=0;i<str.length;i++){
+				if(47>arr.charCodeAt(i) || arr.charCodeAt(i)>58 ){
+					return true
+				}return false
+			}
+		}
+</script>
+
+</body>
+</html>

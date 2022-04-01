@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.box{width:200px;height:100px;border:1px solid black}
+		span:nth-child(odd){
+			background-color: green;
+		}
+		span:nth-child(even){
+			background-color: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<input type="text">
+		<input type="button" value="按钮" />
+	<script type="text/javascript">
+// 要求：使用split方法。点击按钮，把获取到的字符放入div里面，并且每一个字符带有不同的背景色  substring
+		let oDiv = document.querySelector('.box')
+		let aInput = document.querySelectorAll('input')
+		let arr = ['red','yellow','blue','green']
+		let str = ''
+		aInput[1].onclick = function(){
+			oDiv.innerHTML += aInput[0].value.split('').join('<span>')
+			// str += '<span>'+aInput[0].value.split('')+'</span>'
+			// oDiv.innerHTML = str
+		}
+		
+		
+		
+		
+	</script>
+		
+		
+	</body>
+</html>

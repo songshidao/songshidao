@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div{
+				width: 100px;
+				height: 500px;
+				background-color: red;
+				position: relative;
+			}
+			.div1{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: #fff;
+			}
+			.div2{
+				width: 100px;
+				height: 50px;
+				background-color: pink;
+				position: absolute;
+				top: 0;
+				left: 100%;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">
+			<div class="div1"></div>
+			<div class="div2"></div>
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementsByClassName('div1'),
+				oDiv2 = document.getElementsByClassName('div2')
+				
+				 function xian(){
+					oDiv2[0].style.display = 'block'
+				}
+				y= function yin(){
+					oDiv2[0].style.display = 'none'
+				}
+				
+				oDiv1[0].onmouseover = function(){
+					xian()
+				}
+				oDiv1[0].onmouseout = function(){
+					s = setTimeout(y,1000) 
+				}
+				oDiv2[0].onmouseover = function(){
+					clearTimeout(s)
+				}
+				oDiv2[0].onmouseout = function(){
+					clearTimeout(s)
+					s = setTimeout(y,1000)
+				}
+			
+		</script>
+	</body>
+</html>

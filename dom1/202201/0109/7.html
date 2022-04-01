@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const str = 'abc'
+			let // re = /a[bde]c/  //a[bde]c这种方括号只会选择一个
+				// re = /a[^bde]c/  //方括号内的^是排除方括号的内容
+				re = /a[a-z]c/
+			console.log(re.test(str))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 重置浏览器默认样式 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				list-style: none;
+			}
+			img{
+				display: block;
+			}
+			
+			/*  */
+			#slider{
+				width:640px;
+				height:340px;
+				margin:50px auto;
+				position: relative;
+			}
+			.title,.btn,.sn{
+				position:absolute;
+			}
+			.title{
+				background-image: linear-gradient( hsla(0,100%,0%,0), hsla(0,100%,0%,1));
+				left:0;
+				bottom:0;
+				width:calc(100% - 20px); /**/
+				height:90px;
+				line-height: 90px;
+				color:#fff;
+				font-size:1.2rem;
+				padding:0 10px;
+			}
+			.btn{
+				width:80px;
+				height:100px;
+				line-height: 160px;
+				background-image: url(images/sprite.png);
+				background-repeat: no-repeat;
+				color: white;
+				text-align: center;
+				
+			}
+			.btn-l{
+				left:0;
+				top:50%;
+				transform: translateY(-50%);
+				/* background-position: 0 -164px ; */
+				background-position: -260px -164px ;
+				text-indent:-20px;
+			}
+			.btn-l:hover{
+				background-position: 0 -164px ;
+			}
+			.btn-r{
+				right:0;
+				top:50%;
+				transform: translateY(-50%);
+				/* background-position: -310px 0 ; */
+				background-position: -130px -164px ;
+				text-indent: 20px;
+			}
+			.btn-r:hover{
+				background-position: -310px 0 ;
+			}
+			.squares{
+				right:0;
+				bottom:0;
+				border:1px solid black;
+				height:7px;
+				line-height: 7px;
+				/*width:175px; */
+				position:absolute;
+				right:10px;
+				bottom:15px;
+			}
+			.squares li{
+				display: inline-block;
+				vertical-align: bottom;
+				width:25px;
+				height:7px;
+				background-color: hsla(0,0%,80%,1) ;
+				transform: skewX(-10deg);
+			}
+			.active{
+				 background-color: hsla(0,100%,50%,1)!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="slider">
+			<img src="" alt="">
+			<h2 class="title"></h2>
+			<div class="btn btn-l"></div>
+			<div class="btn btn-r"></div>
+			<ul class="squares">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			//获取元素
+			let oContainer = document.querySelector('#slider')
+			let oBtnL = oContainer.querySelector('.btn-l')
+			let oBtnR = oContainer.querySelector('.btn-r')
+			let oImg = document.querySelector('#slider img')
+			let oTitle = oContainer.querySelector('.title')
+			let aSquare = oContainer.querySelectorAll('.squares li')
+			let on = true
+			let aTitle = ['[NBA]勇士104-89骑士 库里9三分砍40分','国足全体抵达苏州 开始进行集中隔离','为中国足球奋斗！武磊30岁生日快乐！','足协宣布水庆霞担任中国女足主教练','张家齐与姆巴佩联动 为旅法大熊猫幼崽命名',]
+			let aImgUrl = ['images/slider1.jpg','images/slider2.jpg','images/slider3.jpg','images/slider4.jpg','images/slider5.jpg']
+			let len = aTitle.length
+			let n = 0
+			let last = 0
+			
+			//初始化：1.图片2.标题3.序号
+			function mySlider(num){
+				oImg.src = aImgUrl[num]
+				oTitle.innerHTML = aTitle[num]
+				oBtnL.innerHTML = oBtnR.innerHTML = (num+1) +"/"+len
+				aSquare[last].className = ''
+				aSquare[num].className = 'active'
+				last = num
+			}
+			mySlider(n)
+			
+			//点击按钮左
+			oBtnL.onclick = function(){ 
+				--n
+				if(n == -1){ n = 4}
+				mySlider(n)
+			}
+			//点击按钮右
+			oBtnR.onclick = function(){
+				++n
+				if(n == len){ n = 0}
+				mySlider(n)
+			}
+			//鼠标悬停
+			for(var i=0;i<len;i++){
+				aSquare[i].index = i
+				aSquare[i].onmouseover = function(){
+					mySlider(this.index)
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				position: absolute;
+				background-color: red;
+				width: 100px;
+				height: 100px;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+
+		</div>
+		<script type="text/javascript">
+			let x = y = 0
+			window.onload = function(){
+				 div = document.querySelector('div')
+				init()
+			}
+			function init() {
+				div.onmousedown = fnDown
+			}
+
+			function fnDown(ev) {
+				x = ev.clientX - this.offsetLeft
+				y = ev.clientY - this.offsetTop
+				document.onmousemove = fnMove
+				document.onmouseup = fnUp
+}
+				function fnMove(ev){
+					div.style.left = ev.clientX - x + 'px'
+					div.style.top = ev.clientY - y + 'px'
+					document.onmouseup = fnUp
+				}
+				function fnUp(){
+					document.onmousemove = document.onmouseup = null
+				}
+		</script>
+		<!-- <script type="text/javascript">
+			function drag(){
+				this.
+			}
+			drag()
+			new drag()
+		</script> -->
+	</body>
+</html>

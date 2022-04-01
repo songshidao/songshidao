@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="ball.js" type="text/javascript" charset="utf-8"></script>
+		<script src="tool.js" type="text/javascript" charset="utf-8"></script>
+		<script src="box.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 500,
+			H = canvas.height = 500,
+			mouse = C.getMousePos(canvas),
+			dx1=0,
+			dy1=0,
+			dx2=0,
+			dy2=0
+			const box1=new Box({
+				x:100,y:100,fillStyle:'red'
+			}).render(ctx)
+			const box2=new Box({
+				x:300,y:100,fillStyle:'lightgreen'
+			}).render(ctx)
+			canvas.addEventListener('mousedown',function(ev){
+			ev.preventDefault()
+			dx1=mouse.x-box1.x
+			dy1=mouse.y-box1.y
+			dx2=mouse.x-box2.x
+			dy2=mouse.y-box2.y
+			canvas.addEventListener('mousemove',mouseMove)
+			canvas.addEventListener('mouseup',mouseUp)
+			})
+			function mouseMove(){
+				if(box1.x+box1.w>mouse.x&&mouse.x>box1.x&&box1.y+box1.h>mouse.y&&mouse.y>box1.y){
+					if(box1.x+box1.w<box2.x||box1.x>box2.x+box2.w||box1.y+box1.h<box2.y||box1.y>box2.y+box2.h){box1.x = mouse.x-dx1
+					box1.y = mouse.y-dy1
+						
+					}else{
+						console.log('撞了')
+					}
+					
+				}else if(box2.x+box2.w>mouse.x&&mouse.x>box2.x&&box2.y+box2.h>mouse.y&&mouse.y>box2.y){
+				if(box2.x+box2.w<box1.x||box2.x>box1.x+box1.w||box2.y+box2.h<box1.y||box2.y>box1.y+box1.h){
+					box2.x = mouse.x-dx2
+					box2.y = mouse.y-dx2
+					
+				}else{
+					console.log('撞了')
+				}
+				
+					
+				}
+			}
+			function mouseUp(){
+				canvas.removeEventListener('mousemove',mouseMove)
+				canvas.removeEventListener('mouseup',mouseUp)
+			}
+			;(function animation(){
+				window.requestAnimationFrame(animation)
+				ctx.clearRect(0,0,W,H)
+				box1.render(ctx)
+				box2.render(ctx)
+			})()
+			
+	</script>
+	</body>
+</html>

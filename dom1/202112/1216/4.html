@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #333;
+			}
+			.qq{
+				background-color: #FFF;
+				width: 100px;
+			}
+			h2{
+				background-image: linear-gradient(#f4f4f4,#666);
+				font-size: 1.2rem;
+			}
+			ul{
+				list-style: none;
+			}
+			.qq h2+ul{
+				background: pink;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="qq">
+			<ul>
+				<li>
+					<h2>我的好友</h2>
+					<ul>
+						<li>马云</li>
+						<li>刘强东</li>
+						<li>马化腾</li>
+						<li>扎克伯格</li>
+						<li>雷军</li>
+					</ul>
+				</li>
+				<li>
+					<h2>企业好友</h2>
+					<ul>
+						<li>肯德基</li>
+						<li>麦当劳</li>
+						<li>必胜客</li>
+						<li>网易</li>
+					</ul>
+				</li>
+				<li>
+					<h2>黑名单</h2>
+					<ul>
+						<li>王二</li>
+						<li>张三</li>
+						<li>老五</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+		
+			const oUl = document.querySelector('ul'),
+			aH2 =  oUl.querySelectorAll('h2'),
+			aUl = oUl.querySelectorAll('ul')
+			let last = 0
+			
+			for(let i=0;i<aH2.length;i++){
+				aH2[i].on = true
+				
+				aH2[i].onclick = function(){
+					if(this.on){
+						aH2[last].style.background= ``
+						aUl[last].style.display = `none`
+						
+						aH2[i].style.background= `red`
+						aUl[i].style.display = `block`
+						last = i
+						this.on= false
+					}else{
+						aH2[i].style.background= ``
+						aUl[i].style.display = `none`
+						this.on= true
+					}
+					
+				}
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

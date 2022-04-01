@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<img src="img/0.JPG" >
+			<img src="img/colon2.jpg" >
+			<img src="" >
+			<img src="" >
+			<img src="" >
+			<img src="" >
+			<img src="" >
+			<img src="" >
+		</div>
+		
+		<script type="text/javascript">
+			let src1 = ['img/0.JPG','img/1.JPG','img/2.JPG','img/3.JPG','img/4.JPG','img/5.JPG','img/6.JPG','img/7.JPG','img/8.JPG','img/9.JPG'],
+				src2 = ['img/colon.JPG','img/colon2.JPG'],
+				aImg = document.querySelectorAll('div img'),
+				str = 0
+				
+				setInterval(function(){
+					aImg[5].src = src2[0]
+					aImg[2].src = src2[0]
+					str = ''
+					let now= new Date(),
+						hours = now.getHours(),
+						minute = now.getMinutes(),
+						seconds = now.getSeconds()
+					console.log( seconds)
+					str+= totwo(hours)+totwo(minute)+totwo(seconds)
+						aImg[7].src = src1[`${str.charAt(5)}`]
+						aImg[6].src = src1[`${str.charAt(4)}`]
+						aImg[4].src = src1[`${str.charAt(3)}`]
+						aImg[3].src = src1[`${str.charAt(2)}`]
+						aImg[1].src = src1[`${str.charAt(1)}`]
+						aImg[0].src = src1[`${str.charAt(0)}`]
+					
+					console.log(src1[`${str.charAt(5)}`])
+					setTimeout(function(){
+						aImg[5].src = src2[1]
+						aImg[2].src = src2[1]
+					},500)
+				},1000)
+				
+				function totwo(n){
+					return(n<10)?'0'+n:''+n
+				}
+		</script>
+	</body>
+</html>

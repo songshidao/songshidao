@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea rows="" cols=""></textarea>
+		<button type="button">提交</button>
+		<script type="text/javascript">
+		const oT = document.querySelector('textarea')
+		const oB = document.querySelector('button')
+		let 	re = /^(1)([3-9])$|^([2-9])([0-9])$/g  //^起点 $结束点
+		oB.onclick = function(){
+			
+			console.log(re.test(oT.value))
+		}
+		</script>
+	</body>
+</html>

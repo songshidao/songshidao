@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>extends</h1>
+		<p>用于创建一个子类</p>
+		<p>extends必须在父类上使用</p>
+		
+		<script type="text/javascript">
+			class Person{
+				constructor(name,age){//用于设置类
+					this.name = name
+					this.age = age
+				}
+				introduce(){//为当前Person添加introduce方法
+					console.log(`我是${this.name},我的年龄${this.age}`)
+				}
+			}
+			
+			const person1 = new Person('张三','19')
+			const person2 = new Person('张三六','29')
+			//创建一个基于父类的子类:Coder
+			//class 子类名 extends 父类名 { ... }
+			class Coder extends Person { 
+				constructor(name,age,codeYear){
+					//super 可以继承父类的方法和属性
+					super(name,age)
+					this.codeYear = codeYear
+				}
+				code(){
+					console.log(`${this.name}正在敲代码...`)
+				}
+			}
+			
+			const coder1 = new Coder('小红',39,10)
+			
+			coder1.code()
+			coder1.introduce()//子类可以使用父类的方法,但父类不能这里父类指的时preson1
+			
+			let coders = [
+				new Coder('小张',20,5),
+				new Coder('老王',40,25)
+			]
+			const develop = function(coder){
+				coders.forEach(coder=>coder.code())
+			}
+			develop()
+		</script>
+	</body>
+</html>

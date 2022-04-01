@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			button{
+				width: 100px;
+				height: 40px;
+				background-color: yellow;
+				font-size: 1.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">回退</button>
+		<div class="box"></div>
+		<script type="text/javascript">
+		const oDiv = document.querySelector('.box')
+		const oBut = document.querySelector('button')
+		let arrx = [],
+			arry = [],
+			n= 0
+			oDiv.onmousedown = function(ev){
+							let  x = ev.clientX-this.offsetLeft,
+							  y = ev.clientY-this.offsetTop
+						document.onmousemove = function(ev){
+							oDiv.style.left = ev.clientX - x +'px'
+							oDiv.style.top = ev.clientY - y +'px'
+							arrx.unshift(ev.clientX- x )
+							arry.unshift(ev.clientY- y )
+							// console.log(arrx)
+							// console.log(arry)
+						}
+						document.onmouseup = function(){
+							document.onmousemove = null
+						}
+						return false
+						}
+						oBut.onmousedown = function(){
+							n=0
+							oBut.timer = setInterval(function(){
+								oDiv.style.left = arrx[n]+'px'
+								oDiv.style.top = arry[n]+'px'
+								n++
+								if(n==arrx.length){
+									clearInterval(oBut.timer)
+									arrx = []
+									arry = []
+								}
+							},10)
+							
+						}
+						
+		</script>
+	</body>
+</html>

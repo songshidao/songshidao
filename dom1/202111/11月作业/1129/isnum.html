@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>写一个判断是否是数字的函数</title>
+	</head>
+	<body>
+		<input type="text">
+		<input type="submit" value="判断">
+		<p></p>
+		<script type="text/javascript">
+			let aInput = document.querySelectorAll('input'),
+				oP = document.querySelector('p'),
+				$char = ''
+				// 单击按钮,判断aInput[0]的value值是否是数字 把结果写入p
+				aInput[1].onclick = function(){
+					$char = aInput[0].value
+					if(isNum($char)){
+						oP.style.color = 'greenyellow'
+						oP.innerHTML = '合法'
+					}else{
+						oP.style.color = 'red'
+						oP.innerHTML = '不合法'
+					}
+					function isNum(str){
+						let n =0
+						for(let i = 0;i<str.length;i++){
+							n = str.charCodeAt(i)
+							if(n<48 || n>57) return false
+						}
+						return true
+					}
+				}
+		</script>
+	</body>
+</html>

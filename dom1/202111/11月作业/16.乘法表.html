@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table>
+			
+		</table>
+		<script type="text/javascript">
+			var oTable = document.querySelector('table'),
+				aTr = document.getElementsByTagName('tr')
+				
+				for(i=1;i<11;i++){
+					oTable.innerHTML += '<tr></tr>'
+					for(j=1;j<11;j++){
+						aTr[i-1].innerHTML += '<td>'+j+'*'+i+'='+(i*j)+'</td>'
+					}
+				}
+		</script>
+	</body>
+</html>

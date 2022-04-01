@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="../ball.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	<img src="1.jpeg" width="400" >
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 800,
+			H = canvas.height = 600
+		
+		const image1 = new Image()
+		image1.src = '1.jpeg'
+		image1.addEventListener('load',function(){
+			ctx.drawImage(image1,1500,500,1000,1000,0,0,W/2,H/2)
+			const theImg = ctx.getImageData(50,50,1000,800)
+			let theImageData = theImg.data
+			console.log(theImg)
+			for(let i=0;i<theImageData.length;i+=4){
+				let sum=theImageData[i]+theImageData[i+1]+theImageData[i+2]
+				theImageData[i] = sum/3+10
+				theImageData[i+1] = sum/3+100
+				theImageData[i+2] = sum/3+200
+			}
+			theImg.data=theImageData
+			ctx.putImageData(theImg,20,40,50,0,200,200)
+		})
+	</script>
+	</body>
+</html>
+<!-- 
+1. drawImage(image,sx,sy,sw,sh,x,y,w,h)
+复制一张图片到画布
+ image:源图像
+ sx:裁切点x坐标
+ sy:裁切点y坐标
+ sw:裁切宽
+ sh:裁切高
+ x:左上角x坐标
+ y:左上角y坐标
+ w:宽
+ h,高
+ 2.getImageData(x,y,w,h)
+ 获取外部图像的数据
+ 返回imageData对象
+ x:获取外部图像数据的起点坐标x
+ y:获取外部图像数据的起点坐标y
+ w:获取外部图像数据的宽度
+ h:获取外部图像数据的高度
+ 3.putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight)	
+ 将指定的imageData放回画布
+ imgData	:规定要放回画布的 ImageData 对象。
+ x	:ImageData 对象左上角的 x 坐标，以像素计。
+ y:	ImageData 对象左上角的 y 坐标，以像素计。
+ dirtyX	:可选。水平值（x），以像素计，在画布上放置图像的位置。
+ dirtyY	:可选。水平值（y），以像素计，在画布上放置图像的位置。
+ dirtyWidth	:可选。在画布上绘制图像所使用的宽度。
+ dirtyHeight:	可选。在画布上绘制图像所使用的高度。
+ -->

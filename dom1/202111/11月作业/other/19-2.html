@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+		<script type="text/javascript">
+			var a = '100px'
+			
+			
+			console.log(Number(a))
+			console.log(parseInt(a))
+			
+			var al = '100px1000000'
+			console.log(parseInt(al))
+			
+			var a1 = '000100px1000000'
+			console.log(parseInt(a1))
+			
+			var a2 = '12.34'
+			console.log(parseInt(a2))
+			
+			
+			var a3 = '12.34.5'
+			console.log(parseFloat(a3))
+			
+			
+			var num = '12.34'
+			if(parseInt(num) == num){
+				console.log('整数')
+			}else {
+				console.log('小数')
+			}
+		</script>
+	</body>
+</html>
+<!-- 
+ 1.pareeint(a):从左到右一个一个转,遇到转不了就立刻停止
+ 正负号可以转
+ 数字0可以转
+ 空格可以转
+ 2.parsefloat():从左到右一个一个转,会解析第一个实心点
+ 
+ 
+ 
+ -->

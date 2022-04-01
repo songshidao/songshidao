@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				background-color: red;
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+			body{
+				height: 2000px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="box"></div>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<div class="box5"></div>
+	<div class="box6"></div>
+	<div class="box7"></div>
+	<div class="box8"></div>
+	<div class="box9"></div>
+	<div class="box10"></div>
+	<script type="text/javascript">
+		const oBox = document.querySelector('.box')
+		const oBox1 = document.querySelector('.box1')
+		const oBox2 = document.querySelector('.box2')
+		const oBox3 = document.querySelector('.box3')
+		const oBox4 = document.querySelector('.box4')
+		const oBox5 = document.querySelector('.box5')
+		const oBox6 = document.querySelector('.box6')
+		const oBox7 = document.querySelector('.box7')
+		const oBox8 = document.querySelector('.box8')
+		const oBox9 = document.querySelector('.box9')
+		const oBox10 = document.querySelector('.box10')
+		document.addEventListener('mousemove',fn)
+		document.addEventListener('mousemove',fn1)
+		document.addEventListener('mousemove',fn2)
+		document.addEventListener('mousemove',fn3)
+		document.addEventListener('mousemove',fn4)
+		document.addEventListener('mousemove',fn5)
+		document.addEventListener('mousemove',fn6)
+		document.addEventListener('mousemove',fn7)
+		document.addEventListener('mousemove',fn8)
+		document.addEventListener('mousemove',fn9)
+		document.addEventListener('mousemove',fn10)
+		let x=y=0
+		function fn(n){
+			x = n.clientX
+			y = n.clientY
+			oBox.style.left = x +'px'
+			oBox.style.top = y +'px'
+		}
+		function fn1(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox1.style.left = x +'px'
+				oBox1.style.top = y +'px'
+				console.log('1')
+			},100)
+		}
+		function fn2(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox2.style.left = x +'px'
+				oBox2.style.top = y +'px'
+				console.log('1')
+			},200)
+		}
+		function fn3(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox3.style.left = x +'px'
+				oBox3.style.top = y +'px'
+				console.log('1')
+			},300)
+		}
+		function fn4(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox4.style.left = x +'px'
+				oBox4.style.top = y +'px'
+				console.log('1')
+			},400)
+		}
+		function fn5(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox5.style.left = x +'px'
+				oBox5.style.top = y +'px'
+				console.log('1')
+			},500)
+		}
+		function fn6(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox6.style.left = x +'px'
+				oBox6.style.top = y +'px'
+				console.log('1')
+			},600)
+		}
+		function fn7(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox7.style.left = x +'px'
+				oBox7.style.top = y +'px'
+				console.log('1')
+			},700)
+		}
+		function fn8(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox8.style.left = x +'px'
+				oBox8.style.top = y +'px'
+				console.log('1')
+			},800)
+		}
+		function fn9(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox9.style.left = x +'px'
+				oBox9.style.top = y +'px'
+				console.log('1')
+			},900)
+		}
+		function fn10(n){
+			setTimeout(function(){
+				x = n.clientX
+				y = n.clientY
+				oBox10.style.left = x +'px'
+				oBox10.style.top = y +'px'
+				console.log('1')
+			},1000)
+		}
+	</script>
+	</body>
+</html>

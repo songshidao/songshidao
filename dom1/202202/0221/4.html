@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var x = this
+		console.log(x)
+		
+		function fn() {
+			console.log(this)
+		}
+		fn()
+		
+		var obj = {
+			a: this,
+			fn: function() {
+				console.log(this)
+			}
+		}
+		console.log(obj.a)
+		obj.fn()
+		
+		// document.body.onclick = function() {
+		// 	console.log(this)
+		// }
+		document.body.onclick = fn
+		console.log(document.body)
+		document.body.onclick = obj.fn()
+	</script>
+</body>
+</html>

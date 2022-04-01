@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			textarea{
+				width: 500px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>英雄联盟排位赛，哎，为什么我又是看比赛？又是看韩服的单人排位，为什么我就上不了分？最让我难以接受的，为什么我是个白银狗？就是上不了分，一打英雄联盟就白银，为什么艾欧尼亚蛮王出肉，都能上钻石，我的诺克萨斯，素质就高，说话又好听，每个人带点神经病，精神病患者就在我身边
+		英雄联盟排位赛，哎，为什么我又是看比赛？又是看韩服的单人排位，为什么我就上不了分？最让我难以接受的，为什么我是个白银狗？就是上不了分，一打英雄联盟就白银，为什么艾欧尼亚蛮王出肉，都能上钻石，我的诺克萨斯，素质就高，说话又好听，每个人带点神经病，精神病患者就在我身边
+		
+		
+		 发送
+		</p>
+		<textarea rows="" cols=""></textarea>
+		<button type="button">发送</button>
+		<script type="text/javascript">
+			const oP =document.querySelector('p')
+			const oT =document.querySelector('textarea')
+			const oBut =document.querySelector('button')
+			
+			let re = /病|神经病|精神|了|狗/g
+			oBut.onclick = function(){
+				oP.innerHTML = oT.value.replace(re,function(arg){
+					console.log(arg)
+					let str =0
+					for(let i=0;i<arg.length;i++){
+						str='*'
+					}
+					return str
+				})
+				oT.value.replace(re,'*')
+			}
+		</script>
+	</body>
+</html>

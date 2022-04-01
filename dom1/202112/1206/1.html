@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>列表项1</li>
+        <li>列表项2</li>
+        <li>列表项3</li>
+        <li>列表项4</li>
+        <li>列表项5</li>
+        <li>列表项6</li>
+        <li>列表项7</li>
+        <li>列表项8</li>
+    </ul>
+    <script>
+        const oUl = document.querySelector('ul'),
+            aLi = oUl.querySelectorAll('li')
+
+            // for(let i=0;i<aLi.length;i++){
+            // if(i == 0){
+            //     aLi[i].onmouseover = function(){
+            //         aLi[i].nextElementSibling.style.background = 'red'
+            //         aLi[i].style.background = 'red'
+            //     }
+            //     aLi[i].onmouseout = function(){
+            //         aLi[i].nextElementSibling.style.background = ''
+            //         aLi[i].style.background = ''
+            //     }
+
+            // }else if(i == 7){
+            //     aLi[i].onmouseover = function(){
+            //         aLi[i].style.background = 'red'
+            //         aLi[i].previousElementSibling.style.background = 'red'
+            //     }
+            //     aLi[i].onmouseout = function(){
+            //         aLi[i].style.background = ''
+            //         aLi[i].previousElementSibling.style.background = ''
+            //     }
+            // }else{
+            //     aLi[i].onmouseover = function(){
+            //         aLi[i].nextElementSibling.style.background = 'red'
+            //         aLi[i].style.background = 'red'
+            //         aLi[i].previousElementSibling.style.background = 'red'
+            //     }
+            //     aLi[i].onmouseout = function(){
+            //         aLi[i].nextElementSibling.style.background = ''
+            //         aLi[i].style.background = ''
+            //         aLi[i].previousElementSibling.style.background = ''
+            //     }
+            // }
+            
+            // }
+            for(let i=0;i<aLi.length;i++){
+                if(i == 0){
+                    aLi[i].onmouseover = function(){
+                        fn1(this)
+                    }
+                    aLi[i].onmouseout = function(){
+                        fn3(this)
+                    }
+
+                }else if(i == aLi.length-1){
+                    aLi[i].onmouseover = function(){
+                        fn2(this)
+                    }
+                    aLi[i].onmouseout = function(){
+                        fn4(this)
+                    }
+                }else{
+                    aLi[i].onmouseover = function(){
+                        fn1(this)
+                        fn2(this)
+                    }
+                    aLi[i].onmouseout = function(){
+                        fn3(this)
+                        fn4(this)
+                    }
+                }
+            }
+            function fn1(ele){
+                ele.nextElementSibling.style.background = 'red'
+                ele.style.background = 'red'
+                
+            }
+            function fn2(ele){
+                ele.style.background = 'red'
+                ele.previousElementSibling.style.background = 'red'
+            }
+            function fn3(ele){
+                ele.nextElementSibling.style.background = ''
+                ele.style.background = ''
+                
+            }
+            function fn4(ele){
+                ele.style.background = ''
+                ele.previousElementSibling.style.background = ''
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				background-color: #eee;
+			}
+			#canvas1{
+				box-shadow: 0 0 20px red;/* (x,y,范围,颜色) */
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1"></canvas>
+		
+		<script type="text/javascript">
+			const canvas = document.querySelector('#canvas1')
+			const ctx = canvas.getContext('2d')
+			canvas.width = 400
+			canvas.height = 400
+			
+			for(let i=0;i<30;i++){
+				let x = Math.random()*canvas.width,
+					y= Math.random()*canvas.height,
+					r= Math.random()*canvas.height/10,
+					arr = ['red','blue','green']
+				ctx.beginPath()
+				// ctx.moveTo(x+r,y)
+				ctx.strokeStyle = arr[i/3]
+				// console.log(ctx.strokeStyle)
+				ctx.arc(x,y,r,0,2*Math.PI,false)
+				ctx.stroke()
+			}
+			
+		</script>
+	</body>
+	<!-- 
+	 canvas方法总结
+		1,创建矩形:
+			fillRect(x,y,Width,height)
+		2.创建圆形:
+			arc(x,y,r,0*Math.Pi,2*Math.Pi,布尔值{false,true})
+		3.创建弧形:
+			beginPath()
+			arc(x,y,r,0*Math.Pi,2*Math.Pi,布尔值{false,true})
+			fill() or stroke()
+		4,创建多边形:
+			beginPath()
+			moveTo()
+			lineTo()
+			ctx.closePath()
+			fill() or stroke() 
+		5,创建文字
+			fillStyle() or strokeStyle()
+			fillText('文字',x,y)
+		6,创建图像
+			ctx.drawImage(image,x,y,width,height)
+	 -->
+</html>

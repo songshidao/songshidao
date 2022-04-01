@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<img src="img/0.JPG" >
+		<img src="img/0.JPG" >
+		<img src="img/0.JPG" >
+		<img src="img/0.JPG" >
+		<img src="img/0.JPG" >
+		<img src="img/0.JPG" >
+		<script type="text/javascript">
+			let timer = null,
+			oH1 = document.getElementsByTagName('h1')[0],
+			 src = ['img/0.JPG','img/1.JPG','img/2.JPG','img/3.JPG','img/4.JPG','img/5.JPG','img/6.JPG','img/7.JPG','img/8.JPG','img/9.JPG','img/colon.JPG'],
+			 aImg = document.querySelectorAll('img')
+			function mytime(){
+				let now = new Date()//.valueOf() 查看具体毫秒数
+				// let now += new Date()//也是看具体毫秒数
+				let str = '',
+					thehours = now.getHours(),
+					theminutes = now.getMinutes(),
+					theSeconds = now.getSeconds()
+					str += totwo(thehours)+totwo(theminutes)+totwo(theSeconds)
+				// console.log(now)
+				// oH1.innerHTML = str
+				for(var i=0;i<str.length;i++){
+					aImg[i].src = src[str.charAt(i)]
+				}
+				}
+				mytime()
+				timer = setInterval(mytime,1000)
+				function totwo(n){
+								return (n<10)?'0'+n: ''+n
+								 // if(n<10){
+									//  return'0'+n//变成字符串  而减号会变数字
+								 // }else{
+									//  return ''+n
+								 // }
+				}
+				
+		</script>
+	</body>
+</html>

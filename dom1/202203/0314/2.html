@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text"  />
+		<!-- 
+		 元素激活的时候，元素就有了焦点，有焦点时元素周围有蓝色框
+		 不是所有元素都有焦点，可以拥有的元素：input button a
+		 焦点可以通过鼠标或者键盘触发
+		 焦点事件：focus事件
+		 失去焦点事件：blur事件
+		 
+		 element.focus()自动打开focus
+		 -->
+		
+		
+		<script type="text/javascript">
+			const input = document.querySelector('input')
+			
+			input.addEventListener('focus',function(){
+				this.style.backgroundColor = 'red'
+			})
+			input.addEventListener('blur',function(){
+				this.style.backgroundColor = 'white'
+			})
+			input.focus()
+		</script>
+	</body>
+</html>

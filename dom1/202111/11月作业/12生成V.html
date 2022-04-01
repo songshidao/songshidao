@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div div {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+			}
+
+			div {
+				width: 250px;
+				height: 250px;
+				margin-bottom: ;
+				position: relative;
+				margin-right: ;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="生成V" />
+		<div></div>
+		<script type="text/javascript">
+			var oDiv = document.querySelector('div'),
+				aDiv = oDiv.querySelectorAll('div'),
+				oInput = document.querySelector('input'),
+				num = 0
+			oInput.onclick = function() {
+
+				//  if(num == 3){
+				// 	num = 0
+				// }
+
+				if (num == 0) {
+					oDiv.innerHTML = ''
+					for (var i = 0; i < 5; i++) {
+						if (i > 2) {
+							oDiv.innerHTML += '<div style="top: ' + i * 50 + 'px; left:' + (5 - i - 1) * 50 + 'px">' + i +
+								'</div>'
+						} else {
+							oDiv.innerHTML += '<div style="top: ' + i * 50 + 'px; left:' + i * 50 + 'px">' + i + '</div>'
+						}
+					}
+					num++
+				} else if (num == 1) {
+					oDiv.innerHTML = ''
+					for (var i = 0; i < 5; i++) {
+						if (i > 2) {
+							oDiv.innerHTML += '<div style="left: ' + i * 50 + 'px; top:' + (5 - i - 1) * 50 + 'px">' + i +
+								'</div>'
+						} else {
+							oDiv.innerHTML += '<div style="left: ' + i * 50 + 'px; top:' + i * 50 + 'px">' + i + '</div>'
+						}
+					}
+					num++
+				} else if (num == 2) {
+					oDiv.innerHTML = ''
+					for (var i = 0; i < 5; i++) {
+						if (i > 2) {
+							oDiv.innerHTML += '<div style="bottom: ' + i * 50 + 'px; right:' + (5 - i - 1) * 50 + 'px">' +
+								i + '</div>'
+						} else {
+							oDiv.innerHTML += '<div style="bottom: ' + i * 50 + 'px; right:' + i * 50 + 'px">' + i + '</div>'
+						}
+					}
+					num++
+				} else if (num == 3) {
+					oDiv.innerHTML = ''
+					for (var i = 0; i < 5; i++) {
+						if (i > 2) {
+							oDiv.innerHTML += '<div style="right: ' + i * 50 + 'px; bottom:' + (5 - i - 1) * 50 + 'px">' +
+								i + '</div>'
+						} else {
+							oDiv.innerHTML += '<div style="right: ' + i * 50 + 'px; bottom:' + i * 50 + 'px">' + i + '</div>'
+						}
+						
+					}
+					num =0
+				}
+			}
+		</script>
+	</body>
+</html>

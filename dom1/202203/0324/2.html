@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				top: 20PX;
+				left: 30PX;
+			}
+		</style>
+		<script src="../ball.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 800,
+			H = canvas.height = 600,
+			activeBall = [],
+			dx=0,
+			dy=0
+			let  mouse =C.getMousePos(canvas)
+			
+		const b1 = new Ball({
+			x:150,y:150,r:50,fillStyle:'lightgreen'
+		})
+		const b2 = new Ball({
+			x:450,y:450,r:60
+		})
+		canvas.addEventListener('mousedown',function(ev){
+			if(b1.isInCircle(mouse)){
+				activeBall = b1
+			}
+			if(b2.isInCircle(mouse)){
+				activeBall = b2
+			}
+			dx = mouse.x-activeBall.x
+			dy = mouse.y-activeBall.y
+			canvas.addEventListener('mousemove',function(){
+				if(activeBall){
+					activeBall.x=mouse.x-dx
+					activeBall.y=mouse.y-dy
+				if(C.getBallLength(b1.x,b1.y,b2.x,b2.y)<=b1.r+b2.r){
+					console.log('撞上了')
+					if(activeBall==b1){
+						b2.fillStyle ='lightgreen'
+					}
+					if(activeBall==b2){
+						b2.fillStyle ='red'
+					}
+				}
+					
+				}
+				
+			})
+			canvas.addEventListener('mouseup',function(){
+				if(activeBall==b1){
+					b2.fillStyle ='red'
+				}
+				if(activeBall==b2){
+					b2.fillStyle ='lightgreen'
+				}
+				activeBall = null
+				
+			})
+		})
+		
+		
+		;(function animation(){
+			window.requestAnimationFrame(animation)
+			ctx.clearRect(0,0,W,H)
+			b1.render(ctx)
+			b2.render(ctx)
+		})()
+	</script>
+	</body>
+</html>

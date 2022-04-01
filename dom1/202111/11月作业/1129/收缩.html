@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>qweoiqwrohndkgsdfkdsf123123dsrwerwtjdfgn</div>
+		<button type="button">收缩</button>
+		<script type="text/javascript">
+			let oDiv = document.querySelector('div'),
+				oBut = document.querySelector('button'),
+				str = oDiv.innerHTML,
+				on = true
+				oBut.onclick = function(){
+					if(on){
+						oDiv.innerHTML = str.substring(0,20)
+						oBut.innerHTML = '扩展'
+						on = false
+					}else{
+						oDiv.innerHTML = str
+						oBut.innerHTML = '收缩'
+						on = true
+					}
+				}
+		</script>
+	</body>
+</html>

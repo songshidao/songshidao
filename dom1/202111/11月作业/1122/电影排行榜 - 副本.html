@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+				position: relative;
+			}
+			.ul1>li{
+				display: inline-block;
+			}
+ul ul{
+	position: absolute;
+	left: 0;
+	list-style-type: decimal-leading-zero;
+}
+ul ul li{
+	width: 100%;
+}
+		</style>
+	</head>
+	<body>
+		<ul class="ul1">
+<!-- 			<li><h2>电影排行榜</h2></li>
+			<li>每日
+				<ul>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+					<li>怒火攻心2：高压电174,776</li>
+				</ul>
+			</li>
+			<li>每周
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
+			<li>每月
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
+			<li>全部
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li> -->
+		</ul>
+		<script type="text/javascript">
+			let oUl =document.getElementsByClassName('ul1'),
+				text = ['电影排行榜','每日','每周','每月','全部'],
+				move = ['怒火攻心2：高压电174,776','熊出没之熊心归来165,217','欲罪133,196','疯狂试爱98,743','我的P.S.搭档93,836','天女猎妖团FTone89,643','赤裸女特工之夜之序曲73,620','撒娇女人最好命69,881 ','迷幻牛郎69,100 ','超能太监62,565 ']
+				move2 = ['怒火攻心2：高压电174,776','熊出没之熊心归来165,217','欲罪133,196','疯狂试爱98,743','我的P.S.搭档93,836','天女猎妖团FTone89,643','赤裸女特工之夜之序曲73,620','撒娇女人最好命69,881 ','迷幻牛郎69,100 ','超能太监62,565 ']
+				move3 = ['怒火攻心2：高压电174,776','熊出没之熊心归来165,217','欲罪133,196','疯狂试爱98,743','我的P.S.搭档93,836','天女猎妖团FTone89,643','赤裸女特工之夜之序曲73,620','撒娇女人最好命69,881 ','迷幻牛郎69,100 ','超能太监62,565 ']
+			str = ''
+				for(let i=0;i<5;i++){
+					str += '<li>'+text[i]+'</li>'
+				}
+				oUl[0].innerHTML = str
+				let aLi = oUl[0].getElementsByTagName('li')
+				for(let i=0;i<aLi.length;i++){
+					str1 += '<ol>'
+					
+					for(j=0;j<move.length;j++){
+							str1 += '+"<li>+'move1[j]'+</li>"+'
+					}
+					st1r += '</ol>'
+				}
+				for(let i=0;i<aLi.length;i++){
+					str2 += '<ol>'
+					for(j=0;j<move.length;j++){
+						
+						str2 += '+"<li>+'move2[j]'+</li>"+'
+						
+					}
+					str2 += '</ol>'
+				}
+		</script>
+	</body>
+</html>

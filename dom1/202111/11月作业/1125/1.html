@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		let timer = null
+		function mytime(){
+			let now = new Date()//.valueOf() 查看具体毫秒数
+			// let now += new Date()//也是看具体毫秒数
+			let str = '',
+				theyear = now.getFullYear(),
+				themonth = now.getMonth()+1,
+				thedate = now.getDate(),
+				thehours = now.getHours(),
+				theminutes = now.getMinutes(),
+				theday = now.getDay(),
+				theSeconds = now.getSeconds()
+				if(theday ===0) theday = '星期日'
+				if(theday ===1) theday = '星期一'
+				if(theday ===2) theday = '星期二'
+				if(theday ===3) theday = '星期三'
+				if(theday ===4) theday = '星期四'
+				if(theday ===5) theday = '星期五'
+				if(theday ===6) theday = '星期六'
+				str += theyear+'年'+themonth+'月'+thedate+'日'+theday+ totwo(thehours)+'时'+totwo(theminutes)+'分'+totwo(theSeconds)+'秒'
+				
+			// console.log(now)
+			
+			document.body.innerHTML = str
+			}
+			mytime()
+			timer = setInterval(mytime,1000)
+			 function totwo(n){
+				return (n<10)?'0'+n: ''+n
+				 // if(n<10){
+					//  return'0'+n//变成字符串  而减号会变数字
+				 // }else{
+					//  return ''+n
+				 // }
+			 }
+			 //totwo(6)//
+			 //totwo(16)
+		</script>
+	</body>
+</html>
+
+
+
+
+
+<!-- 
+ 1. w3c是语言标准的制定和发布者
+ ECMAScript 为了满足开发者的各种需要提供了许多的构造函数，比如Date()Array()REGEXP()等
+ 2.构造函数是什么
+ 构造函数就是用来创建一个新对象的函数
+ var ar = []//直接创建
+ var arr = new Array()//构造函数的方法
+ 3.如何使用构造函数创建对象
+ 一个对象一个实例
+ let now = new Date() //使用关键字new+构造函数 = 创建了一个新的时间对象
+ 对象是什么?
+ 对象是属性的集合
+ 4.new Date()表示当前系统时间
+ 当前:js解析器解析的时间
+ 系统时间:你的电脑你的时钟时间,时期和时间
+ new Date()创建的一个新的时间对象,这个时间对象班行了一个数字,这个数据代表从"当前时间"到1970年1月1日0点0分0秒所走过的毫秒数
+ 5.时间对象的方法
+ new Date()
+ -->

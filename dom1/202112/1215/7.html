@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: yellow;
+				position: absolute;
+				
+			}
+			
+			main{
+				margin: 100px;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">生成V</button>
+		<main>
+			
+		</main>
+		
+		<script type="text/javascript">
+			let oButton = document.querySelector('button'),
+				oMain = document.querySelector('main'),
+				str = '',
+				n=0
+			
+			oButton.onclick = function(){
+				str =''
+				oMain.innerHTML = ''
+				if(n==0){
+					for(let i=0;i<5;i++){
+						if(i<5/2){
+							str += `<div style='top:${i*51}px;left:${i*50}px;'></div>`
+						}else{
+							str += `<div style='top:${(5-i-1)*51}px;left:${i*50}px'></div>`
+						}
+						oMain.innerHTML = str
+					}
+				}else if(n==1){
+					for(let i=0;i<5;i++){
+						if(i<5/2){
+							str += `<div style='bottom:${i*51}px;left:${i*50}px'></div>`
+						}else{
+							str += `<div style='bottom:${(5-i-1)*51}px;left:${i*50}px'></div>`
+						}
+						oMain.innerHTML = str
+					}
+				}else if(n==2){
+					for(let i=0;i<5;i++){
+						if(i<5/2){
+							str += `<div style='right:${i*51}px;top:${i*50}px'></div>`
+						}else{
+							str += `<div style='right:${(5-i-1)*51}px;top:${i*50}px'></div>`
+						}
+						oMain.innerHTML = str
+					}
+				}else if(n==3){
+					for(let i=0;i<5;i++){
+						if(i<5/2){
+							str += `<div style='left:${i*51}px;top:${i*50}px'></div>`
+						}else{
+							str += `<div style='left:${(5-i-1)*51}px;top:${i*50}px'></div>`
+						}
+						oMain.innerHTML = str
+					}
+				}
+				else if(n>3){
+					n=0-1
+				}
+				n++
+				
+			}
+		</script>
+	</body>
+</html>

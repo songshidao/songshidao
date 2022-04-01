@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			span{
+				padding: 0 55px;
+				background-color: blue;
+			}
+			.li1{
+				position: relative;
+			}
+			.div1{
+				display: none;
+			}
+			.div2{
+				position: absolute;
+				top: -5px;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+		<li class="li1">
+			<div class="div1">
+		<input type="text" value="新闻中心" />
+		<label class="label1">保存</label>
+		<label class="label2">取消</label>
+		</div>
+		<div class="div2">
+			<span>新闻中心</span>
+			<img src="images/edit.png" />
+		</div>
+		
+		</li>
+		
+		<li class="li1">
+			<div class="div1">
+		<input type="text" value="产品中心" />
+		<label class="label1">保存</label>
+		<label class="label2">取消</label>
+		</div>
+		<div class="div2">
+			<span>产品中心</span>
+			<img src="images/edit.png" />
+		</div>
+		</li>
+	<li class="li1">
+			<div class="div1">
+		<input type="text" value="公司介绍" />
+		<label class="label1">保存</label>
+		<label class="label2">取消</label>
+		</div>
+		<div class="div2">
+			<span>公司介绍</span>
+			<img src="images/edit.png" />
+		</div>
+		</li>
+		</ul>
+		<script type="text/javascript">
+			let oUl = document.getElementById('list'),
+				aLi = document.getElementsByTagName('li1'),
+				aSpan = document.querySelectorAll('span'),
+				aDiv1 = document.getElementsByClassName('div1'),
+				aDiv2 = document.getElementsByClassName('div2'),
+				aImg = document.querySelectorAll('img'),
+				aLabel1 = document.getElementsByClassName('label1'),
+				aLabel2 = document.getElementsByClassName('label2'),
+				aInput = document.querySelectorAll('input')
+				for(var i=0; i < 3;i++ ){
+					aImg[i].index = i
+					aImg[i].onclick = function(){
+						aDiv2[this.index].style.display = 'none'
+						aDiv1[this.index].style.display = 'block'
+					}
+					aLabel1[i].index = i
+					aLabel1[i].onclick = function(){
+						aDiv1[this.index].style.display = 'none'
+						aDiv2[this.index].style.display = 'block'
+						aSpan[this.index].innerHTML = aInput[this.index].value
+					}
+					aLabel2[i].index = i
+					aLabel2[i].onclick = function(){
+						n = aSpan[this.index].innerHTML
+						aDiv1[this.index].style.display = 'none'
+						aDiv2[this.index].style.display = 'block'
+						aInput[this.index].value = n
+					}
+				}
+				
+		</script>
+	</body>
+</html>

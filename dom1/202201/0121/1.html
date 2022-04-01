@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+
+        function showCountry(){
+            
+        }
+        let xHr = new XMLHttpRequest()
+
+        xHr.open('get','https://restcountries.com/v3.1/all',true)
+        xHr.onreadystatechange = function(){
+            switch(this.readyState){
+                case 0: conole.log('0:请求未初始化')
+                break;
+                case 1: conole.log('1:服务器已建立连接')
+                break;
+                case 2: console.log('2:请求已收到')
+                break;
+                case 3: console.log('3:正在处理请求')
+                break;
+                case 4:console.log('4:请求已完成且响应已就绪')
+                break;
+            }
+        }
+        xHr.send()
+    </script>
+</body>
+</html>

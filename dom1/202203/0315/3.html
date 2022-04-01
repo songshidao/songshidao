@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body{
+				margin: 0;
+				background-color: #555;
+			}
+			canvas{
+				background-color: #fff;
+			}
+			img{
+				display: none;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas1">
+		</canvas>
+		<img src="img/0315-2.png" >
+	
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		const image = document.querySelector('img')
+		const player = {
+			x:20,y:200,w:50,h:70,dx:0,dy:0,speed:5
+			
+		}
+		canvas.width = window.innerWidth
+		canvas.height = window.innerHeight
+		function drawPlaer(){
+			ctx.drawImage(image,player.x,player.y,player.w,player.h)//(image,x,y,width,height)
+			
+		}
+function fn(){
+	ctx.clearRect(0,0,canvas.width,canvas.height)
+	drawPlaer()
+	player.x+=player.dx
+	player.y+=player.dy
+	requestAnimationFrame(fn)
+}		
+fn()
+document.addEventListener('keydown',keyDown)
+document.addEventListener('keyup',keyUp)
+function right() {
+	player.dx = player.speed
+}	
+function left() {
+	player.dx = player.speed*-1
+}
+function up() {
+	player.dy = player.speed*-1
+}
+function down() {
+	player.dy = player.speed
+}
+function keyDown(ev) {
+	if(ev.key === 'ArrowRight')right()
+	if(ev.key === 'ArrowLeft')left()
+	if(ev.key === 'ArrowUp')up()
+	if(ev.key === 'ArrowDown')down()
+}
+function keyUp(ev) {
+	if(ev.key ==='ArrowRight'||ev.key === 'ArrowLeft'||ev.key === 'ArrowUp'||ev.key === 'ArrowDown'){
+		player.dx=0
+		player.dy=0
+	}
+	
+}
+	</script>
+	</body>
+</html>

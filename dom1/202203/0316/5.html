@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let W= canvas.width = 800,
+			H = canvas.height = 500
+		let mouse = C.getMousePos(canvas)
+		
+		
+		canvas.addEventListener('mousemove',function(){
+			ctx.clearRect(0,0,W,H)
+			let dx=mouse.x-W/2,
+				dy=mouse.y-H/2
+				
+				// let angle =  Math.atan(dy/dx)*180/Math.PI
+				let angle = Math.atan2(dy,dx)*180/Math.PI
+				sreateCS()
+				ctx.beginPath()
+				ctx.lineTo(mouse.x,mouse.y)
+				ctx.lineTo(W/2,H/2)
+				ctx.stroke()
+				
+				ctx.fillStyle = 'red'
+				ctx.font = '30px aoto'
+				ctx.fillText(angle,mouse.x,mouse.y)
+
+		})
+		sreateCS()
+		function sreateCS(){
+			ctx.save()
+			ctx.beginPath()
+			ctx.moveTo(0,H/2)
+			ctx.lineTo(W,H/2)
+			ctx.moveTo(W/2,0)
+			ctx.lineTo(W/2,H)
+			ctx.stroke()
+			ctx.restore()
+		}
+		
+	</script>
+	</body>
+</html>

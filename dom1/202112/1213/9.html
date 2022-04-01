@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+<strong id="strong1">张三：</strong>
+<input id="text1" type="text" />
+<input id="btn1" type="button" value="提交" />
+
+
+<script>
+let oDiv = document.querySelector('div'),
+    oStrong = document.querySelector('strong'),
+    aInput = document.querySelectorAll('input')
+
+    // alert(oStrong.innerHTML)
+    aInput[1].onclick = function(){
+        if(aInput[0].value){
+            oDiv.innerHTML += '<p>'+oStrong.innerHTML + aInput[0].value+'</p>'
+        aInput[0].value = ''
+        }else{
+            alert('请输入内容')
+        }
+        
+    }
+</script>
+</body>
+</html>

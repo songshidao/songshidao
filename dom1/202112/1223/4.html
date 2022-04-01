@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script type="text/javascript">
+	const people = [
+		{ firstName: 'Sam', lastName: 'Hughes', DOB: '07/07/1978', department: '开发', salary: '45000' },
+		{ firstName: 'Terri', lastName: 'Bishop', DOB: '02/04/1989', department: '开发', salary: '35000' },
+		{ firstName: 'Jar', lastName: 'Burke', DOB: '11/01/1985', department: '市场', salary: '38000' },
+		{ firstName: 'Julio', lastName: 'Miller', DOB: '12/07/1991', department: '销售', salary: '40000' },
+		{ firstName: 'Chester', lastName: 'Flores', DOB: '03/15/1988', department: '开发', salary: '41000' },
+		{ firstName: 'Madison', lastName: 'Marshall', DOB: '09/22/1980', department: '销售', salary: '32000' },
+		{ firstName: 'Ava', lastName: 'Pena', DOB: '11/02/1986', department: '开发', salary: '38000' },
+		{ firstName: 'Gabriella', lastName: 'Steward', DOB: '08/26/1994', department: '市场', salary: '46000' },
+		{ firstName: 'Charles', lastName: 'Campbell', DOB: '09/04/1977', department: '销售', salary: '42000' },
+		{ firstName: 'Tiffany', lastName: 'Lambert', DOB: '05/11/1990', department: '开发', salary: '34000' },
+		{ firstName: 'Antonio', lastName: 'Gonzalez', DOB: '03/24/1985', department: '经理', salary: '49000' },
+		{ firstName: 'Aaron', lastName: 'Garrett', DOB: '09/04/1985', department: '开发', salary: '39000' },
+	];
+	let str = '',
+		n= 0
+	
+//题0：把people数组中的数据用表格渲染在页面上
+for(let i=0;i<people.length;i++){
+	str +='<p>'
+	for( let x in people[i]){
+		str += `<td>${people[i][x]}</td>`
+	}
+	str +=`</p>`
+}
+document.body.innerHTML = str
+//题1：求平均工资
+let money = people[1].salary
+money =  people.reduce(function(total,sur){
+	// console.log(sur.salary)
+	return  total + sur.salary*1
+},0)
+money = money/people.length
+// console.log(people.length)
+console.log(money)
+//题2：筛选出people数组中年龄大于30的人
+let year = 0
+year = people.filter(function(item){
+	// return  Date.parse(b.DOB) - Date.parse(a.DOB)
+	return new Date().getFullYear() - new Date(item.DOB).getFullYear() >30
+})
+console.log(year)
+//题3：打印出people数组中所有人的全名（firstName + lastName）
+let aName = people.map(function(n){
+	return `${n.firstName} ${n.lastName}`
+})
+document.body.innerHTML += aName
+//题4：按照年龄从小到大排序people数组
+let asort = people.sort(function(a,b){
+	return new Date(b.DOB) - new Date(a.DOB)
+})
+console.log(asort)
+
+
+		</script>
+	</body>
+</html>

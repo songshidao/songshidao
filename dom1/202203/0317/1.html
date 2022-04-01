@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./tool.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		</style>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let cW= canvas.width = 800,
+			cH = canvas.height = 600
+			let mouse = C.getMousePos(canvas)
+		const  arrow = new Arrow({
+			x:cW/2,
+			y:cH/2,
+			w:100,
+			h:40
+		}).render(ctx)
+		canvas.addEventListener('mousemove',function(){
+			let dx=mouse.x-arrow.x
+			let dy=mouse.y-arrow.y
+			arrow.rotation = Math.atan2(dy,dx)
+			ctx.clearRect(0,0,cW,cH)
+			arrow.render(ctx)
+		})
+	</script>
+	</body>
+</html>

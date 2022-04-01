@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas1{
+				box-shadow: 0 0 10px red;
+				background-color: #000000;
+			}
+		</style>
+		<script src="../ball.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<canvas id="canvas1">
+	</canvas>
+	
+	<script type="text/javascript">
+		const canvas = document.querySelector('#canvas1')
+		const ctx = canvas.getContext('2d')
+		let particles=[],
+		W=0,H=0,spring=0.00005,ax=0,ay=0
+		init()
+			// 初始化球
+		function init(){
+			W= canvas.width = window.innerWidth,
+			H = canvas.height = window.innerHeight
+			const particleCount=(W*H)/15000
+			particles=[]
+			creatParticle(particleCount)
+		}
+		window.addEventListener('resize',init)
+		// 创建粒子
+		function creatParticle(count){
+			for(let i=0;i<count;i++){
+				let size = Math.random() * (10 - 3) + 3
+				particles.push(new Ball({
+					x:Math.random()*W,
+					y:Math.random()*H,
+					r:size,
+					m:size,
+					vx:Math.random()*(2-(-2))+(-2),
+					vy:Math.random()*(2-(-2))+(-2),
+					fillStyle:'#fff'
+				}))
+			}
+		}
+		
+		// 球的运动
+		function move(p,i){
+			p.x+=p.vx
+			p.y+=p.vy
+			
+			for(let j=i+1;j<particles.length;j++){
+				let target=particles[j]
+					// cuurent = particles[i]
+				// Spring :跳跃
+				checkSpring(p,target)
+			}
+			
+			if(p.x-p.r<0){
+				p.x = W + p.r
+			}else if(p.x-p.r>W){
+				p.x = - p.r
+			}
+			if(p.y-p.r<0){
+				p.y = H + p.r
+			}else if(p.y-p.r>H){
+				p.y = - p.r
+			}
+		}
+		function checkSpring(current,target){
+			let dx= target.x-current.x,
+				dy = target.y-current.y,
+				distance = Math.sqrt(Math.pow(dx,2)+Math.pow(dy,2)),
+				minDistance = W/30
+				
+				// console.log(distance)
+				if(distance<minDistance){
+					// console.log(distance<minDistance)
+					// 弹动系数
+					drawLine(current,target,distance,minDistance)
+					ax=dx*spring
+					ay=dy*spring
+				}
+				current.vx +=ax/current.m
+				current.vy +=ay/current.m
+				target.vx -=ax/target.m
+				target.vy -=ay/target.m
+		}
+		
+		// 划线
+		function drawLine(current,target,distance,minDistance){
+			ctx.save()
+			ctx.lineWidth =4* Math.max(0,(1 - (distance/minDistance)))
+			// console.log(distance,minDistance)
+			ctx.strokeStyle = '#fff'
+			ctx.beginPath()
+			ctx.lineTo(current.x,current.y)
+			ctx.lineTo(target.x,target.y)
+			ctx.stroke()
+			ctx.restore()
+		}
+		// 处理边界
+		
+		// 处理碰撞
+			
+		// 循环动画
+		function animation(){
+			window.requestAnimationFrame(animation)
+			ctx.clearRect(0,0,W,H)
+			particles.forEach(move)
+			particles.forEach( p =>p.render(ctx))
+		}
+		animation()
+	</script>
+	</body>
+</html>

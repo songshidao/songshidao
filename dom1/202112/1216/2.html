@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value='按钮1'>
+		<input type="button" value='按钮2'>
+		<input type="button" value='按钮3'>
+		
+		
+		<script type="text/javascript">
+			let data = ['A','B','C','D'],
+				aButton = document.querySelectorAll('input')
+				// n = 0
+			for(let i=0;i<aButton.length;i++){
+				aButton[i].on =0
+				aButton[i].onclick = function(){
+					aButton[i].value = data[this.on]
+					this.on++
+					if(this.on==data.length)this.on=0
+				}
+			}
+		</script>
+	</body>
+</html>

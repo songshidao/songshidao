@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				display: inline;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p>通过对元宇宙构思和概念的“考古”，可以从时空性、真实性、独立性、连接性四个方面去交叉定义元宇宙。从时空性来看，元宇宙是一个空间维度上虚拟而时间维度上真实的数字世界；从真实性来看，元宇宙中既有现实世界的数字化复制物，也有虚拟世界的创造物；从独立性来看，元宇宙是一个与外部真实世界既紧密相连，又高度独立的平行空间；从连接性来看，元宇宙是一个把网络、硬件终端和用户囊括进来的一个永续的、广覆盖的虚拟现实系统。</p>
+			<a href="#">收缩</a>
+		</div>
+		
+		
+<script type="text/javascript">
+	let oBox = document.querySelector('.box')
+	let oP = document.querySelector('p')
+	let oA = document.querySelector('a')
+	let str = oP.innerHTML
+	let on = true
+	//点击按钮，提取字符串(str.substring)
+	
+	oA.onclick = function(){
+		if(on==true){
+			oP.innerHTML = str.substring(0,10) 
+			on = false
+			oA.innerHTML = '展开'
+			}
+		 else{
+			 oP.innerHTML = str.substring()
+			 on = true
+			 oA.innerHTML = '收缩'
+		 }
+	}
+
+	
+	
+	
+</script>
+	</body>
+</html>

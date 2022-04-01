@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/normal1.png" >
+		<img src="img/normal1.png" >
+		<img src="img/normal1.png" >
+	</body>
+	<script type="text/javascript">
+		var stc = ['img/normal1.png','img/active1.png'],
+		oImg = document.querySelectorAll('img')
+		on = true
+		for(var i=0;i<3;i++){
+			oImg[i].onclick = function(){
+				if(on){
+					this.src = stc[1]
+					on = false
+				}else{
+					this.src = stc[0]
+					on = true
+				}
+			}
+
+		}
+	</script>
+</html>

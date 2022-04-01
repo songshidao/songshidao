@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			var oBox = document.querySelector('.box'),
+			str = '',
+			btn1 = document.getElementById('a0'),
+			aInput = document.getElementsByTagName('input')
+			for(var i = 0 ; i < 5 ;i++){
+				str += '<input id="a' + i + '" type="button" value="按钮">'
+			}
+			oBox.innerHTML = str
+			alert(aInput)
+		</script>
+	</body>
+	<!-- 
+	 ById和ByTagName
+	 id只能一个而且必须是静态而且只能document但tag不同，多个且能在JS后触发而且能接Element
+	 
+	 
+	 this:是一个指向属性，指向调用他的元素
+	 -->
+</html>

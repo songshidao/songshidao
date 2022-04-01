@@ -1,0 +1,46 @@
+*{
+	box-sizing: border-box;/* 更改盒模型的计算方式 */
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: #333;
+	color: #fff;
+	line-height: 2;
+}
+.slider-container{
+	height: 100vh;
+	width: calc(3*100%);
+	overflow: hidden;
+	display: flex;
+}
+.slide{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}
+.slide h2{
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+}
+.slide h4{
+	font-size: 1.5rem;
+	margin-bottom: .5rem;
+}
+.btn{
+	background-color: lightblue;
+	padding: .3rem 5rem;
+	border-radius: .3rem;
+	font-size: 1.5rem;
+}
+.slide img{
+	max-width: 100%;
+	max-height: 100%;
+}

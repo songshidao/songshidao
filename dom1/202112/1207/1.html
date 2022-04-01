@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+
+
+<script>
+    var text = [{id:1,sName:"张三",age:18,gender:"男",location:"湖南"},
+    {id:2,sName:"张三",age:18,gender:"女",location:"湖北"},
+    {id:3,sName:"王五",age:18,gender:"男",location:"湖南"},
+    {id:4,sName:"张三",age:18,gender:"男",location:"湖北"},
+    {id:5,sName:"李四",age:18,gender:"男",location:"湖南"}],
+    oDiv = document.querySelector('div'),
+    seec = {id:1,sName:"张三",age:18,gender:"女",location:"湖北"}
+
+    let txt = "";
+    for(i=0;i<text.length;i++){
+        txt += '<span>'
+        for (let x in text[i] ) {
+  txt += '<td>' + text[i][x] + '</td>'
+}
+txt += '</span>'
+    }
+
+oDiv.innerHTML = txt
+
+console.log(Math.round(2019.5));
+</script>
+</body>
+</html>

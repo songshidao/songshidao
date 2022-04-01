@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<div class="div1"></div>
+	<body>
+		<input type="button" name="" id="" value="按钮1" />
+		<input type="button" name="" id="" value="按钮2" />
+		<input type="button" name="" id="" value="按钮3" />
+		<script type="text/javascript">
+			var oInput = document.querySelectorAll('input'),
+			    n = ['A','B','C','D'],
+				nub = 0
+				for(i = 0;i < oInput.length;i++){
+					oInput[i].nub = 0
+					oInput[i].onclick = function(){
+						this.value = n[this.nub]
+						this.nub++
+						if(this.nub == n.length){
+							this.nub = 0
+						}
+					}
+				}
+		</script>
+	</body>
+</html>

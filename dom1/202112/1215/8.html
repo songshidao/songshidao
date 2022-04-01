@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">生成新闻</button>
+		<ul>
+			
+		</ul>
+		<script type="text/javascript">
+			let oUl = document.querySelector('ul'),
+				ARR= ['transparent在不同css版本中使用','CSS1中，transparent被用来作为background-color的一个参数值','用于表示背景透明',' CSS2中，border-color也开始接受transparent作为参数值','《Open eBook (tm) Publication Structure 1.0.1》 [OEB101]延伸到color也接受transparent作为参数值'],
+				oButton = document.querySelector('button'),
+				str = ''
+			
+			oButton.onclick = function(){
+				for(let i=0;i<ARR.length;i++){
+					str += `<li>${ARR[i]}</li>`
+				}
+				oUl.innerHTML = str
+			}
+		</script>
+	</body>
+</html>

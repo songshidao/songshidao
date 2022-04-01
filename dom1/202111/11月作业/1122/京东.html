@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 80px;
+				height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+			<div id="cart">
+				<table>
+					<thead>
+						<tr>
+							<th>全选</th>
+							<th colspan="2">商品</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>小计</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr>
+							<td><input type="checkbox" /></td>
+							<td><img src="images/1jljj.jpg" ></td>
+							<td>家乐鸡精调味料 600g  联合利华出品</td>
+							<td>14.90</td>
+							<td>
+								<button>-</button>
+								<input type="number" value="1"/>
+								<button>+</button>
+							</td>
+							<td>14.90*2</td>
+							<td>删除</td>
+						</tr> -->
+					</tbody>
+				</table>
+				<div class="toolbar">
+					<div class="left">
+						<input type="checkbox" />全选 <span>删除选中的商品</span>
+					</div>
+					<div class="right">
+						<span>已选择3件商品</span> <span>总价：￥44.70</span> <a href="">去结算</a>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				let aProName = ['家乐鸡精调味料 600g  联合利华出品','水塔 醋 4度陈醋 2.3L 山西特产','中盐 低钠盐 食盐 250g','王守义十三香45g 炒菜炖肉拌菜蘸料腌制调味料 中华老字号','太太乐 鸡精 三鲜调味料 加倍提鲜 227g 雀巢出品','海天黄豆酱340g 豆瓣酱原味调味品调料酱 甜味酱 拌饭拌面下饭酱蘸料酱炒','京糖 JINGTANG 优级绵白糖 500g 中华老字号 北京糖酒集团出品','海天 酱油 味极鲜特级生抽 1.9L 中华老字号']
+				let aProPrice = [14.90,15.60,3.50,4.50,10.90,8.40,8.60,25.90]
+				let aProThumbNail = ['images/1jljj.jpg','images/2stcc2.jpg','images/3zydny.jpg','images/413x.jpg','images/5ttljj.jpg','images/6htdbj.jpg','images/7bt.jpg','images/8htjy.jpg']
+				let oCart = document.querySelector('#cart'),
+					oTbody = document.querySelector('tbody'),
+					aTr = oTbody.getElementsByTagName('tr')
+					// aTd = aTr.getElementsByTagName('td'),
+					// oQty = aTr.querySelector('[type=number]'),
+					// aButton = aTr.querySelectorAll('button'),
+					str = ''
+					for(var i=0;i<aProName.length;i++){
+						str += '<tr>'
+						str += '<td><input type="checkbox" /></td><td><img src="'+aProThumbNail[i]+'" ></td><td>'+aProName[i]+'</td><td>'+aProPrice[i]+'</td><td><button>-</button><input type="number" value="1" /><button>+</button></td><td>'+aProPrice[i] +'</td><td>删除</td>'
+						str += '</tr>'
+					}
+					oTbody.innerHTML = str
+					function mycart(tr){
+						let oPriceTd = tr.querySelectorAll('td')[3].innerHTML,
+							aButtonm = tr.querySelectorAll('button')[0],
+							aButtonp = tr.querySelectorAll('button')[1],
+							oQty = tr.querySelector('[type=number]'),
+							oHeji = tr.querySelectorAll('td')[5]
+							aButtonm.onclick = function(){
+								oQty.value--
+								if(oQty.value < 0){oQty.value = 0}
+								oQty.value = oQty.value
+								oHeji.innerHTML = oPriceTd * oQty.value
+							}
+							aButtonp.onclick = function(){
+								oQty.value++
+								oQty.value = oQty.value
+								oHeji.innerHTML = oPriceTd * oQty.value
+							}
+					}
+					for(var i=0;i<aProName.length;i++){
+						mycart(aTr[i])
+					}
+			</script>
+		</body>
+</html>

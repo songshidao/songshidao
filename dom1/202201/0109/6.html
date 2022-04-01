@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let str = '2022-1-09',
+				// re =/\d-+/g  //2-,1-
+				// re =/\d+-/g  //2022-,1-
+				// re =/(\d-)+/g //2-1-
+				re =/(\d+)(-)+/g
+				str = str.replace(re,function(arg,arg1,arg2){
+					// console.log(arg)//2022-,1-
+					// console.log(arg1)//2022,1
+					console.log(arg2)//-
+					return arg1+'.'
+				})
+				console.log(str)
+		</script>
+	</body>
+</html>

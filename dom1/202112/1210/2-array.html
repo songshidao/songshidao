@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			const orders = [
+			    { orderId: '123', customerId: '123', deliveryDate: '01-01-2020', delivered: true, items: [
+			        { productId: '123', price: 55 },
+			        { productId: '234', price: 30 },
+			    ]},
+			    { orderId: '234', customerId: '234', deliveryDate: '01-02-2020', delivered: false, items: [
+			        { productId: '234', price: 30 },
+			    ]},
+			    { orderId: '345', customerId: '234', deliveryDate: '05-01-2020', delivered: true, items: [
+			        { productId: '567', price: 30 },
+			        { productId: '678', price: 80 },
+			    ]},
+			    { orderId: '456', customerId: '345', deliveryDate: '12-01-2020', delivered: true, items: [
+			        { productId: '789', price: 12 },
+			        { productId: '890', price: 90 },
+			    ]},
+			        { orderId: '578', customerId: '456', deliveryDate: '12-01-2020', delivered: true, items: [
+			        { productId: '901', price: 43 },
+			        { productId: '123', price: 55 },
+			    ]},
+			];
+const oDiv = document.querySelector('div')			
+// 1)找出customerId为234的没有发货的订单列表(delivered:已发货)
+txt =  orders.filter((v)=>{
+	return v.customerId == 234 && v.delivered == false
+})
+console.log(txt)
+// 2)查询所有的订单是否已发货
+isdelivered=  orders.every((v)=>{
+	return v.delivered
+})
+console.log(isdelivered)
+
+// 3) 查询是否有customerId为123的顾客的订单？
+findCID =	orders.filter((v)=>{
+		return v.customerId == '123'
+	})
+console.log(findCID)
+
+// 4) 查询是否有productId为123的订单吗？
+findPID =	orders.filter((v)=>{
+		return v.items.some(item => item.productId == 123)
+	})
+console.log(findPID)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.img1{
+				top: 0;
+				position: absolute;
+			}
+			.img2{
+				position: absolute;
+				top: 172px;
+			}
+			.div1{
+				position: relative;
+			}
+			.div{
+				height: 172px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">
+			<div class="div1">
+			<img src="" class="img1" >
+			<img src="" class="img2">
+			</div>
+		</div>
+		
+
+	<script src="../1124/js/domove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let timer = null,
+				timer1 = null,
+			oH1 = document.getElementsByTagName('h1')[0],
+			 src = ['img/0.JPG','img/1.JPG','img/2.JPG','img/3.JPG','img/4.JPG','img/5.JPG','img/6.JPG','img/7.JPG','img/8.JPG','img/9.JPG','img/colon.JPG','img/colon2.JPG'],
+			 aDiv = document.getElementsByClassName('div1'),
+			 aImg = aDiv[0].querySelectorAll('img')
+			function mytime(){
+				let now = new Date()//.valueOf() 查看具体毫秒数
+				// let now += new Date()//也是看具体毫秒数
+				let str = '',
+					thehours = now.getHours(),
+					theminutes = now.getMinutes(),
+					theSeconds = now.getSeconds(),
+					n = '',
+					on = '',
+					str1 = ''
+					str += totwo(thehours)+totwo(theminutes)+totwo(theSeconds+1)
+					str1 += totwo(thehours)+totwo(theminutes)+totwo(theSeconds)
+				// console.log(now)
+				// oH1.innerHTML = str
+				for(var i=0;i<str.length;i++){
+					aImg[0].src = on
+					aImg[1].src= src[str.charAt(i)] 
+					on = src[str1.charAt(i+1)]
+				}
+				timer1 = domove(aImg[1],'top',0,1,6)
+				}
+				mytime()
+				
+				timer = setInterval(function(){
+					mytime()
+					aImg[1].style.top = 172+'px'
+				},1000)
+				function totwo(n){
+								return (n<10)?'0'+n: ''+n
+								 // if(n<10){
+									//  return'0'+n//变成字符串  而减号会变数字
+								 // }else{
+									//  return ''+n
+								 // }
+				}
+				
+				
+		</script>
+	</body>
+</html>

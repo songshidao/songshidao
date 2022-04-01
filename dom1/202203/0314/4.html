@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			canvas{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1" >
+			
+		</canvas>
+		
+		<script type="text/javascript">
+			const canvas = document.querySelector('#canvas1')
+			const ctx = canvas.getContext('2d')//引入绘图环境
+			console.log(ctx)//CanvasRenderingContext2D
+			canvas.width = window.innerWidth
+			canvas.height = window.innerHeight
+			
+			// 绘制填充矩形
+			ctx.fillStyle = 'red'
+			ctx.fillRect(40,20,200,150)//X,Y,W,H
+			ctx.fillStyle = 'blue'
+			ctx.fillRect(250,20,200,150)//X,Y,W,H
+			
+			// 绘制描边矩形
+			ctx.strokeStyle = 'red'
+			ctx.strokeRect(40,200,200,150)
+			ctx.strokeStyle = 'blue'
+			ctx.strokeRect(250,200,200,150)
+			
+			// 绘制填充文字
+			ctx.font = '50px aoto'//字号 字体
+			ctx.fillStyle = 'orange'
+			ctx.fillText('hello world',40,400)
+			// 绘制描边文字
+			ctx.font = '50px aoto'
+			ctx.strokeStyle = 'green'
+			ctx.strokeText('hello world',300,400)
+			
+			// 绘制多边形
+			ctx.beginPath()//发起一条路径，重置一条路径
+			ctx.moveTo(40,500) //移动路径到指定位置
+			ctx.lineTo(340,500)//创建一条线
+			ctx.lineTo(240,1000)
+			ctx.closePath()//闭合路径
+			ctx.fill()
+		</script>
+	</body>
+</html>
+<!-- 
+canvas本意为画布油画 
+<canvas>是H5新增的一个标签
+<canvas>用于在网页文档中创建画布
+ 画布时矩形的
+ 画布没有边框，没有内容
+ 仅仅时一块画布，提供画画的基础环境
+可以在<canvas>画布上绘图，但只能用JS
+
+通常在创建画布的同时要指定ID方便JS调用
+通常要设置宽度和高度
+	html标签的属性设置 width = 200
+	也可以用CSS设置
+	使用JS设置
+默认尺寸 width：300 height：150
+默认背景色为黑色
+ -->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>get-MousePosition</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				background-color: #eee;
+			}
+
+			#canvas1 {
+				box-shadow: 0 0 20px red;
+				/* (x,y,范围,颜色) */
+				background-color: white;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+		<script src="tool.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>getMousePos(ele):获取传入元素的鼠标坐标</h1>
+		<canvas id="canvas1">
+		</canvas>
+
+		<script type="text/javascript">
+			const canvas = document.querySelector('#canvas1')
+			const ctx = canvas.getContext('2d')
+			canvas.width = 800
+			canvas.height = 800
+			
+			
+			let result = c.getMousePos(canvas)
+			canvas.onclick=function(){
+				console.log(mouse.x)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="put1"  />
+		<input type="button" name="" id="put2" value="判断字符串" />
+		<script type="text/javascript">
+			var oInput1 = document.getElementById('put1'),
+				oInput2 = document.getElementById('put2')
+				
+				oInput2.onclick = function(){
+					if(isNaN(oInput1.value)){
+						console.log('不是数字')
+					}else{
+						console.log('是数字')
+					}
+				}
+		</script>
+	</body>
+</html>
