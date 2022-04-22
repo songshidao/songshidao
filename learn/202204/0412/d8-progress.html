@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            background:#98bf21;height:50px;width:1px;border:1px solid green;
+        }
+        #wrap{
+            border:1px solid green;margin:10px;width:400px;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <button id="btn">Start Progress Bar</button>
+    <div id="wrap">
+        <div id="box"></div>
+    </div>
+    <p id="demo"></p>
+    <script>
+        $('#btn').click(function(){
+			$('#box').animate({
+				// 设置动画运动的目标点以及属性
+				width:400
+			},{
+				duration:1000,
+				easing:'linear',
+				step:function(x){
+					$('#demo').text(Math.floor(x/4)+'%')
+				}
+			})
+		})
+    </script>
+</body>
+</html>

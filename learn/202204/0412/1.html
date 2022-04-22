@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button>选择</button>
+		<h1>一级标题</h1>
+		<h1>一级标题</h1>
+		<h1>一级标题</h1>
+		<h1 class="aaa">一级标题</h1>
+		<h1 class="aaa" id="b2">一级标题</h1>
+	
+	<script type="text/javascript">
+		$('button').click(function(){
+			let index = $('.aaa').index($('#b2'))
+			// $('.aaa').eq(index).css('background-color','red')
+			$(`.aaa:eq(${index})`).css('background-color','red')
+		})
+	</script>
+	</body>
+</html>

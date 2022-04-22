@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			button{
+				height: 40px;
+				width: 100px;
+				border: none;
+				position: relative;
+				left: 50px;
+				top: 200px;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button type="button">按钮</button>
+		<div class="box1"></div>
+		<p id="result">结果</p>
+		
+		<script type="text/javascript">
+			$('*',document.body).click(function(){
+				let offset = $(this).offset()
+				$('#result').text(this.tagName+':'+offset.left+','+offset.top)
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jquery-3.6.0.js"></script>
+    <style>
+        div{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+        .active{
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <p>移动1</p>
+        <p>移动2</p>
+        <p>移动3</p>
+        <p>移动4</p>
+        <p>移动5</p>
+    </div>
+    <div class="box2">
+        
+    </div>
+    <button>移动</button>
+    <script>
+        $('p').click(function(){
+            $(this).toggleClass('active')
+        })
+       $('button').click(function(){
+           $('.box1 p[class=active]').appendTo($('.box2'))
+       })
+    </script>
+</body>
+</html>

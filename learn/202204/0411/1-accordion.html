@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴</title>
+	<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .accordion-container {
+		position: relative;
+		width: 100%;
+		border: 1px solid #0079c1;
+		border-top: none;
+		outline: 0;
+		cursor: pointer
+}
+
+.accordion-container .article-title {
+		display: block;
+		position: relative;
+		margin: 0;
+		padding: 0.625em 0.625em 0.625em 2em;
+		border-top: 1px solid #0079c1;
+		font-size: 1.25em;
+		font-weight: normal;
+		color: #0079c1;
+		cursor: pointer;
+}
+
+.accordion-container .article-title:hover,
+.accordion-container .article-title:active,
+.accordion-container .content-entry.open .article-title {
+		background-color: #00aaa7;
+		color: white;
+}
+/* .open .accordion-content{display: block;} */
+.accordion-container .article-title:hover i:before,
+.accordion-container .article-title:hover i:active,
+.accordion-container .content-entry.open i {
+		color: white;
+}
+
+.accordion-container .content-entry i {
+		position: absolute;
+		top: 3px;
+		left: 12px;
+		font-style: normal;
+		font-size: 1.625em;
+		font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		color: #0079c1;
+}
+
+.accordion-container .content-entry i:before {
+		content: "+ ";
+}
+
+.accordion-container .content-entry.open i:before {
+		content: "- ";
+}
+
+.accordion-content {
+		display: none;
+		padding-left: 2.3125em;
+}
+
+#content {
+		width: 100%;
+}
+
+.accordion-container,
+#description {
+		width: 90%;
+		margin: 1.875em auto;
+}
+
+#description p {
+		line-height: 1.5;
+}
+
+#description h2 {
+		text-align: center;
+}
+
+@media all and (min-width: 860px) {
+		#content {
+				width: 70%;
+				margin: 0 auto;
+		}
+}
+    </style>
+</head>
+<body>
+    <section id="content">
+		<div id="accordion" class="accordion-container">
+				<article class="content-entry">
+						<h4 class="article-title"><i></i>Accordion Title 1</h4>
+						<div class="accordion-content">
+								<p>Accordion content 1</p>
+						</div>
+						<!--/.accordion-content-->
+				</article>
+
+				<article class="content-entry">
+						<h4 class="article-title"><i></i>Accordion Title 2</h4>
+						<div class="accordion-content">
+								<p>Accordion content 2</p>
+						</div>
+						<!--/.accordion-content-->
+				</article>
+
+				<article class="content-entry">
+						<h4 class="article-title"><i></i>Accordion Title 3</h4>
+						<div class="accordion-content">
+								<p>Accordion content 3</p>
+						</div>
+						<!--/.accordion-content-->
+				</article>
+
+				<article class="content-entry">
+						<h4 class="article-title"><i></i>Accordion Title 4</h4>
+						<div class="accordion-content">
+								<p>Accordion content 4</p>
+						</div>
+						<!--/.accordion-content-->
+				</article>
+		</div>
+</section>
+<!--/#content-->
+<script type="text/javascript">
+	$('h4').first().parent().addClass('open')
+	$('.accordion-content',$('h4').first().parent()).show('fast')
+	$('h4').click(function(){
+		if($(this).parent().hasClass('open')){
+			$('.open').removeClass('open')
+			$('.accordion-content',$(this).parent()).toggle('fast')
+		}else{
+			$('.open .accordion-content').hide('fast')
+			$('.open').removeClass('open')
+			$(this).parent().addClass('open')
+			$('.accordion-content',$(this).parent()).show('fast')
+		}
+		
+	})
+</script>
+</body>
+</html>

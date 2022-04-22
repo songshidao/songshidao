@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button type="button" id="btn1">隐藏</button>
+		<button type="button" id="btn2">显示</button>
+		<button type="button" id="btn3">切换hide和show()</button>
+		<div>Hello world</div>
+		<script type="text/javascript">
+			$('#btn1').click(function(){
+				$('div').hide()
+			})
+			$('#btn2').click(function(){
+				$('div').show()
+			})
+			$('#btn3').click(function(){
+				$('div').toggle()
+			})
+		</script>
+	</body>
+</html>

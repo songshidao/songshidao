@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			.active{
+				background-color: red;
+			}
+			.border{
+				border: 1px solid red;
+			}
+		</style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li><span>列表项1</span></li>
+			<li><span>列表项2</span></li>
+			<li><span>列表项3</span></li>
+			<li><span>列表项4</span></li>
+			<li><span>列表项5</span></li>
+		</ul>
+		<script type="text/javascript">
+			$('span').click(function(){
+				$(this).parent().addClass('active')
+			})
+			$('ul').click(function(){
+				$(this).children().addClass('border')
+			})
+		</script>
+	</body>
+</html>

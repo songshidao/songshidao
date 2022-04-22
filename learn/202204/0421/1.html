@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <input type="text" name="" id="input1" value="请输入文字">
+    <input type="number" name="" id="input2">
+
+    <script>
+        // $('input').change(function(){
+        //     let value1=$('[type=text]').val()
+        //     let value2=$('[type=number]').val()
+        //     alert(value1+'.'+value2)
+        // })
+        // $('input').change(function(){
+        //     let value1=$('[type=text]').attr('value')
+        //     let value2=$('[type=number]').attr('value')
+        //     alert(value1+'.'+value2)
+        // })
+        $('input').change(function(){
+            let value1=$('[type=text]').prop('value')
+            let value2=$('[type=number]').prop('value')
+            alert(value1+'.'+value2)
+        })
+    </script>
+</body>
+</html>

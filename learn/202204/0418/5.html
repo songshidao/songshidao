@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid black;
+            padding: 20px;
+            /* transition: all 1s; */
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <button>设置Width</button><button>设置</button><button>设置多属性</button>
+    <div>
+
+    </div>
+    <p></p>
+    <script>
+    $('button').eq(0).click(function(){
+        $('div').width('180px')
+        $('p').text($('div').width())
+    })
+    $('button').eq(1).click(function(){
+        $('div').innerWidth('200px')
+        $('p').text($('div').width())
+    })
+    $('button').eq(2).click(function(){
+        $('div').outerWidth('200px')
+        $('p').text($('div').width())
+    })
+    </script>
+</body>
+</html>

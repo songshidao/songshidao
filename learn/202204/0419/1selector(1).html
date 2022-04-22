@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery: 选择器</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: #333;
+            padding:50px 0;
+            color:#f4f4f4;
+            text-align: center;
+        }
+        section{
+            width:98%;
+            margin:0 auto;
+            /* min-height:280px; */
+        }
+        button{
+            padding:5px 10px;
+            margin:10px;
+        }
+        
+        hr{
+            margin-bottom:10px;
+        }
+        .box4{
+            position:relative;
+        }
+        .question{
+            color:blue;
+        }
+        .sample{
+            background-color: #f4f4f4;
+            border:1px solid #ccc;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <header>
+        <h2>jQuery 笔记 | 选择器</h2>
+    </header>
+    <section>
+        <h2>jQuery选择器</h2>
+        <ul>
+            <li>jQuery选择器就是:`jQuery(selector)` 或 `$(selector)`。</li>
+            <li>jQuery选择器就是把`selector`放入`jQuery()`函数中。</li>
+            <li>jQuery选择器用于选择文档中的元素。</li>
+            
+        </ul>
+    </section>
+        <section>
+        <h2>css选择器</h2>
+        `selector`可以是以下任一类型
+        
+        <h3>元素选择器</h3>
+        <p></p>
+        <h3>id选择器</h3>
+        <p></p>
+        <h3>class选择器</h3>
+        <p></p>
+        <h3>元素选择器</h3>
+        <p></p>
+        <h3>元素选择器</h3>
+        <p></p>
+    </section>
+    <section>
+        <h2>jQuery表单选择器</h2>
+        <hr>
+        <div class="selector text">
+            <h3>:text选择器：匹配所有type为text的表单元素。</h3>
+            <p class="question">问题：把下面type属性值为text的表单元素的背景设置为红色</p>
+            <div class="sample">
+                <label for="user_name">用户名</label><input type="text" name="" id="user_name"><br>
+                <label for="user_pwd">密码</label><input type="password" name="" id="user_pwd"><br>
+                <label for="male">男</label><input type="radio" name="gender" id="male"><label for="female">女</label><input type="radio" name="gender" id="female"><br>
+                <label for="swimming">游泳</label><input type="checkbox" name="hobbies" id="swimming"><label for="basketball">篮球</label><input type="checkbox" name="hobbies" id="basketball"><label for="football">足球</label><input type="checkbox" name="hobbies" id="football"><br>
+                <label for="level">水平</label>
+                <select name="" id="level">
+                    <option value="level1">Level 1</option>
+                    <option value="level2">Level 2</option>
+                    <option value="level3">Level 3</option>
+                </select><br>
+                <input type="reset" value="重置"><input type="submit" value="提交">
+            </div>
+            <script>
+                $(':text').css('background','red')
+            </script>
+        </div>
+        <div class="selector password">
+            <h3>:password选择器：匹配所有type为password的表单元素。</h3>
+            <p class="question">问题：把下面type属性值为password的表单元素的背景设置为红色</p>
+            <div class="sample">
+                <label for="user_name">用户名</label><input type="text" name="" id="user_name"><br>
+                <label for="user_pwd">密码</label><input type="password" name="" id="user_pwd"><br>
+                <label for="male">男</label><input type="radio" name="gender" id="male"><label for="female">女</label><input type="radio" name="gender" id="female"><br>
+                <label for="swimming">游泳</label><input type="checkbox" name="hobbies" id="swimming"><label for="basketball">篮球</label><input type="checkbox" name="hobbies" id="basketball"><label for="football">足球</label><input type="checkbox" name="hobbies" id="football"><br>
+                <label for="level">水平</label>
+                <select name="" id="level">
+                    <option value="level1">Level 1</option>
+                    <option value="level2">Level 2</option>
+                    <option value="level3">Level 3</option>
+                </select><br>
+                <input type="reset" value="重置"><input type="submit" value="提交">
+            </div>
+            <script>
+                $('.selector.password :password').css('background','red')
+            </script>
+        </div>
+        <div class="selector radio">
+            <h3>:radio选择器：匹配所有type为radio的表单元素。</h3>
+            <p class="question">问题：把下面type属性值为radio的表单元素的阴影设置为红色</p>
+            <div class="sample">
+                <label for="user_name">用户名</label><input type="text" name="" id="user_name"><br>
+                <label for="user_pwd">密码</label><input type="password" name="" id="user_pwd"><br>
+                <label for="male">男</label><input type="radio" name="gender" id="male"><label for="female">女</label><input type="radio" name="gender" id="female"><br>
+                <label for="swimming">游泳</label><input type="checkbox" name="hobbies" id="swimming"><label for="basketball">篮球</label><input type="checkbox" name="hobbies" id="basketball"><label for="football">足球</label><input type="checkbox" name="hobbies" id="football"><br>
+                <label for="level">水平</label>
+                <select name="" id="level">
+                    <option value="level1">Level 1</option>
+                    <option value="level2">Level 2</option>
+                    <option value="level3">Level 3</option>
+                </select><br>
+                <input type="reset" value="重置"><input type="submit" value="提交">
+            </div>
+            <script>
+                $('.selector.radio :radio').css('boxShadow','0 0 10px 5px red inset')
+            </script>
+        </div>
+        <div class="selector checkbox">
+            <h3>:checkbox选择器：匹配所有type为checkbox的表单元素。</h3>
+            <p class="question">问题：把下面type属性值为checkbox的表单元素的阴影设置为红色</p>
+            <div class="sample">
+                <label for="user_name">用户名</label><input type="text" name="" id="user_name"><br>
+                <label for="user_pwd">密码</label><input type="password" name="" id="user_pwd"><br>
+                <label for="male">男</label><input type="radio" name="gender" id="male"><label for="female">女</label><input type="radio" name="gender" id="female"><br>
+                <label for="swimming">游泳</label><input type="checkbox" name="hobbies" id="swimming"><label for="basketball">篮球</label><input type="checkbox" name="hobbies" id="basketball"><label for="football">足球</label><input type="checkbox" name="hobbies" id="football"><br>
+                <label for="level">水平</label>
+                <select name="" id="level">
+                    <option value="level1">Level 1</option>
+                    <option value="level2">Level 2</option>
+                    <option value="level3">Level 3</option>
+                </select><br>
+                <input type="reset" value="重置"><input type="submit" value="提交">
+            </div>
+            <script>
+                $('.selector.checkbox :checkbox').css('boxShadow','0 0 10px 5px red ')
+            </script>
+        </div>
+        <div class="selector focus">
+            <h3>:focus选择器：匹配所有拥有焦点的元素。</h3>
+            <p class="question">问题：把下面拥有焦点的背景设置为红色</p>
+            <div class="sample">
+                <a href="#">超链接</a><br>
+                <label for="user_name">用户名</label><input type="text" name="" id="user_name"><br>
+                <label for="user_pwd">密码</label><input type="password" name="" id="user_pwd"><br>
+                <label for="male">男</label><input checked type="radio" name="gender" id="male"><label for="female">女</label><input type="radio" name="gender" id="female"><br>
+                <label for="swimming">游泳</label><input checked type="checkbox" name="hobbies" id="swimming"><label for="basketball">篮球</label><input  checked type="checkbox" name="hobbies" id="basketball"><label for="football">足球</label><input type="checkbox" name="hobbies" id="football"><br>
+                <label for="level">水平</label>
+                <select name="" id="level">
+                    <option value="level1">Level 1</option>
+                    <option value="level2" selected>Level 2</option>
+                    <option value="level3">Level 3</option>
+                </select><br>
+                <input type="reset" value="重置"><input type="submit" value="提交">
+            </div>
+            <script>
+                $('.focus :text').focus()
+                $('.focus :focus').css('background','gold')
+            </script>
+        </div>
+        
+    </section>
+    <section>
+        <h2>jQuery特殊选择器</h2>
+        <hr>
+        <div class="selector gt">
+            <h3>:gt(index)选择器：选择匹配集中索引大于指定索引的所有元素</h3>
+            <p class="question">问题：把下面列表项目4、5的背景设置为红色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li >列表项目2</li>
+                    <li>列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                </ul>
+            </div>
+            <script>
+               $('.gt ul li:not(:gt(2))').css('background','red') 
+            </script>
+        </div>
+        <div class="selector lt">
+            <h3>:lt(index)选择器：选择匹配集中索引小于指定索引的所有元素</h3>
+            <p class="question">问题：把下面列表项目1、2、3的背景设置为红色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li >列表项目2</li>
+                    <li>列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                </ul>
+            </div>
+            <script>
+                $('.lt ul :lt(3)').css('background','red')
+            </script>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+   <ul>
+       <li>列表项1</li>
+       <li>列表项2</li>
+       <li>列表项3</li>
+       <li>列表项4</li>
+       <li>列表项5</li>
+   </ul>
+    <script>
+       $('li').html('Hello World!')
+       $('li').each(function(i,ele){
+        $(ele).html('Hello World!'+i)
+        $(ele).css('background','pink')
+        ele.style.background = 'red'//ele是原生元素对象
+        if(i==1){
+            return false
+        }
+       })
+    </script>
+</body>
+</html>

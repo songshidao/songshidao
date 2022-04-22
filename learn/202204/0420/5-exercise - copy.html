@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .shopping-cart-wrapper {
+  margin-top: 15px;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f4f4f4;
+}
+.totals{
+  width: 100%;
+}
+.totals .totals-item {
+  float: right;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.totals .totals-item label {
+  float: left;
+  clear: both;
+  width: 79%;
+  text-align: right;
+}
+.totals-value {
+  float: right;
+  width: 21%;
+  text-align: right;
+}
+
+.checkout {
+  float: right;
+  border: 0;
+  margin-top: 20px;
+  padding: 6px 25px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+.empty{
+	padding: 50px 0;
+	font-size: 50px;
+	text-align: center;
+}
+.checkout:hover {
+  background-color: #494;
+}
+
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+  
+    <div class="shopping-cart-wrapper">
+        <table class="table is-fullwidth shopping-cart">
+          <thead>
+            <tr>
+              <th><abbr title="Position"></abbr></th>
+              <th>商品名称</th>
+              <th>单价</th>
+              <th>数量</th>
+              <th>小计</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+        </table>
+		<tbody>
+			
+		</tbody>
+        <div class="totals">
+          <div class="totals-item">
+            <label>合计</label>
+            <div class="totals-value" id="cart-subtotal">￥0</div>
+          </div>
+          <div class="totals-item">
+            <label>税 (5%)</label>
+            <div class="totals-value" id="cart-tax">￥0</div>
+          </div>
+          <div class="totals-item">
+            <label>运费</label>
+            <div class="totals-value" id="cart-shipping">￥0</div>
+          </div>
+          <div class="totals-item totals-item-total">
+            <label>总价</label>
+            <div class="totals-value" id="cart-total">￥0</div>
+          </div>
+        </div>
+        <button class="checkout">结账</button>
+      </div>
+<script>
+	let str = '',
+		$checked = true,
+		rowPrice = 0,
+		rowQuintity = 0,
+		rowTotalPrice=0,
+		alllPrice=0,
+		taxRate = 0.05,
+		shipping=15.0,
+		totalPrice = 0
+		$.ajax({
+			method:'GET',
+			url:'./data3.json'
+		})
+		.done(function(data){
+			render(data)
+		})
+		.fail(function(){
+			console.log(失败)
+		})
+        function render(data){
+			str+= '<tbody>'
+			$.each(data,function(i,item){
+				rowPrice=item.price
+				rowQuintity=item.quantity
+				rowTotalPrice=rowPrice*rowQuintity
+			  str+=`
+			  <tr class='row'>
+			    <td><input type="checkbox" checked=${$checked}></td>
+			    <td>${item.title}</td>
+			    <td class='row-price'>${rowPrice}</td>
+			    <td><input type="number" name="" id="" value="${rowQuintity}"></td>
+			    <td>${rowTotalPrice}</td>
+			    <td><button>删除</button></td>
+			  </tr>
+			  `
+			  
+			  })
+			  str+='</tbody>'
+			  
+			   $('.table').append(str)
+			   reCount()
+			   $('[type=checkbox]').change(function(){
+				   reCount()
+			   })
+			   $('[type=number]').change(function(){
+			   	 reCount()
+			   })
+			   $('button').click(function(){
+				   $(this).closest('tr').remove()
+				reCount()
+			   })
+		}  
+		
+		
+		function reCount(){
+		let $row = $('.row')
+		rowPrice = 0
+		rowQuintity = 0
+		rowTotalPrice=0
+		alllPrice=0
+			$.each($row,function(){
+				rowQuintity=$(this).find('[type=number]').val()
+				rowPrice=$(this).find('.row-price').html()*1
+				if($(this).find('[type=checkbox]').prop('checked')){
+					rowTotalPrice=rowPrice*rowQuintity
+					alllPrice+=rowTotalPrice
+				}
+			})
+			
+			
+			if(alllPrice>0){
+				$('.totals,.checkout').show('slow')
+			}else{
+				$('.totals,.checkout').hide('slow')
+				$('.shopping-cart-wrapper').append('<div class="empty">您的购物车空空如也,快去<a href="https://www.jd.com">加点宝物吧</a></div>')
+			}
+			totalPrice = alllPrice+alllPrice*taxRate+shipping
+			$('#cart-subtotal').html(alllPrice)
+			$('#cart-tax').html(taxRate)
+			$('#cart-shipping').html(shipping)
+			$('#cart-total').html(totalPrice.toFixed(2))
+		}
+</script>
+</body>
+</html>

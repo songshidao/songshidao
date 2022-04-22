@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery: Effects & Animate</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: #333;
+            padding:50px 0;
+            color:#f4f4f4;
+            text-align: center;
+        }
+        section{
+            width:90%;
+            margin:0 auto;
+            min-height:280px;
+        }
+        button{
+            padding:5px 10px;
+            margin:10px;
+        }
+        div{
+            width:200px;
+            height:200px;
+            background-color:red;
+            display:inline-block;
+            margin-right:20px;
+        }
+        hr{
+            margin-bottom:10px;
+        }
+        .box4{
+            position:relative;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <header>
+        <h2>jQuery Tutorial | Effects & Animate</h2>
+    </header>
+    <section>
+        <button id="btnFadeOut">fadeOut</button><button id="btnFadeIn">fadeIn</button><button id="btnFadeToggle">fadeToggle</button>
+        <hr>
+        <div class="box1"></div><div class="box1"></div><div class="box1"></div>
+        <script>
+        
+        </script>
+    </section>
+
+    <section>
+        <button id="btnHide">hide</button><button id="btnShow">show</button><button id="btnToggle">toggle</button>
+        <hr>
+        <div class="box2"></div><div class="box2"></div><div class="box2"></div>
+        <script>
+        
+        </script>
+    </section>
+
+    <section>
+        <button id="btnSlideUp">SlideUp</button><button id="btnSlideDown">slideDown</button><button id="btnSlideToggle">SlideToggle</button>
+        <hr>
+        <div class="box3"></div><div class="box3"></div><div class="box3"></div>
+        <script>
+        
+        </script>
+    </section>
+
+    <section>
+        <button id="btnAnimate1">Animate1</button><button id="btnAnimate2">Animate2</button><button id="btnStop">Stop</button><button id="btnMoveAround">Move Around</button><button id="btnStopAll">Stop All</button>
+        <hr>
+        <div class="box4"></div>
+        <script>
+        
+        </script>
+    </section>
+<script>
+    $('#btnFadeOut').click(function(){
+        $('.box1').fadeOut(1000,function(){
+        })
+    })
+    $('#btnFadeIn').click(function(){
+        $('.box1').fadeIn(1000,function(){
+        })
+    })
+    $('#btnFadeToggle').click(function(){
+        $('.box1').fadeToggle(1000,function(){
+        })
+    })
+    $('#btnHide').click(function(){
+        $('.box2').hide()
+    })
+    $('#btnShow').click(function(){
+        $('.box2').show()
+    })
+    $('#btnToggle').click(function(){
+        $('.box2').toggle()
+    })
+    $('#btnSlideUp').click(function(){
+        $('.box3').slideUp()
+    })
+    $('#btnSlideDown').click(function(){
+        $('.box3').slideDown()
+    })
+    $('#btnSlideToggle').click(function(){
+        $('.box3').slideToggle()
+    })
+    $('#btnAnimate1').click(function(){
+        $('.box4').animate({
+            left:'300px',
+            width:100,
+            height:100
+        },3000)
+        
+    })
+    $('#btnAnimate2').click(function(){
+        $('.box4').animate({
+            
+            borderRadius:'50%'
+        },3000)
+    })
+    $('#btnStop').click(function(){
+        $('.box4').stop()
+    })
+    $('#btnMoveAround').click(function(){
+        $('.box4').animate({
+            left:'300px',
+            width:100,
+            height:100
+        },3000)
+        $('.box4').animate({
+            
+            borderRadius:'50%'
+        },3000)
+    })
+    $('#btnStopAll').click(function(){
+        $('.box4').stop(true)
+    })
+</script>
+</body>
+</html>

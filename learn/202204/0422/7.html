@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../jquery-3.6.0.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div></div>
+    <script>
+    // $.extend 扩展$jquery函数上的插件 $.xxx()
+    // $.fn.extend 扩展$jquery对象上的插件 $().xxx()
+
+    $.fn.extend({
+        drag:function(){
+            let disX = 0
+            let dixY= 0
+            let This = this
+            this.mousedown(function(ev){
+                disX= ev.pageX - $(this).offset().left
+                disY= ev.pageY - $(this).offset().top
+                $(document).mousemove(function(ev){
+                    This.css('left',ev.pageX-disX)
+                    This.css('top',ev.pageY-disY)
+
+                })
+                $(document).mouseup(function(){
+                    $(this).off()
+                })
+            })
+        },
+        tabs:function(){
+
+        },
+        aaa:function(){
+
+        }
+    })
+    $('div').drag()
+    </script>
+</body>
+</html>

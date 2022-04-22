@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 100px;
+            padding: 15px;
+        }
+        ul{
+            border: 1px solid red;
+        }
+        div{
+            width: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+        }
+        li{
+            border: 1px dashed black;
+        }
+        a{
+            background-color: yellow;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul>
+        <p>段落</p>
+        <li><a href="#">超链接1</a></li>
+        <li><a href="#">超链接2</a></li>
+        <li><a href="#">超链接3</a></li>
+        <li><a href="#">超链接4</a></li>
+        <li><a href="#">超链接5</a></li>
+        <li><a href="#">超链接6</a></li>
+    </ul>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <script>
+        $('li').click(function(){
+            $(`div:eq(${$('li').index($(this))})`).css('background','red')
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+.tab {
+  position: relative;
+  overflow: hidden;
+  width:600px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  border:1px solid #ccc;
+  top:40px;
+}
+
+.tab-control-area {
+  display:flex;
+  width: 100%;
+  background-color: gold;
+}
+.tab-control-area li {
+list-style:none;
+flex:1;
+
+}
+.tab-control-area a {
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #fff;
+  color: #888;
+  font-weight: 500;
+  height:40px;
+  line-height: 40px;
+  display: block;
+  letter-spacing: 0;
+  outline: none;
+  padding: 0 20px;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid #ccc;
+}
+
+.pane {
+  display: none;
+  padding: 30px 20px;
+}
+.pane h4 {
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
+.pane img {
+  width: 200px;
+  float: left;
+  margin-right: 20px;
+
+}
+.pane:first-child {
+  display: block;
+}
+
+.active a {
+  color: #fff;
+  background: blue;
+}
+    </style>
+    <script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div class="tab">
+        <ul class="tab-control-area">
+            <li class="tab-control"><a href="#">Tab01</a></li>
+            <li class="tab-control"><a href="#">Tab02</a></li>
+            <li class="tab-control"><a href="#">Tab03</a></li>
+        </ul> 
+    
+        <div class="pane-area">
+            <div class="pane">
+                <img src="https://userimg.qunarzz.com/imgs/201907/23/C.G8rNBCDkqmgIvmN5v480.jpg">
+                <h4>Tab 01 Neque ipsum dolor.</h4>
+                <p>Consectetur adipisicing elit. Neque, repellat facilis totam ab eos distinctio sint atque maiores! Dignissimos, molestiae, rem accusantium iure vitae voluptatum voluptas repudiandae deserunt dolore quis! Quisquam mollitia eius sed.</p>
+            </div> <!-- / pane -->
+    
+            <div class="pane">
+                <img src="https://userimg.qunarzz.com/imgs/202108/08/C.hKKDZmLu12zd145_r480.jpg">
+                <h4>Tab02 Maiores, suscipit</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, suscipit, eaque asperiores neque numquam nam possimus dolorem ipsa aspernatur reiciendis?</p>
+            </div> <!-- / pane -->
+    
+            <div class="pane">
+                <img src="https://userimg.qunarzz.com/imgs/202203/30/C.2Te7V3Gd9qlGBV6f2480.jpg">
+                <h4>Tab03</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, excepturi, minima, corporis deserunt quia quae sit officiis labore inventore autem a delectus consequuntur voluptatem modi eligendi similique sed nam vitae.</p>
+            </div> <!-- / pane -->
+        </div> 
+    </div> <!-- / tab -->
+<script>
+$('.tab-control').first().addClass('active')
+$('.tab-control a').click(function(){
+	let index =  $(this).closest('li').index()
+	$(this).closest('.tab').find('.pane').not(`.pane:eq(${index})`).slideUp()
+	$(this).closest('.tab').find(`.pane:eq(${index})`).slideDown()
+})
+</script>
+</body>
+</html>

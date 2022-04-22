@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jquery-3.6.0.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet">
+    <style>
+        
+        .sun{
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+            position: fixed;
+            text-align: center;
+            line-height: 200px;
+            top: 50%;
+            left: 50%;
+            /* background-color: red; */
+        }
+        .text{
+          height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sun">
+        <i class="fa-solid fa-sun"></i>
+    </div>
+    <div class="text">
+        
+        <p>w3school 在线教程
+            HTML 系列教程
+            浏览器脚本
+            服务器脚本
+            编程教程
+            XML 系列教程
+            建站手册
+            参考手册
+            jQuery 教程
+            jQuery 教程
+            jQuery 简介
+            jQuery 安装
+            jQuery 语法
+            jQuery 选择器
+            jQuery 事件
+            jQuery 效果
+            jQuery 隐藏/显示
+            jQuery 淡入淡出
+            jQuery 滑动
+            jQuery 动画
+            jQuery stop()
+            jQuery Callback
+            jQuery Chaining
+            jQuery HTML
+            jQuery 获取
+            jQuery 设置
+            jQuery 添加
+            jQuery 删除
+            jQuery CSS 类
+            jQuery css()
+            jQuery 尺寸
+            jQuery 遍历
+            jQuery 遍历
+            jQuery 祖先
+            jQuery 后代
+            jQuery 同胞
+            jQuery 过滤
+            jQuery AJAX
+            jQuery AJAX 简介
+            jQuery 加载
+            jQuery Get/Post
+            jQuery 杂项
+            jQuery noConflict()
+            jQuery 实例
+            jQuery 实例
+            jQuery 测验
+            jQuery 参考手册
+            jQuery 参考手册
+            jQuery 选择器
+            jQuery 事件
+            jQuery 效果
+            jQuery 文档操作
+            jQuery 属性操作
+            jQuery CSS 操作
+            jQuery Ajax
+            jQuery 遍历
+            jQuery 数据
+            jQuery DOM 元素
+            jQuery 核心
+            jQuery 属性
+            建站手册
+            网站构建
+            万维网联盟 (W3C)
+            浏览器信息
+            网站品质
+            语义网
+            职业规划
+            网站主机
+            关于 W3School
+            帮助 W3School
+            jQuery 效果 - fadeIn() 方法
+            jQuery 效果参考手册
+            
+            实例
+            使用淡入效果来显示一个隐藏的 <p> 元素：
+            
+            $(".btn2").click(function(){
+              $("p").fadeIn();
+            });
+            亲自试一试
+            定义和用法
+            fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+            
+            语法
+            $(selector).fadeIn(speed,callback)
+            参数	描述
+            speed	
+            可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+            
+            可能的值：
+            
+            毫秒 （比如 1500）
+            "slow"
+            "normal"
+            "fast"
+            在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+            
+            callback	
+            可选。fadeIn 函数执行完之后，要执行的函数。
+            
+            如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+            
+            除非设置了 speed 参数，否则不能设置该参数。
+            
+            提示和注释
+            提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+            
+            注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+            
+            亲自试一试 - 实例
+            使用 speed 参数
+            使用 speed 参数来对淡入或淡出元素。
+            jQuery 效果参考手册
+            
+            jQuery 参考手册
+            jQuery 测验
+            W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+            
+            使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+    </div>
+    <p>w3school 在线教程
+        HTML 系列教程
+        浏览器脚本
+        服务器脚本
+        编程教程
+        XML 系列教程
+        建站手册
+        参考手册
+        jQuery 教程
+        jQuery 教程
+        jQuery 简介
+        jQuery 安装
+        jQuery 语法
+        jQuery 选择器
+        jQuery 事件
+        jQuery 效果
+        jQuery 隐藏/显示
+        jQuery 淡入淡出
+        jQuery 滑动
+        jQuery 动画
+        jQuery stop()
+        jQuery Callback
+        jQuery Chaining
+        jQuery HTML
+        jQuery 获取
+        jQuery 设置
+        jQuery 添加
+        jQuery 删除
+        jQuery CSS 类
+        jQuery css()
+        jQuery 尺寸
+        jQuery 遍历
+        jQuery 遍历
+        jQuery 祖先
+        jQuery 后代
+        jQuery 同胞
+        jQuery 过滤
+        jQuery AJAX
+        jQuery AJAX 简介
+        jQuery 加载
+        jQuery Get/Post
+        jQuery 杂项
+        jQuery noConflict()
+        jQuery 实例
+        jQuery 实例
+        jQuery 测验
+        jQuery 参考手册
+        jQuery 参考手册
+        jQuery 选择器
+        jQuery 事件
+        jQuery 效果
+        jQuery 文档操作
+        jQuery 属性操作
+        jQuery CSS 操作
+        jQuery Ajax
+        jQuery 遍历
+        jQuery 数据
+        jQuery DOM 元素
+        jQuery 核心
+        jQuery 属性
+        建站手册
+        网站构建
+        万维网联盟 (W3C)
+        浏览器信息
+        网站品质
+        语义网
+        职业规划
+        网站主机
+        关于 W3School
+        帮助 W3School
+        jQuery 效果 - fadeIn() 方法
+        jQuery 效果参考手册
+        
+        实例
+        使用淡入效果来显示一个隐藏的 <p> 元素：
+        
+        $(".btn2").click(function(){
+          $("p").fadeIn();
+        });
+        亲自试一试
+        定义和用法
+        fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+        
+        语法
+        $(selector).fadeIn(speed,callback)
+        参数	描述
+        speed	
+        可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+        
+        可能的值：
+        
+        毫秒 （比如 1500）
+        "slow"
+        "normal"
+        "fast"
+        在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+        
+        callback	
+        可选。fadeIn 函数执行完之后，要执行的函数。
+        
+        如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+        
+        除非设置了 speed 参数，否则不能设置该参数。
+        
+        提示和注释
+        提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+        
+        注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+        
+        亲自试一试 - 实例
+        使用 speed 参数
+        使用 speed 参数来对淡入或淡出元素。
+        jQuery 效果参考手册
+        
+        jQuery 参考手册
+        jQuery 测验
+        W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+        
+        使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+<p>w3school 在线教程
+    HTML 系列教程
+    浏览器脚本
+    服务器脚本
+    编程教程
+    XML 系列教程
+    建站手册
+    参考手册
+    jQuery 教程
+    jQuery 教程
+    jQuery 简介
+    jQuery 安装
+    jQuery 语法
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 隐藏/显示
+    jQuery 淡入淡出
+    jQuery 滑动
+    jQuery 动画
+    jQuery stop()
+    jQuery Callback
+    jQuery Chaining
+    jQuery HTML
+    jQuery 获取
+    jQuery 设置
+    jQuery 添加
+    jQuery 删除
+    jQuery CSS 类
+    jQuery css()
+    jQuery 尺寸
+    jQuery 遍历
+    jQuery 遍历
+    jQuery 祖先
+    jQuery 后代
+    jQuery 同胞
+    jQuery 过滤
+    jQuery AJAX
+    jQuery AJAX 简介
+    jQuery 加载
+    jQuery Get/Post
+    jQuery 杂项
+    jQuery noConflict()
+    jQuery 实例
+    jQuery 实例
+    jQuery 测验
+    jQuery 参考手册
+    jQuery 参考手册
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 文档操作
+    jQuery 属性操作
+    jQuery CSS 操作
+    jQuery Ajax
+    jQuery 遍历
+    jQuery 数据
+    jQuery DOM 元素
+    jQuery 核心
+    jQuery 属性
+    建站手册
+    网站构建
+    万维网联盟 (W3C)
+    浏览器信息
+    网站品质
+    语义网
+    职业规划
+    网站主机
+    关于 W3School
+    帮助 W3School
+    jQuery 效果 - fadeIn() 方法
+    jQuery 效果参考手册
+    
+    实例
+    使用淡入效果来显示一个隐藏的 <p> 元素：
+    
+    $(".btn2").click(function(){
+      $("p").fadeIn();
+    });
+    亲自试一试
+    定义和用法
+    fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+    
+    语法
+    $(selector).fadeIn(speed,callback)
+    参数	描述
+    speed	
+    可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+    
+    可能的值：
+    
+    毫秒 （比如 1500）
+    "slow"
+    "normal"
+    "fast"
+    在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+    
+    callback	
+    可选。fadeIn 函数执行完之后，要执行的函数。
+    
+    如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+    
+    除非设置了 speed 参数，否则不能设置该参数。
+    
+    提示和注释
+    提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+    
+    注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+    
+    亲自试一试 - 实例
+    使用 speed 参数
+    使用 speed 参数来对淡入或淡出元素。
+    jQuery 效果参考手册
+    
+    jQuery 参考手册
+    jQuery 测验
+    W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+    
+    使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+<p>w3school 在线教程
+    HTML 系列教程
+    浏览器脚本
+    服务器脚本
+    编程教程
+    XML 系列教程
+    建站手册
+    参考手册
+    jQuery 教程
+    jQuery 教程
+    jQuery 简介
+    jQuery 安装
+    jQuery 语法
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 隐藏/显示
+    jQuery 淡入淡出
+    jQuery 滑动
+    jQuery 动画
+    jQuery stop()
+    jQuery Callback
+    jQuery Chaining
+    jQuery HTML
+    jQuery 获取
+    jQuery 设置
+    jQuery 添加
+    jQuery 删除
+    jQuery CSS 类
+    jQuery css()
+    jQuery 尺寸
+    jQuery 遍历
+    jQuery 遍历
+    jQuery 祖先
+    jQuery 后代
+    jQuery 同胞
+    jQuery 过滤
+    jQuery AJAX
+    jQuery AJAX 简介
+    jQuery 加载
+    jQuery Get/Post
+    jQuery 杂项
+    jQuery noConflict()
+    jQuery 实例
+    jQuery 实例
+    jQuery 测验
+    jQuery 参考手册
+    jQuery 参考手册
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 文档操作
+    jQuery 属性操作
+    jQuery CSS 操作
+    jQuery Ajax
+    jQuery 遍历
+    jQuery 数据
+    jQuery DOM 元素
+    jQuery 核心
+    jQuery 属性
+    建站手册
+    网站构建
+    万维网联盟 (W3C)
+    浏览器信息
+    网站品质
+    语义网
+    职业规划
+    网站主机
+    关于 W3School
+    帮助 W3School
+    jQuery 效果 - fadeIn() 方法
+    jQuery 效果参考手册
+    
+    实例
+    使用淡入效果来显示一个隐藏的 <p> 元素：
+    
+    $(".btn2").click(function(){
+      $("p").fadeIn();
+    });
+    亲自试一试
+    定义和用法
+    fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+    
+    语法
+    $(selector).fadeIn(speed,callback)
+    参数	描述
+    speed	
+    可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+    
+    可能的值：
+    
+    毫秒 （比如 1500）
+    "slow"
+    "normal"
+    "fast"
+    在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+    
+    callback	
+    可选。fadeIn 函数执行完之后，要执行的函数。
+    
+    如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+    
+    除非设置了 speed 参数，否则不能设置该参数。
+    
+    提示和注释
+    提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+    
+    注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+    
+    亲自试一试 - 实例
+    使用 speed 参数
+    使用 speed 参数来对淡入或淡出元素。
+    jQuery 效果参考手册
+    
+    jQuery 参考手册
+    jQuery 测验
+    W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+    
+    使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+<p>w3school 在线教程
+    HTML 系列教程
+    浏览器脚本
+    服务器脚本
+    编程教程
+    XML 系列教程
+    建站手册
+    参考手册
+    jQuery 教程
+    jQuery 教程
+    jQuery 简介
+    jQuery 安装
+    jQuery 语法
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 隐藏/显示
+    jQuery 淡入淡出
+    jQuery 滑动
+    jQuery 动画
+    jQuery stop()
+    jQuery Callback
+    jQuery Chaining
+    jQuery HTML
+    jQuery 获取
+    jQuery 设置
+    jQuery 添加
+    jQuery 删除
+    jQuery CSS 类
+    jQuery css()
+    jQuery 尺寸
+    jQuery 遍历
+    jQuery 遍历
+    jQuery 祖先
+    jQuery 后代
+    jQuery 同胞
+    jQuery 过滤
+    jQuery AJAX
+    jQuery AJAX 简介
+    jQuery 加载
+    jQuery Get/Post
+    jQuery 杂项
+    jQuery noConflict()
+    jQuery 实例
+    jQuery 实例
+    jQuery 测验
+    jQuery 参考手册
+    jQuery 参考手册
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 文档操作
+    jQuery 属性操作
+    jQuery CSS 操作
+    jQuery Ajax
+    jQuery 遍历
+    jQuery 数据
+    jQuery DOM 元素
+    jQuery 核心
+    jQuery 属性
+    建站手册
+    网站构建
+    万维网联盟 (W3C)
+    浏览器信息
+    网站品质
+    语义网
+    职业规划
+    网站主机
+    关于 W3School
+    帮助 W3School
+    jQuery 效果 - fadeIn() 方法
+    jQuery 效果参考手册
+    
+    实例
+    使用淡入效果来显示一个隐藏的 <p> 元素：
+    
+    $(".btn2").click(function(){
+      $("p").fadeIn();
+    });
+    亲自试一试
+    定义和用法
+    fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+    
+    语法
+    $(selector).fadeIn(speed,callback)
+    参数	描述
+    speed	
+    可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+    
+    可能的值：
+    
+    毫秒 （比如 1500）
+    "slow"
+    "normal"
+    "fast"
+    在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+    
+    callback	
+    可选。fadeIn 函数执行完之后，要执行的函数。
+    
+    如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+    
+    除非设置了 speed 参数，否则不能设置该参数。
+    
+    提示和注释
+    提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+    
+    注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+    
+    亲自试一试 - 实例
+    使用 speed 参数
+    使用 speed 参数来对淡入或淡出元素。
+    jQuery 效果参考手册
+    
+    jQuery 参考手册
+    jQuery 测验
+    W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+    
+    使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+<p>w3school 在线教程
+    HTML 系列教程
+    浏览器脚本
+    服务器脚本
+    编程教程
+    XML 系列教程
+    建站手册
+    参考手册
+    jQuery 教程
+    jQuery 教程
+    jQuery 简介
+    jQuery 安装
+    jQuery 语法
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 隐藏/显示
+    jQuery 淡入淡出
+    jQuery 滑动
+    jQuery 动画
+    jQuery stop()
+    jQuery Callback
+    jQuery Chaining
+    jQuery HTML
+    jQuery 获取
+    jQuery 设置
+    jQuery 添加
+    jQuery 删除
+    jQuery CSS 类
+    jQuery css()
+    jQuery 尺寸
+    jQuery 遍历
+    jQuery 遍历
+    jQuery 祖先
+    jQuery 后代
+    jQuery 同胞
+    jQuery 过滤
+    jQuery AJAX
+    jQuery AJAX 简介
+    jQuery 加载
+    jQuery Get/Post
+    jQuery 杂项
+    jQuery noConflict()
+    jQuery 实例
+    jQuery 实例
+    jQuery 测验
+    jQuery 参考手册
+    jQuery 参考手册
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 文档操作
+    jQuery 属性操作
+    jQuery CSS 操作
+    jQuery Ajax
+    jQuery 遍历
+    jQuery 数据
+    jQuery DOM 元素
+    jQuery 核心
+    jQuery 属性
+    建站手册
+    网站构建
+    万维网联盟 (W3C)
+    浏览器信息
+    网站品质
+    语义网
+    职业规划
+    网站主机
+    关于 W3School
+    帮助 W3School
+    jQuery 效果 - fadeIn() 方法
+    jQuery 效果参考手册
+    
+    实例
+    使用淡入效果来显示一个隐藏的 <p> 元素：
+    
+    $(".btn2").click(function(){
+      $("p").fadeIn();
+    });
+    亲自试一试
+    定义和用法
+    fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+    
+    语法
+    $(selector).fadeIn(speed,callback)
+    参数	描述
+    speed	
+    可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+    
+    可能的值：
+    
+    毫秒 （比如 1500）
+    "slow"
+    "normal"
+    "fast"
+    在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+    
+    callback	
+    可选。fadeIn 函数执行完之后，要执行的函数。
+    
+    如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+    
+    除非设置了 speed 参数，否则不能设置该参数。
+    
+    提示和注释
+    提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+    
+    注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+    
+    亲自试一试 - 实例
+    使用 speed 参数
+    使用 speed 参数来对淡入或淡出元素。
+    jQuery 效果参考手册
+    
+    jQuery 参考手册
+    jQuery 测验
+    W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+    
+    使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+<p>w3school 在线教程
+    HTML 系列教程
+    浏览器脚本
+    服务器脚本
+    编程教程
+    XML 系列教程
+    建站手册
+    参考手册
+    jQuery 教程
+    jQuery 教程
+    jQuery 简介
+    jQuery 安装
+    jQuery 语法
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 隐藏/显示
+    jQuery 淡入淡出
+    jQuery 滑动
+    jQuery 动画
+    jQuery stop()
+    jQuery Callback
+    jQuery Chaining
+    jQuery HTML
+    jQuery 获取
+    jQuery 设置
+    jQuery 添加
+    jQuery 删除
+    jQuery CSS 类
+    jQuery css()
+    jQuery 尺寸
+    jQuery 遍历
+    jQuery 遍历
+    jQuery 祖先
+    jQuery 后代
+    jQuery 同胞
+    jQuery 过滤
+    jQuery AJAX
+    jQuery AJAX 简介
+    jQuery 加载
+    jQuery Get/Post
+    jQuery 杂项
+    jQuery noConflict()
+    jQuery 实例
+    jQuery 实例
+    jQuery 测验
+    jQuery 参考手册
+    jQuery 参考手册
+    jQuery 选择器
+    jQuery 事件
+    jQuery 效果
+    jQuery 文档操作
+    jQuery 属性操作
+    jQuery CSS 操作
+    jQuery Ajax
+    jQuery 遍历
+    jQuery 数据
+    jQuery DOM 元素
+    jQuery 核心
+    jQuery 属性
+    建站手册
+    网站构建
+    万维网联盟 (W3C)
+    浏览器信息
+    网站品质
+    语义网
+    职业规划
+    网站主机
+    关于 W3School
+    帮助 W3School
+    jQuery 效果 - fadeIn() 方法
+    jQuery 效果参考手册
+    
+    实例
+    使用淡入效果来显示一个隐藏的 <p> 元素：
+    
+    $(".btn2").click(function(){
+      $("p").fadeIn();
+    });
+    亲自试一试
+    定义和用法
+    fadeIn() 方法使用淡入效果来显示被选元素，假如该元素是隐藏的。
+    
+    语法
+    $(selector).fadeIn(speed,callback)
+    参数	描述
+    speed	
+    可选。规定元素从隐藏到可见的速度。默认为 "normal"。
+    
+    可能的值：
+    
+    毫秒 （比如 1500）
+    "slow"
+    "normal"
+    "fast"
+    在设置速度的情况下，元素从隐藏到可见的过程中，会逐渐地改变其透明度（这样会创造淡入效果）。
+    
+    callback	
+    可选。fadeIn 函数执行完之后，要执行的函数。
+    
+    如需学习更多有关 callback 的内容，请访问我们的 jQuery Callback 这一章。
+    
+    除非设置了 speed 参数，否则不能设置该参数。
+    
+    提示和注释
+    提示：如果元素已经显示，则该效果不产生任何变化，除非规定了 callback 函数。
+    
+    注释：该效果适用于通过 jQuery 隐藏的元素，或在 CSS 中声明 display:none 的元素（但不适用于 visibility:hidden 的元素）。
+    
+    亲自试一试 - 实例
+    使用 speed 参数
+    使用 speed 参数来对淡入或淡出元素。
+    jQuery 效果参考手册
+    
+    jQuery 参考手册
+    jQuery 测验
+    W3School 简体中文版提供的内容仅用于培训和测试，不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。版权所有，保留一切权利。
+    
+    使用条款 隐私条款 技术支持：赢科 蒙ICP备06004630号</p>
+</div>
+    <script>
+    $(window).scroll(function(){
+        $('.sun').css('transform',`rotate(${$(window).scrollTop()}deg)`)
+    })
+    </script>
+</body>
+</html>

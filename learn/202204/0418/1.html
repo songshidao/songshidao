@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <ul>
+        <li>列表项目1</li>
+        <li>列表项目2</li>
+        <li>列表项目3</li>
+        <li>列表项目4</li>
+        <li>列表项目5</li>
+    </ul>
+    <script>
+        // $('ul').append($('ul li').eq(0))
+        $('ul').before($('ul li').eq(0))
+        
+        // $('ul li').eq(0).appendTo('ul')
+    </script>
+</body>
+</html>

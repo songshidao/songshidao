@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+			}
+			.active{
+				background-color: red;
+			}
+		</style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button type="button" id="btn1">添加类</button>
+		<button type="button" id="btn2">删除类</button>
+		<button type="button" id="btn3">切换类</button>
+		<button type="button" id="btn4">检测类</button>
+		<div>Hello world</div>
+		<script type="text/javascript">
+			$('#btn1').click(function(){
+				$('div').addClass('active')
+			})
+			$('#btn2').click(function(){
+				$('div').removeClass('active')
+			})
+			$('#btn3').click(function(){
+				$('div').toggleClass('active')
+			})
+			$('#btn4').click(function(){
+				$('div').hasClass('active')?$('div').removeClass('active'):$('div').addClass('active')
+			})
+		</script>
+	</body>
+</html>

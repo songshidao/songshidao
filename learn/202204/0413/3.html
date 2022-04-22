@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tab div{
+            display: none;
+            border: solid 1px black;
+            width: 200px;
+            height: 100px;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="tab">
+        <input type="button" value="1" class="active" ><input type="button" value="2"><input type="button" value="3">
+        <div style="display: block;">aaaaa</div>
+        <div>bbbbb</div>
+        <div>ccccc</div>
+    </div>
+   <script>
+        $('#tab').find('input').click(function(){
+        $('#tab').find('input').attr('class','')
+        $(this).attr('class','active')
+        $('#tab').find('div').css('display','none')
+        $('#tab').find('div').eq($(this).index('input')).css('display','block')
+
+    })
+   </script>
+</body>
+</html>

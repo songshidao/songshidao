@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li{
+            background-color: red;
+        }
+        [value]{
+            background-color: red;
+        }
+        input[value=foo]{
+            background-color: yellow;
+        }
+        /* value 为foo开始的 ^表示开头 */
+        input[value^=foo]{
+            background-color: aqua;
+        }
+        /* value 为foo结尾的 $表示结尾 */
+        input[value$=foo]{
+            background-color: pink;
+        }
+        /* value 包含foo *表示包含 */
+        input[value*=foo]{
+            background-color: green;
+        }
+        *[href]{
+            background-color: red;
+        }
+    </style>
+</head>
+<!-- 
+1. 通配符:通用选择器
+2. 类型选择器:type selector等 即元素选择器,标签选择器,通常在重置浏览器默认样式时使用
+3. class选择器:为分组元素设置样式
+4. id选择器:强调特殊性 
+5. 分组选择器:,表示 把几个组一起设置
+6. 后代选择器:空格表示 影响所有后代,直接后代和后代的后代
+7. 子元素选择器:>表示 只影响直接后代
+8. 相邻选择器:+表示 只影响紧接着跟随的元素
+9. 兄弟选择器:~表示 影响同一级别下的所有指定元素
+10. 属性选择器:[]表示 影响有该属性的元素  而给元素加个:not(),将属性选择器写在括号里则是排除有该属性的元素,:not()是个伪类选择器
+11. 属性值选择器
+12. 属性值包含选
+13. 
+
+ -->
+<body>
+    <h1>一级标题</h1>
+    <span>摘要内容，摘要内容。摘要内容，摘要内容。摘要内容，摘要内容。摘要内容，摘要内容。摘要内容，摘要内容。摘要内容，摘要内容。</span>
+    <h2>二级标题</h2>
+    <div class="box">
+        段落内容，段落内容。<a href='http://www.baidu.com'>段落内容</a>，段落内容。段落内容，<a href='http://www.baidu.com'>段落内容</a>。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+        <p title="p2">段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+    </div>
+    <div>
+        <p title="q3">段落内容，段落内容。<a href='http://www.sohu.com'>段落内容</a>，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+        <p title="p4">段落内容，段落内容。<a href='http://www.sohu.com'>段落内容</a>，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+    </div>
+    <div class="one">
+        <p title="q5">段落内容，段落内容。段落内容</a>，段落内容。段落内容，段落内容。段落内容，段落内容。<a href='http://www.baidu.com'>段落内容</a>，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+        <p title="p6">段落内容，<a href='http://www.sohu.com'>段落内容</a>。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。段落内容，段落内容。</p>
+    </div>
+    <h2>二级标题</h2>
+    <ul class="box">
+        <li title="news">列表项目1</li>
+        <li>列表项目2</li>
+        <li title="news">列表项目3</li>
+        <li>列表项目4</li>
+        <li title="news">列表项目5
+            <ol>
+                <li>无序列表</li>
+                <li>无序列表</li>
+                <li>无序列表</li>
+                <li title="news">无序列表</li>
+                <li>无序列表</li>
+                <li>无序列表</li>
+            </ol>
+        </li>
+        <li>列表项目6</li>
+        <li title="news">列表项目7</li>
+        <li>列表项目8</li>
+    </ul>
+    <h2>二级标题</h2>
+    <form>
+        <input type="text" value="hello world">
+        <input type="text" value="baa_foo"> 
+        <input type="text">
+        <input type="text" value="foo_baa">
+        <input type="text" value="foo">
+        <input type="text">
+        <input type="text" value="hello world">
+        <input type="text" value="foo">
+        <input type="text" value="foo_baa">
+    </form>
+    <h2>二级标题</h2>
+    <table>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

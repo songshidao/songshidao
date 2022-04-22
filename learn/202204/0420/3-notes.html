@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 90%;
+            min-height: 100px;
+            border: 1px dashed #ccc;
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div class="block load">
+        <button id="btn1">$(selector).load(url,[data],[callback]):从远程文件加载HTML并注入到DOM里</button>
+        <div class="box box1"></div>
+        <script>
+        $('button').click(function(){
+            $('.box1').load('data.txt')
+        })
+        </script>
+    </div>
+
+    <div class="block getjson">
+        <button id="btn2">$.getJSON(url,[data],[callback(data,status,xhr)]):使用HTTP GET方法请求JSON数据</button>
+        <div class="box box2"></div>
+        <script>
+            $('#btn2').click(function(){
+           $.getJSON('data2.json',function(data){
+            console.log(data);
+            $.each(data,function(i,item){
+            $('.box2').append(item.title)
+            $('.box2').append(item.price)
+            $('.box2').append(item.quantity)
+            $('.box2').append(item.total)
+            console.log(item);
+            })
+           })
+        })
+        </script>
+    </div>
+    <div class="block get">
+        <button id="btn3">$.get(URL,[data],[function(data,status,xhr)],[dataType])使用HTTP GET方法请求页面</button>
+        <div class="box box3"></div>
+        <script>
+            $('#btn3').click(function(){
+                $.get('data.txt',function(data){
+                $('.box3').html(data)
+                })
+            })
+        </script>
+    </div>
+
+    <div class="block ajax">
+        <button id="btn4">$.ajax({name:value, name:value, ... }):使用HTTP GET方法请求页面</button>
+        <div class="box box4"></div>
+        <script>
+            
+            $('#btn4').click(function(){
+                $.ajax({
+                    method:'get',
+                    url:'data2.json'
+                })
+                .done(function(data){
+                    // 成功走这个函数
+                console.log(data);
+                })
+                .fail(function(err){
+                    // 失败走这个函数
+                console.log('失败');
+                })
+            })
+        </script>
+    </div>
+</body>
+
+</html>

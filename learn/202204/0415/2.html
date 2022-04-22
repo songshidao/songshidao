@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <button>克隆</button>
+    <h2 class="title">标题</h2>
+    <ul>
+        <li>列表项1</li>
+        <li>列表项3</li>
+        <li>列表项5</li>
+        <li>列表项6</li>
+        <li>列表项7</li>
+        <li>列表项8</li>
+    </ul>
+
+    <script>
+        $('button').click(function(){
+            $('h2').clone(true).appendTo('ul')
+            // $('h2').clone().prependTo('ul')
+            // $('h2').clone().insertBefore('ul')
+            // $('h2').clone().insertAfter('ul')
+            // $('ul').append($('h2').clone())
+            // $('ul').prepend($('h2').clone())
+            // $('ul').before($('h2').clone())
+            // $('ul').after($('h2').clone())
+        })
+        $('.title').click(function(){
+            $(this).css('background','red')
+        })
+    </script>
+</body>
+</html>

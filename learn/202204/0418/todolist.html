@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../jquery-3.6.0.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet">
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat",sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: linear-gradient(120deg,#487eb0,#fbc531);
+  min-height: 100vh;
+}
+
+
+#todolist{
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+}
+
+#input{
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000;
+  background: none;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+
+}
+#input::placeholder{
+    color:darkturquoise;
+}
+
+h3{
+  margin: 10px 0;
+}
+
+.task{
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  padding: 18px;
+  margin: 6px 0;
+  overflow: hidden;
+}
+
+.task i{
+  float: right;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.done .task{
+  background: rgba(0,0,0,.5);
+  color: #fff;
+}
+
+    </style>
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div id="todolist">
+        <input type="text" id="input" placeholder="添加任务">
+        <div class="item pending">
+            <h3>进行中的任务</h3>
+            
+        </div>
+        <div class="item done">
+            <h3>已完成</h3>
+            
+        </div>
+    </div>
+    <script>
+        $('#input').on('keyup',function(e){
+          let $val = $('#input').val()
+          let $del = $('<i class="fa-solid fa-trash-can">删除</i>').click(function(){
+            $(this).parent().remove()
+          })
+          let $check =$('<i class="fa-solid fa-check"></i>').click(function(){
+            $('.done').append($task)
+          })
+          let $task = $('<div class="task"></div>').text($val).append($del).append($check)
+
+          if(e.keyCode== 13){
+            $('.pending').append($task)
+          }
+          
+        })
+    </script>
+</body>
+</html>

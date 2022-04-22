@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #F46A6A;
+            color: #fff;
+            max-width: 800px;
+            margin: 100px auto 0;
+            text-align: center;
+            display: table;
+        }
+
+        .counter {
+            display: table-cell;
+            margin: 1.5%;
+            font-size: 50px;
+            background-color: #FF6F6F;
+            width: 200px;
+            border-radius: 50%;
+            height: 200px;
+            vertical-align: middle;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="counter" data-count="150">0</div>
+    <div class="counter" data-count="85">0</div>
+    <div class="counter" data-count="2200">0</div>
+    <script>
+        $('.counter').each(function(){
+			let $this = $(this)
+			console.log($this)
+			console.log({countNum:$($this).text()})
+			$({countNum:$this.text()}).animate({
+			countNum:$this.attr('data-count')
+		},{
+			duration:3000,
+			easing:'linear',
+			step:function(){
+				$this.text(Math.floor(this.countNum))
+			}
+		})
+		})
+    </script>
+</body>
+
+</html>

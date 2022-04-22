@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+input{
+    width: 200px;
+    height: 20px;
+}
+
+</style>
+<script src="../../../jquery-3.6.0.js"></script>
+<script>
+
+</script>
+</head>
+
+<body>
+    <form>
+        <input type="button" value="按钮">
+        <input type="text" value="hello world">
+        <input type="text" value="baa_foo"> 
+        <input type="text">
+        <input type="text" value="foo_baa">
+        <input type="text" value="foo">
+        <input type="text">
+        <input type="text" value="hello world">
+        <input type="text" value="foo">
+        <input type="text" value="foo_baa">
+    </form>
+    <script>
+        // $('input').not($('input[value]')).attr('value','hello world')
+        $('input').not($('input[value]')).val('hello world')
+        $("input[value='按钮']").click(function(){
+            $('input[value]:not([type=button])').css('background-color','red')
+        })
+        console.log( $('input').not($('input[value]')));
+    </script>
+</body>
+</html>

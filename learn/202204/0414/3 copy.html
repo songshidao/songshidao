@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+ul{ width:328px;}
+li{ width:100px; height:100px; border:1px #000 solid; float:left; margin-left:5px; list-style:none;}
+.active{ background:red;}
+
+</style>
+<script src="../../../jquery-3.6.0.js"></script>
+<script>
+
+</script>
+</head>
+
+<body>
+<input type="button" value="抽奖">
+<ul>
+	<li>1等奖</li>
+    <li>2等奖</li>
+    <li>3等奖</li>
+    <li>4等奖</li>
+    <li>5等奖</li>
+    <li>6等奖</li>
+    <li>7等奖</li>
+    <li>8等奖</li>
+    <li>9等奖</li>
+</ul>
+<script>
+    let num = 0
+    $('input').click(function(){
+        setTimeout(function(){
+        clearInterval($timer)
+        alert(`${num}等奖`)
+        },Math.floor(Math.random()*4000))
+       let $timer = setInterval(function(){
+           if(num>$('li').length-1){
+               num=0
+           }
+        $(`li`).css('background','')
+        $(`li:eq(${num})`).css('background','red')
+        console.log(num);
+        num++
+        },100)
+        
+        
+    })
+</script>
+</body>
+</html>

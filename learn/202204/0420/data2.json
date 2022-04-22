@@ -1,0 +1,38 @@
+[
+    {
+      "title": "商品1",
+      "price": 38,
+      "quantity": 1,
+      "total": 38
+    },
+    {
+      "title": "商品2",
+      "price": 23.5,
+      "quantity": 1,
+      "total": 23.5
+    },
+    {
+      "title": "商品3",
+      "price": 100,
+      "quantity": 1,
+      "total": 100
+    },
+    {
+      "title": "商品4",
+      "price": 45,
+      "quantity": 1,
+      "total": 45
+    },
+    {
+      "title": "商品5",
+      "price": 66,
+      "quantity": 1,
+      "total": 66
+    },
+    {
+      "title": "商品6",
+      "price": 199,
+      "quantity": 1,
+      "total": 199
+    }
+  ]

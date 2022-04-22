@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				background-color: red;
+			}
+		</style>
+		<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button type="button" id="btn1">绑定事件处理函数</button>
+		<p>段落元素</p>
+		<br>
+		<button type="button" id="btn2">触发点击事件</button>
+		<p onclick="alert('Hello orld')">段落元素</p>
+		<button type="button" id="btn3">批量添加点击事件</button>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<script type="text/javascript">
+			$('#btn1').click(function(){
+				alert($('p')[0].innerHTML)
+			})
+			$('#btn2').click(function(){
+			$('p')[1].click()
+			})
+			$('#btn3').click(function(){
+			$('div').hide()
+			})
+		</script>
+	</body>
+</html>
+<!-- 
+ click
+ 方法一:绑定处理函数
+ 方法二:触发点击事件
+ 方法三:批量添加点击事件
+ -->

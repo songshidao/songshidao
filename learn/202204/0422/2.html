@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../jquery-3.6.0.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+    </div>
+
+    <script>
+        let data= new Date()
+        let re = new RegExp()
+        let str='hello world'
+        let array= ['a','b']
+        console.log(typeof str);
+        let res = $.type(str)
+        console.log(res);
+        console.log(typeof array);
+         res = $.type(array)
+        console.log(res);
+        console.log(typeof data);
+        res = $.type(data)
+        console.log(res);
+        console.log(typeof re);
+        res = $.type(re)
+        console.log(res);
+
+    </script>
+</body>
+</html>

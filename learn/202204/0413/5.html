@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="../../../jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <ul>
+        <li>1.<input type="button" value="上移"><input type="button" value="下移"></li>
+        <li>2.<input type="button" value="上移"><input type="button" value="下移"></li>
+        <li>3.<input type="button" value="上移"><input type="button" value="下移"></li>
+        <li>4.<input type="button" value="上移"><input type="button" value="下移"></li>
+        <li>5.<input type="button" value="上移"><input type="button" value="下移"></li>
+    </ul>
+    <script>
+        $('[value="上移"]').click(function(){
+        let $nowLi = $(this).closest('li')
+        let $prevLi = $nowLi.prev()
+        if($prevLi.length==0){
+            alert('到头了')
+        }else{
+            $nowLi.insertBefore($prevLi)
+        }
+        })
+
+        $('[value="下移"]').click(function(){
+            let $nowLi = $(this).closest('li')
+        let $nextLi = $nowLi.next()
+        if($nextLi.length==0){
+            alert('到头了')
+        }else{
+            $nowLi.insertAfter($nextLi)
+        }
+
+        })
+
+    </script>
+</body>
+</html>

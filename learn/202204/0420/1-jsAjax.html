@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:90%;
+            min-height:100px;
+            border:1px dashed #ccc;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <button>原生方法获取数据</button>
+    <div class="box"></div>
+<script>
+// 使用XMLHttpRequest对象来创建Ajax
+// AJAX:异步的js和xml 主要用途和:和服务器做数据交换
+// 就是脚本化的HTTP,就是使用脚本向服务器发起请求
+
+const btn = document.querySelector('button')
+const div = document.querySelector('.box')
+btn.addEventListener('click',function(){
+    const http = new XMLHttpRequest()//创建了一个xmlhttprequest对象
+const url = './data.json'
+http.onreadystatechange= function(){
+// http.readystate 请求对象变化状态(1,2,3,4) ajax规定的
+if(http.readyState==4&&http.status==200){
+    const data = http.responseText
+    div.innerHTML = data
+}
+}
+// http.open('GET',url,yes,username,password)
+http.open('GET',url,true)//打开了一个浏览器窗口,输入地址
+http.send()//发送请求
+})
+// http.onload = function(){
+//     http.status //请求状态 http协议规定的
+// }
+
+</script>
+</body>
+</html>

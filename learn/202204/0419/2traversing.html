@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery: 选择器</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: #333;
+            padding:50px 0;
+            color:#f4f4f4;
+            text-align: center;
+        }
+        section{
+            width:98%;
+            margin:0 auto;
+            /* min-height:280px; */
+        }
+        button{
+            padding:5px 10px;
+            margin:10px;
+        }
+        
+        hr{
+            margin-bottom:10px;
+        }
+        .box4{
+            position:relative;
+        }
+        .question{
+            color:blue;
+        }
+        .sample{
+            background-color: #f4f4f4;
+            border:1px solid #ccc;
+        }
+    </style>
+    <script src="../../../jquery-3.6.0.js"></script>
+</head>
+<body>
+    <header>
+        <h2>jQuery 笔记 | 遍历</h2>
+    </header>
+
+        
+    <section>
+        <h2>jQuery遍历方法</h2>
+        <hr>
+        <div class="traversing add">
+            <h3>.add(selector)：向已匹配的元素集合中增加新的指定元素</h3>
+            <p class="question">问题：把下面列表项目2、3的背景设置为红色，并增设6、7的背景也为红色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                $('.add .one').add('.two').css('background','red')
+            </script>
+        </div>
+        <div class="traversing children">
+            <h3>.children([selector])：匹配直接子元素元素</h3>
+            <p class="question">问题：1.把下面ul元素的全部子元素的背景设置为红色；2.把class为two的子元素的背景设为黄色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3
+                        <ol>
+                            <li>有序列表1</li>
+                            <li>有序列表2</li>
+                            <li>有序列表3</li>
+                        </ol>
+                    </li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                $('.children ul').children().css('background','red')
+                $('.children ul').children('.two').css('background','gold')
+
+            </script>
+        </div>
+        <div class="traversing closest">
+            <h3>.closest(selector)：匹配最近的祖先元素</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                $('.closest li').closest().css('background','green')
+            </script>
+        </div>
+        <div class="traversing find">
+            <h3>.find(selector)：搜索与指定选择器匹配的后代元素。</h3>
+            <p class="question">问题：在ul的后代元素中搜索class为one的元素，并把背景设为黄色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing next">
+            <h3>.next([selector])：在匹配的元素中匹配下一个元素</h3>
+            <p class="question">问题：在匹配到的.one的元素集合中，寻找下一个元素，把背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing nextall">
+            <h3>.nextAll(selector)：查找当前元素之后的所有兄弟元素。</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing prev">
+            <h3>.prev([selector])：在匹配的元素中匹配下一个元素</h3>
+            <p class="question">问题：在匹配到的.one的元素集合中，寻找上一个元素，把背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing prevall">
+            <h3>.prevAll(selector)：查找当前元素之后的所有兄弟元素。</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing siblings">
+            <h3>.siblings([selector])：匹配最近的祖先元素</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing parent">
+            <h3>.closest(selector)：匹配最近的祖先元素</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        <div class="traversing parents">
+            <h3>.closest(selector)：匹配最近的祖先元素</h3>
+            <p class="question">问题：把下面li元素的最近的div祖先元素的背景设为绿色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li class="one">列表项目2</li>
+                    <li class="one">列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                    <li class="two">列表项目6</li>
+                    <li class="two">列表项目7</li>
+                    <li>列表项目8</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+    </section>
+
+    <section>
+        <h2>jQuery过滤方法</h2>
+        <hr>
+        <div class="selector gt">
+            <h3>:gt(index)选择器：选择匹配集中索引大于指定索引的所有元素</h3>
+            <p class="question">问题：把下面列表项目4、5的背景设置为红色</p>
+            <div class="sample">
+                <ul>
+                    <li>列表项目1</li>
+                    <li >列表项目2</li>
+                    <li>列表项目3</li>
+                    <li>列表项目4</li>
+                    <li>列表项目5</li>
+                </ul>
+            </div>
+            <script>
+                
+            </script>
+        </div>
+        
+    </section>
+</body>
+</html>

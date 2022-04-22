@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jquery-3.6.0.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet">
+    <style>
+        .active{
+            color: gold;
+        }
+        .mouve{
+            color: #bbb;
+        }
+        div{
+            font-size: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    </div>
+    <script>
+        let $last=0,
+            on = true
+        let $click=function(num){
+            $('i').eq(num).click(function(){
+            $('i').removeClass('mouve')
+            $('i').eq(num).addClass('active')
+            $('i').eq(num).prevAll().addClass('active')
+            on =false
+        })
+        }
+        
+        $('i').mouseenter(function(){
+            console.log();
+            if($(this).prevAll().length>=$last&& on==true){
+            $(this).addClass('mouve')
+            $(this).prevAll().addClass('mouve')
+            }else{
+            $(this).removeClass('mouve')
+            $(this).nextAll().removeClass('mouve')
+            }
+            $last=$(this).prevAll().length
+            $click($last)
+        })
+
+
+        
+    </script>
+</body>
+</html>
