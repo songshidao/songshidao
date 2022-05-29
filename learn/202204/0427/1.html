@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        #app{
+            background-color: pink;
+            display: flex;
+            position: relative;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        }
+        #cart{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .color span{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50%;
+            color: white;
+        }
+        .color .red{
+            background-color: red;
+        }
+        .color .green{
+            background-color: green;
+        }
+        .normal{
+            background-color: red;
+            color: white;
+            font-size: 20px;
+        }
+        .disabled{
+            background-color: #eee;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div><img :src="url" alt=""></div>
+        <div>
+            <h2>{{newTitle}}</h2>
+            <p>
+                <span v-if="quantity > 10">商品数量:{{quantity}}</span>
+                <span v-if="quantity > 0 && quantity < 10">商品数量:{{quantity}}快要卖光了</span>
+                <span v-if="quantity <= 0">售罄</span>
+            </p>
+            <h4>商品参数</h4>
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <div class="color">
+                <span v-for="(color,index) in colors" 
+                :class="color.color" 
+                :id="color.id"
+                 @mouseover="updateFn(index)">{{color.color}}</span>
+            </div>
+            <button @click="addCart" :disabled="quantity > 0 ? disabled : !disabled " :class="quantity > 0 ? 'normal' : 'disabled' ">添加到购物车</button>
+            <div id="cart">购物车({{cart}})</div>
+        </div>
+    </div>
+
+    <script>
+        // Vue.createApp({
+        
+        // }).mount('#app')
+        const div = document.querySelector('#app')
+        const app = Vue.createApp({
+            data(){
+                return {
+                    // url:'./5-img/pic1.jpg',
+                    selectedColor:0,
+                    title:'华为nova9 pro 新品手机',
+                    // quantity:999,
+                    cart:0,
+                    subTitle:'爆款',
+                    disabled:false,
+                    details:['100W超级快充 8GB+128GB 9号色','后置摄像头5000W','屏幕分辨率2340*1080'],
+                    colors:[
+                    {id:1001,color:'black',url:'./5-img/pic1.jpg',quantity:999},
+                    {id:1002,color:'red',url:'./5-img/pic2.jpg',quantity:9},
+                    {id:1003,color:'green',url:'./5-img/pic3.jpg',quantity:0}
+                    ]
+                }
+                },
+                methods: {
+                    updateFn(index){
+                        this.selectedColor =index
+                    },
+                    addCart(){
+                    this.cart+=1
+                    }
+            },
+            computed:{
+                        newTitle(){
+                            return this.title+' '+this.subTitle
+                        },
+                        url(){
+                            return this.colors[this.selectedColor].url
+                        },
+                        quantity(){
+                            return this.colors[this.selectedColor].quantity
+                        }
+                    }
+        })
+        const cm = app.mount(div)
+    </script>
+</body>
+</html>

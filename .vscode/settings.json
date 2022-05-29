@@ -1,0 +1,11 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/learn/202205/0507/css",
+            "savePathSegmentKeys": null,
+            "savePathReplaceSegmentsWith": null
+        }
+    ]
+}

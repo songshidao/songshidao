@@ -1,0 +1,10 @@
+body {
+  background-color: red;
+}
+body .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 2000px;
+  background-color: wheat;
+}
+/*# sourceMappingURL=main.css.map */

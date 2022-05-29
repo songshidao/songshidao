@@ -1,0 +1,17 @@
+{
+  "name": "0526",
+  "version": "1.0.0",
+  "description": "前端:\r -   HTML:结构 EJS\r -   CSS:样式\r -   JS:行为\r 后端:\r -   node.js\r -   expressJS:基于NODE平台的一个服务端框架.\r -   MongoDB\r -   Mongoose:基于MongoDB的一个数据库框架.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4"
+  }
+}

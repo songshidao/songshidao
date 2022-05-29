@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+.articles{
+    background-color: white;
+    .article__grid{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: toRem(20);
+        @include bk-down(md){
+        grid-template-columns: repeat(2,1fr);
+        }
+        @include bk-down(sm){
+            grid-template-columns: repeat(1 ,1fr);
+            }
+    }
+    .article__item{
+        background-color: white;
+        border-radius: toRem(5);
+        box-shadow: 0 3px 15px 0 hsla(0,0,0,0.2);
+        transition: all 200ms;
+    }
+    .article__item:hover{
+        transform: scale(1.05);
+    }
+    .article__image{
+        height: toRem(150);
+        border-radius: toRem(5);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .article__text{
+        padding:toRem(10);
+    }
+    .article__title{
+        color: #333;
+        font-weight: 700;
+    }
+    .article__description,.article__author{
+        color: #999;
+    }
+}

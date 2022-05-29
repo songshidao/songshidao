@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+      <my-card v-for="card in cards" v-bind:mytitle="card.name" v-bind:content="card.description"></my-card>
+    <div class="card-group">
+        <div class="card">
+          <img src="https://www.mcu.com.cn/uploads/img1/20201030/5f9bf442a790d.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">CMS32M57xx</h5>
+            <p class="card-text">CMS32M57xx系列MCU是中微半导体电机控制产品线主力产品，被广泛应用于正弦波吸尘器、电动两轮车、变频空调、变频洗衣机、高压高速吹风筒等典型电机控制领域。</p >
+            <p class="card-text"><small class="text-muted">3分钟前</small></p >
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://www.mcu.com.cn/uploads/img1/20201223/5fe2dcaf4027f.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">CMS8H5101L
+            </h5>
+            <p class="card-text">CMS8H5101L是中微半导体高精度测量主力产品，被广泛应用于额温枪、电子秤、血压计、血糖仪等高精度健康与测量类领域。</p >
+            <p class="card-text"><small class="text-muted">昨天</small></p >
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://www.mcu.com.cn/uploads/img1/20201030/5f9bf3b6d2578.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">CMS32M57xx
+            </h5>
+            <p class="card-text">CMS32M57xx系列MCU是中微半导体电机控制产品线主力产品，被广泛应用于正弦波吸尘器、电动两轮车、变频空调、变频洗衣机、高压高速吹风筒等典型电机控制领域。</p >
+            <p class="card-text"><small class="text-muted">4月30日</small></p >
+          </div>
+        </div>
+  </div>
+</div>
+<script type="text/x-template" id="card-template">
+  <div class="card">
+    <img src="https://www.mcu.com.cn/uploads/img1/20201030/5f9bf442a790d.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{mytitle}}</h5>
+      <p class="card-text">{{content}}</p >
+      <p class="card-text"><small class="text-muted">3分钟前</small></p >
+    </div>
+</script>
+<script>
+  const app = Vue.createApp({
+    data(){
+      return{
+        cards:[
+          {name:'CMS32M57xx',description:'CMS32M57xx系列MCU是中微半导体电机控制产品线主力产品，被广泛应用于正弦波吸尘器、电动两轮车、变频空调、变频洗衣机、高压高速吹风筒等典型电机控制领域。'},
+          {name:'CMS8H5101L',description:'CMS8H5101L是中微半导体高精度测量主力产品，被广泛应用于额温枪、电子秤、血压计、血糖仪等高精度健康与测量类领域。'},
+          {name:'CMS32M57DD',description:'CMS32M57xx系列MCU是中微半导体电机控制产品线主力产品，被广泛应用于正弦波吸尘器、电动两轮车、变频空调、变频洗衣机、高压高速吹风筒等典型电机控制领域。'}
+               
+        ]
+      }
+    }
+  })
+  app.component('my-card',{
+    template:'#card-template',
+    props:['mytitle','content']
+  })
+  app.mount('#app')
+</script>
+</body>
+</html>

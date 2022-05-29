@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{title}}</h1>
+			<input type="text" placeholder="输入任务  回车创建" @keyup.enter="addTodo">
+			<ul>
+				<li v-for="(task,index) in tasks">
+					<input type="checkbox" name="" id="" v-model="task.done">
+					<span v-if="task.done"><del>{{task.text}}</del></span>
+					<span v-else>{{task.text}}</span>
+					<button @click="removeTodo(task.id)">删除</button>
+				</li>
+			</ul>
+		</div>
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						title: 'To-Do-List',
+						tasks: [
+							{id:1,done:false,text:'学VUE写代码'},
+							{id:2,done:true,text:'吃饭'}
+							]
+					}
+				},
+				methods:{
+					addTodo(ev){
+						const text=ev.target.value
+						this.tasks.push({
+							id:Date.now(),
+							done:false,
+							text
+						})
+						console.log(ev)
+					},
+					removeTodo(id){
+					this.tasks = 	this.tasks.filter(task=>task.id!==id)
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

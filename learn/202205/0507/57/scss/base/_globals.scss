@@ -1,0 +1,94 @@
+@use '../abstracts/variables' as *;
+@use  '../abstracts/mixins' as *;
+html{
+    box-sizing: border-box;
+    font-size: 100%;
+    @include bk-up(md){
+        &{
+            font-size: 110%;
+        }
+    }
+    @include bk-up(lg){
+        &{
+            font-size: 115%;
+        }
+    }
+    @include bk-up(xl){
+        &{
+            font-size: 120%;
+        }
+    }
+    @include bk-up(xxl){
+        &{
+            font-size: 125%;
+        }
+    }
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+    line-height: 1.8;
+    font-size: 1rem;
+    overflow-x: hidden
+    // background-color: #333
+}
+// nav.container .header__cta{
+//     @include button(10px,gold);
+// }
+// .container .button{
+//     @include button(10px,blue);
+
+// }
+.container{
+    nav{
+        .button{
+            @include button(10px,gold);
+        }
+    }
+    .button{
+        @include button(10px,blue);
+    }
+    max-width: toRem(1140);
+    // background-color: pink;
+    margin: auto;
+    &--pall{
+        padding: toRem(50) toRem(20);
+    }
+}
+h1{
+    font-size: toRem(36)
+}
+h2{
+    font-size: toRem(28);
+}
+h3{
+    font-size: toRem(20);
+}
+header{
+    border: 1px solid red;
+}
+footer{
+    border: 1px solid gold;
+}
+section{
+    border: 1px solid blue;
+}
+
+nav.container .hide-for-mobile{
+    @include bk-down(md){
+        display: none;
+    }
+}
+.hide-for-mobile{
+    @include bk-down(md){
+        display: none!important;
+    }
+}
+.hide-for-desktop{
+    @include bk-up(md){
+        display: none;
+    }
+}

@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+.footer{
+    background-color: pink;
+    .container{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 3fr;
+        grid-template-areas:    'a1 a2 a3 a4'
+                                'b1 a2 a3 b4'
+                                'b1 a2 a3 b4';
+    }
+    .footer__logo{
+        grid-area: a1;
+    }
+    .footer__social{
+        grid-area: b1;
+    }
+    .footer__cta{
+        grid-area: b4;
+    }
+    .col1{
+        grid-area: a2;
+        display: grid;
+        a{
+            grid-template-columns: 1fr;
+        }
+        
+    }
+    .col2{
+        grid-area: a3;
+        display: grid;
+        a{
+            grid-template-columns: 1fr;
+        }
+    }
+
+}

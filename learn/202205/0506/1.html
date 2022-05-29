@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<!-- 
+    CLI:术语.
+    Vue提供了一个构造函数:new Vue()
+    然后把VUe对象挂载到window对象上
+    每个 Vue 应用都是通过用 createApp 函数创建一个新的应用实例开始的
+    template用于设置字符串模板
+    daa()函数
+ -->
+<body>
+    <div id="app">
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+        <click-counter></click-counter>
+
+    </div>
+    <script type="text/x-template" id="click-template">
+        <button v-on:click="count++">{{count}}</button>
+    </script>
+    <script>
+        // const ol = document.querySelector('ol')
+        // let str = ''
+        // for(key in Vue){
+        //     str+=`<li>${key}:${typeof Vue[key]}</li>`
+        // }
+        // ol.innerHTML = str
+
+        // const RootComponent = {
+        //     // template:`
+        //     // <button v-on:click="count++">{{count}}</button>
+        //     // `
+        //     template:'#click-template',
+        //     data(){
+        //         return {
+        //             count:0
+        //         }
+        //     }
+        // }
+
+        // const app = Vue.createApp(RootComponent)
+        const app = Vue.createApp({})
+        app.component('click-counter',{
+            template:'#click-template',
+            data(){
+                return {
+                    count:0
+                }
+            }})
+        app.mount('#app')
+    </script>
+</body>
+</html>

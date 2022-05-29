@@ -1,0 +1,26 @@
+@use  "sass:math";
+@use "sass:map";
+@mixin button($borderRadius,$bgColor) {
+    display: inline-block;
+    background-color: $bgColor;
+    padding: 10px 20px;
+    border-radius:$borderRadius;
+}
+// @mixin toRem($num) {
+//     font-size: ($num*$root)+rem;
+// }
+@function toRem($px){
+    @return math.div($px,16)*1rem
+}
+$bk-up:("sm":"576px","md":"768px","lg":"992px","xl":"1200px","xxl":"1400px");
+@mixin bk-up($size){
+    @media (min-width:map.get($bk-up,$size)){
+        @content;
+    }
+}
+$bk-down:("sm":"575px","md":"767px","lg":"991px","xl":"1199px","xxl":"1399px");
+@mixin bk-down($size){
+    @media (max-width:map.get($bk-down,$size)){
+        @content;
+    }
+}

@@ -1,0 +1,7 @@
+@use '../abstracts/variables';
+a{
+    text-decoration: none;
+    &:hover{
+        color:variables.$bright-cyan;
+    }
+}

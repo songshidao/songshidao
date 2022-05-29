@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.male{
+				background-color: aqua;
+			}
+			.female{
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<div id="app">
+			<!-- <h2 v-bind:title="message">{{message}}</h2> -->
+			<img :src="img" :alt="`${firstName} ${lastName}`">
+			<h3 v-bind:class="gender">{{firstName}} {{lastName}}</h2>
+			<h2>电子邮件:{{email}}</h2>
+			<button v-on:click="getUser">下一个</button>
+		</div>
+		
+		<script src="https://unpkg.com/vue@3"></script>
+		<script src="./app.js"></script>
+	</body>
+</html>

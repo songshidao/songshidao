@@ -1,0 +1,6 @@
+@use '../abstracts';
+@use '../base/globals';
+
+.card{
+    background-color: abstracts.$color;
+}
